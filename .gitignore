@@ -16,6 +16,9 @@
 *.toc
 *.xref
 *.eps
+*.ps
+*.dvi
+tmp.*
 cool
 uncool
 template.bib
