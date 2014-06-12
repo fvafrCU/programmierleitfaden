@@ -1,0 +1,5 @@
+template.bib
+template.tex
+*.lg
+*.html
+my_r_file.R

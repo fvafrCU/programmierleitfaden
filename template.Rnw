@@ -1,0 +1,138 @@
+%% File: template.Rnw
+%% 
+%% Description: This is a minimal template for Sweaving.
+%% I'm not really into Sweave since we're actually mingling two 
+%% different languages: An .Rnw file can't be complied before
+%% tangling and weaving. 
+%% Note that I'm not even sure whether to put comments into the R
+%% or the LaTeX part.
+%% 
+%% Author: Dominik Cullmann <dominik.cullmann@forst.bwl.de> 
+%% Version: $Id: ff86e38b1e519b1420ce36c5545e306381e13370 $
+
+\documentclass[a4paper]{article}
+\usepackage{filecontents}
+\usepackage{fancyhdr}
+\usepackage{cite}
+\title{a minimal template for Sweave}
+\author{who are you?}
+\SweaveOpts{echo=FALSE}
+\SweaveOpts{eval=TRUE}
+\SweaveOpts{print=FALSE}
+\SweaveOpts{width=60}
+\newenvironment{verbwrite}[1]
+  {\typeout{Writing file #1}\VerbatimOut{#1}}
+  {\endVerbatimOut}
+\begin{document}
+\setkeys{Gin}{width=\textwidth}
+\maketitle
+
+\tableofcontents
+
+<<eval=FALSE>>=
+## You don't want to evaluate the following instruction, so 
+## we've set 'eval' to FALSE
+warning('this took me an hour, you better bloody pay attention!')
+@
+\section{Introduction}
+You can tangle and weave this template by running:
+<<eval=FALSE, echo=TRUE>>=
+NAME <- 'template'
+
+Sweave(paste(NAME, "Rnw", sep = ".")) # run R code, extract tex code to NAME.Tex
+Stangle(paste(NAME, "Rnw", sep = ".")) # extract R code to NAME.r
+tools::texi2dvi(paste(NAME, "tex", sep ="."), pdf = FALSE) # produce document
+@
+or by running \emph{sweave.R} on a command line.
+\begin{verbwrite}{sweave.R}
+#!/usr/bin/Rscript --vanilla
+## 
+## File: sweave.R.
+## 
+## Description: run Sweave example.
+## 
+## Author: Dominik Cullmann
+## Version: $Id: ff86e38b1e519b1420ce36c5545e306381e13370 $
+
+NAME <- 'template'
+
+Sweave(paste(NAME, "Rnw", sep = ".")) # run R code, extract tex code to NAME.Tex
+# Stangle(paste(NAME, "Rnw", sep = ".")) # extract R code to NAME.r
+tools::texi2dvi(paste(NAME, "tex", sep ="."), pdf = TRUE) # produce document
+\end{verbwrite}
+
+
+This is a modification of the example from \cite{GNUR}:
+<<eval=FALSE, echo=TRUE>>=
+?swiss
+@
+
+<<>>=
+## We load required libraries, since 'print' defaults to FALSE, 
+## we won't see this instruction in the output:
+require(stats); require(graphics)
+@
+
+\section{Data}
+We take a look at the first rows of the \texttt{swiss} data.frame:
+<<echo=TRUE>>=
+## We want to see the instruction, so we've set 'echo' to TRUE
+head(swiss)
+@
+
+Its structure is 
+<<echo=TRUE>>=
+## We want to see the instruction, so we've set 'echo' to TRUE
+str(swiss)
+@
+
+The mean percentage of swiss Cathlics is \Sexpr{mean(swiss$Catholic)}.
+
+And we get a simple graphical overview:\\
+%% This produces a square plot for use with both latex and pdflatex:
+<<fig=TRUE, eval=TRUE, height=4, width=4, eps=TRUE, pdf=TRUE>>=
+pairs(swiss, panel = panel.smooth, main = "swiss data",
+      col = 3 + (swiss$Catholic > 50))
+@
+
+\section{Analysis}
+We compute a linear regression:
+<<echo=TRUE>>=
+## We want to see the instruction, so we've set 'echo' to TRUE
+lm1 <- lm(Fertility ~ . , data = swiss)
+summary(lm1)
+@
+
+%% This produces a square plot for use with both latex and pdflatex:
+<<fig=TRUE, eval=TRUE, height=4, width=4, eps=TRUE, pdf=TRUE>>=
+par(mfrow=c(2, 2))
+plot(lm1)
+@
+
+\newif\ifbibfile
+\bibfiletrue
+\ifbibfile
+  %% We create a bibtex bibliography file and load it afterwards.  
+  \begin{filecontents}{\jobname.bib}
+    @Manual{GNUR,
+    title = {R: A Language and Environment for Statistical Computing},
+    author = {{R Core Team}},
+    organization = {R Foundation for Statistical Computing},
+    address = {Vienna, Austria},
+    year = {2014},
+    url = {http://www.R-project.org/},
+    }
+  \end{filecontents}
+  \bibliography{\jobname}
+\else
+  %% using the thebibliograpy environment is shorted,
+  %% but folks not used to bibtex might be interested in the above.
+  \begin{thebibliography}{1}
+    \bibitem{GNUR}
+      {R Core Team}.
+      \newblock {\em R: A Language and Environment for Statistical Computing}.
+      \newblock R Foundation for Statistical Computing, Vienna, Austria, 2014.
+  \end{thebibliography}
+\fi
+\bibliographystyle{unsrt}
+\end{document}
