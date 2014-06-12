@@ -1,3 +1,5 @@
+*html
+*tar.gz
 *.pdf
 *.4tc
 *.4ct
@@ -19,4 +21,3 @@ uncool
 template.bib
 template.tex
 my_r_file.R
-*tar.gz
