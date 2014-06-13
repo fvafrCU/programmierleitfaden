@@ -5,6 +5,9 @@ Description: Dieses Verzeichnis enthaelt meinen Entwurf eines
     eine pdf- und eine html-Version des Outputs. Gestartet wird das Ganze mit 
     ./compile.sh
     .
+    Habe nach http://krisjordan.com/essays/setting-up-push-to-deploy-with-git
+    ein push-to-deploy auf H:/BuI/Persoenlich/cullmann/programmierleitfaden
+    eingreichtet.
 
 Author: Dominik Cullmann, <dominik.cullmann@forst.bwl.de>
 Version: $Id$
