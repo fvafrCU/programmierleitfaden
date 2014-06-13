@@ -1,0 +1,11 @@
+Title: README.txt
+
+Description: Dieses Verzeichnis enthaelt meinen Entwurf eines 
+    Programmierleitfadens. Hauptquelle ist programmierleitfaden.tex, es gibt 
+    eine pdf- und eine html-Version des Outputs. Gestartet wird das Ganze mit 
+    ./compile.sh
+    .
+
+Author: Dominik Cullmann, <dominik.cullmann@forst.bwl.de>
+Version: $Id$
+
