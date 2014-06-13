@@ -1,0 +1,15 @@
+*.sh ident
+*.grass ident
+*.pl ident
+*.py ident
+*.tex ident
+*.c ident
+*.java ident
+*.sql ident
+*.psql ident
+*.R ident
+*.Rnw ident
+*.r ident
+*.adc ident
+nomakefile ident
+README ident
