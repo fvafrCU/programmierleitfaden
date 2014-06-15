@@ -5,7 +5,7 @@
 %%
 %% Author: Dominik Cullmann, <dominik.cullmann@forst.bwl.de>
 %% Version: $Id$
-\documentclass[twoside]{article}
+\documentclass[twoside]{scrartcl}
 \usepackage[T1]{fontenc}
 \usepackage{adctex}
 \usepackage{timestamp}
@@ -18,7 +18,7 @@
 \usepackage{listings}
 \usepackage{verbatim}
 %\usepackage{pdfpages}
-\SVN $Id: 44e5f12ab8bbe3d37e2e632cea54670f79d994d9 $
+\SVN $Id$
 % \input{/home/nik/work/latex/custom/packages.tex}
 % \input{./custom/packages.tex}
 % \input{/home/nik/work/latex/custom/definitions.tex}
@@ -190,11 +190,11 @@ Alternativ kannst Du auch einfach \cite{KR} lesen und alles so machen wir
 Kernighan und Ritchie.
 
 \subsection{Englisch oder nicht?}
-\paragraph{Contra}
+\minisec{Wider}
 \begin{itemize}
 \item Englisch ist wahrscheinlich nicht Deine Muttersprache.
 \end{itemize}
-\paragraph{Pro}
+\minisec{F\"ur}
 \begin{itemize}
 \item Gehe nicht davon aus, dass Leserinnen Deines Codes Deine
   Muttersprache teilen. Auch nicht an der FVA.
@@ -210,14 +210,14 @@ Kernighan und Ritchie.
 \end{itemize}
 \lstinputlisting[float=h, label=lst:meghal, language=Java]{meghal.java}
 
-\paragraph{Welches Englisch?} Britisches Englisch mag \"a{}sthetischer sein,
+\minisec{Welches Englisch?} Britisches Englisch mag \"a{}sthetischer sein,
 aber da die meiste Software in amerikanischem Englisch geschrieben wird: halte
 es ebenso. Warum? Weil dann Menschen (\ldots und wieder: Du selbst in einem
 Jahr), die Deinen Code benuzten, vorhersagen k\"o{}nnen, dass die Variable
 \code{background\_colors} nicht \code{background\_colours} hei\ss{}t (mehr zu
 Namen gibt's in Abschnitt~\ref{sec:naming}). 
 
-\paragraph{Kompromiss} Ja, die Umgangssprache an der FVA ist Deutsch, und Du
+\minisec{Kompromiss} Ja, die Umgangssprache an der FVA ist Deutsch, und Du
 kannst davon ausgehen, dass die meisten Leser an der FVA besser Deutsch als
 Englisch lesen. Wenn Du glaubst, dass alle Deine Leserinnen nur an der FVA
 sein werden und es Dir \emph{wirklich} schwer f\"a{}llt, Englisch zu schreiben
@@ -284,7 +284,7 @@ Listing~\ref{lst:write_readme}).
 
 \lstinputlisting[float=h, label=lst:doccom1]{documentation.R}
 
-\paragraph{R-Auswertungsskripte dokumentieren:}
+\minisec{R-Auswertungsskripte dokumentieren:}
 Viele von uns programmieren in der Sprache \R{}, und vielleicht schreibst 
 auch Du nicht so viele Funktionen sondern eher Auswertungsskripte f\"u{}r 
 wissenschaftliche Fragestellungen. 
@@ -342,7 +342,7 @@ Das entspricht dem derzeitigen Stand der
   naming conventions}, die Namenskonventionen Hadley Wickhams sind eine
   Untermenge unserer Empfehlung.
 
-\paragraph{R packages} d\"urfen keine Unterstriche im Namen tragen, wir
+\minisec{R packages} d\"urfen keine Unterstriche im Namen tragen, wir
 empfehlen daher f\"u{}r \emph{\R{} packages} abweichend lowerCamelCase, 
 da Listing~\ref{lst:rpackages} derzeit ein Ergebnis gr\"o{}\ss{}er eins 
 liefert.
@@ -473,7 +473,7 @@ abnimmt.
 Aus Listing~\ref{lst:doccom2}  kann \code{roxygen2} eine Dokumentation in pdf 
 erstellen, die Du \href{write_readme.pdf}{hier} sehen kannst.
 
-\paragraph{R-Auswertungsskripte dokumentieren:}
+\minisec{R-Auswertungsskripte dokumentieren:}
 \code{roxygen2} dient der Dokumentation von \R{}-Paketen, nicht von
 Auswertungsskripten. Es kann daher mit Anweisungen, die nicht Teil von
 Funktionen, Klassen und so weiter sind, nicht umgehen. Dazu geh\"oren
@@ -510,7 +510,7 @@ Im Gegenteil, vielleicht kann ja \code{roxygen2} einst einmal mit solchen
 Dateien umgehen. Oder Du machst Dir die M\"u{}he und schreibst eine
 wrapper-Funktion.
 \fi
-\paragraph{Sweave} Alternativ kannst Du f\"u{}r Auswertungsskripte auch
+\minisec{Sweave} Alternativ kannst Du f\"u{}r Auswertungsskripte auch
 \code{Sweave} einsetzen. Ein Beispiel zeigt Listing~\ref{lst:sweave} im
 Anhang~\ref{app:sweave}.
 Auch diese Datei hat einen Header, der analog zu den obigen aufgebaut ist, nur
