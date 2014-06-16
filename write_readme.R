@@ -4,7 +4,7 @@
 #' given via the \code{directory} parameter.
 #'
 #' @author Dominik Cullmann <dominik.cullmann@@forst.bwl.de>
-#' @section Version: $Id: f4ad776b0133462aba618ab9727f2a398a4ab46b $
+#' @section Version: $Id$
 #' @param directory Path of the directory to put README.txt into.
 #' @return TRUE on success, FALSE otherwise.
 #' @note \code{directory} must exist and be writeable. \emph{No checks done.}
