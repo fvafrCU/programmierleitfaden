@@ -5,7 +5,7 @@
 ## Description: run Sweave example.
 ##
 ## Author: Dominik Cullmann
-## Version: $Id: ff86e38b1e519b1420ce36c5545e306381e13370 $
+## Version: $Id$
 
 NAME <- 'template'
 
