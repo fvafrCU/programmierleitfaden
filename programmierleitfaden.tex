@@ -107,7 +107,8 @@ plainpages=false
 \title{Programmierleitfaden an der FVA Baden--W\"u{}rttemberg\\
 \vspace{1cm}
 \small{Version 0.1-2}}
-%\author{Bernhard B\"o{}sch, Christian Vonderach, Dominik Cullmann}
+\author{Arno R\"oder, Bernhard B\"o{}sch, Christian Vonderach,\\Dominik Cullmann,
+Gerald K\"a{}ndler, Marco Reimann}
 \maketitle
 \tableofcontents
 \thispagestyle{fancy}
@@ -149,16 +150,16 @@ halten musst\footnote{
 }, und Kapitel~\ref{sec:tipps} schlie\ss{}t mit vielen sinnvollen Tipps.
 
 \section{Die wichtigste Regel\label{sec:R1}}
-Schreibe Code, den Du in drei Monaten noch verstehen wirst.
+Schreibe Code so, dass Du ihn in drei Monaten noch verstehen wirst.
 
 \section{Die zweitwichtigste Regel\label{sec:R2}}
-Schreibe Code, den Du in sechs Monaten noch verstehen wirst. Nein, Unfug,
-richtig ist: schreibe Code f\"u{}r Deine Leserinnen, nicht f\"u{}r die
+Schreibe Code so, dass Du ihn in sechs Monaten noch verstehen wirst. Nein, 
+Unfug, richtig ist: schreibe Code f\"u{}r Deine Leserinnen, nicht f\"u{}r die
 Maschinen. Die meisten Interpreter und Compiler sind heute so gut, dass es
 kaum lohnt, Code zu optimieren. Also lass es. Es sei denn, Du wei\ss{}t
-genau, was Du tust. Versuche nicht, Deine Leser zu beeindrucken, versuche, Ihnen
-verst\"a{}ndlich zu machen, was Du tust \ldots oder eigentlich h\"a{}ttest tun
-wollen.
+genau, was Du tust. 
+Versuche nicht, Deine Leser zu beeindrucken, versuche, Ihnen verst\"a{}ndlich zu
+machen, was Du tust \ldots oder eigentlich h\"a{}ttest tun wollen.
 
 Die Programme in  Listing~\ref{lst:uncool} und Listing~\ref{lst:cool} geben
 jeweils einen String aus. Lies beide und
@@ -309,7 +310,7 @@ Titels und wird auch gerne als "`(Datei-)Header"' bezeichnet.
 
 
 \subsection{Namesgebung\label{sec:naming}}
-\subsection{Worttrennung}
+\subsubsection{Worttrennung}
 Es gibt viele m\"o{}gliche Konventionen zur Gro\ss{}- und Kleinschreibung  von
 Namen und
 Trennung von W\"o{}rten in Namen:
@@ -350,14 +351,13 @@ liefert.
 
 \subsubsection{Sprechende Namen}
 Die gute Bennenung von Variablen, Funktionen, Klassen und so weiter ist in etwa
-das Schwiergiste am Programmieren. Gute Name sprechen. Sie sind gut leserlich,
+das Schwierigste am Programmieren. Gute Name sprechen. Sie sind gut leserlich,
 nicht leicht zu verwechseln und logisch (also nicht: \code{l1I},
-\code{international\_form} und \code{international\_form} im selben Code
--- auch wenn das mit einem guten Editor oder einer IDE nur halb so schlimm ist
---
-oder \code{left\_column} statt \code{navigation\_column}: die \emph{Lage} der
-Spalte ist weder relevant noch zwingend fix, ihre \emph{Funktion} hingegen
-beschreibt sie gut).
+\code{international\_f\emph{or}m} und \code{international\_f\emph{ro}m} im 
+selben Code -- auch wenn das mit einem guten Editor oder einer IDE nur halb so 
+schlimm ist -- oder \code{left\_column} statt \code{navigation\_column}: die 
+\emph{Lage} der Spalte ist weder relevant noch zwingend fix, ihre 
+\emph{Funktion} hingegen beschreibt sie gut).
 Sie sind nicht allzu lang und vor allem nie zu kurz.
 \code{val}, \code{ding}, \code{foobar} gehen gar nicht%
 \footnote{Einzig \code{x, y, z} f\"ur Koordinaten
@@ -572,7 +572,7 @@ oder zusammengeh\"o{}rige Parameter in Arrays \"u{}bergeben.
 eigene Dateien kopieren und in dein Programm einbinden. 
 Formatiere ihn nicht entsprechend Deinen Konventionen um, 
 kommentiere ihn nicht au\ss{}er einer Quellenangabe. 
-Und achte auf das Copyright.
+Und achte auf das Copyright (siehe Abschnitt~\ref{sec:copy_dforeign}).
 
 \subsection{Versionskontrollsysteme\label{sec:vcs}}
 Programmieren ohne Versionskontrollsystem ist wie Computerspielen ohne 
@@ -580,9 +580,52 @@ Spielstandspeicherung: ein Fehler, und alles ist futsch.
 Tu Dir den Gefallen, und nutze eines.
 Verlasse Dich nicht auf normale Backups, stricke Dir kein eigenes System selbst,
 nutze eines, das die Profis freundlicherweise schon getestet haben. 
-An der FVA haben wir gute Erfahrungen mit git (\url{http://git-scm.com/}) und 
-subversion (\url{http://subversion.apache.org/}).
-Wenn Du Hilfe brauchst: frage Dominik Cullmann oder Arno R\"o{}der.
+An der FVA haben wir gute Erfahrungen mit 
+subversion (\url{http://subversion.apache.org/})
+und git (\url{http://git-scm.com/}).
+Wenn Du Hilfe brauchst: frage Arno R\"o{}der oder Dominik Cullmann.  
+
+\subsection{Entwicklungsumgebungen}
+Es gibt viele Editoren und Entwicklungsumgebungen, falls Du neu bist, noch keine
+eignen Pr\"a{}ferenzen hast und in der Sprache \R{} schreibst, empfehlen wir Dir
+die Software \href{http://www.rstudio.com/products/rstudio/}{RStudio}, 
+ohne Support ist sie unter der AGPL v3 ver\"o{}ffentlicht.
+
+\subsection{Encoding}
+%TODO: wsp
+\subsection{The \R{} Inferno}
+%TODO: R inf
+\section{Urheberrechte und Lizenzen}
+\subsection{Eigener Code}
+Ma\ss{}geblich ist das deutsche "`Gesetz \"u{}ber Urheberrecht und verwandte
+Schutzrechte"' (UhrG). 
+Urheber eines Programmes bist immer Du selbst, das Urheberrecht ist auch nicht
+\"u{}bertragbar (\$ 29 UrhG).
+Das UhrG enth\"a{}lt derzeit in Abschnitt 8 "`Besondere Bestimmungen für 
+Computerprogramme"' folgenden Paragraphen:
+\minisec{\$ 69b Urheber in Arbeits- und Dienstverh\"a{}ltnissen}
+(1) Wird ein Computerprogramm von einem Arbeitnehmer in Wahrnehmung seiner
+Aufgaben oder nach den Anweisungen seines Arbeitgebers geschaffen, so ist
+ausschlie\ss{}lich der Arbeitgeber zur Aus\"u{}bung aller 
+verm\"o{}gensrechtlichen Befugnisse an dem Computerprogramm berechtigt, sofern 
+nichts anderes vereinbart ist.\\*
+(2) Absatz 1 ist auf Dienstverh\"a{}ltnisse entsprechend anzuwenden.
+
+Das bedeutet, dass Du zwar Urheber des Codes bist, er Dir aber nicht
+geh\"o{}rt. Bevor Du also etwa Code unter einer Lizenz Deiner Wahl
+ver\"o{}ffentlichst, solltest Du Dir das Einverst\"a{}ndnis Deiner Vorgesetzten 
+einholen.
+
+\subsection{Fremder Code\label{sec:copy_foreign}}
+Viel Code ist unter freien Lizenzen verf\"u{}gbar. Einige, etwa die
+\href{https://creativecommons.org/licenses/by-sa/4.0/legalcode}{create commons
+Attribution-ShareAlike 4.0 International} oder die
+\href{http://www.gnu.org/licenses/gpl-3.0.html}{GNU General Public License
+(GPL)} verlangen, dass Lizenznehmer (also: Du) ihre Programme nur dann
+ver\"o{}ffentlichen, wenn sie den Code unter der selben Lizenz
+ver\"o{}ffentlichen. 
+%TODO: was soll hier sein?
+
 \bibliography{biblio}
 \bibliographystyle{unsrt}
 \appendix
