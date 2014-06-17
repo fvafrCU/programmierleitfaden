@@ -22,11 +22,15 @@ tmp:
 .PHONY: compile
 compile: write_readme.pdf programmierleitfaden.html programmierleitfaden.pdf 
 
-programmierleitfaden.pdf: vanilla_tex programmierleitfaden.tex 
+programmierleitfaden.pdf: vanilla_tex programmierleitfaden.tex update
 	texi2pdf --shell-escape  programmierleitfaden.tex 
 
-programmierleitfaden.html: programmierleitfaden.tex 
+programmierleitfaden.html: programmierleitfaden.tex update
 	htlatex programmierleitfaden.tex  "html_css.cfg" "" "" "-interaction=batchmode -shell-escape" 
+.PHONY: update
+update:
+	git add programmierleitfaden.tex && git commit -m'update' || true
+	git checkout master programmierleitfaden.tex
 
 template.pdf: template.Rnw 
 	./sweave.R 
