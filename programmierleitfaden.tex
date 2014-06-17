@@ -6,6 +6,7 @@
 %% Author: Dominik Cullmann, <dominik.cullmann@forst.bwl.de>
 %% Version: $Id$
 \documentclass[twoside]{scrartcl}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{adctex}
 \usepackage{timestamp}
@@ -106,7 +107,7 @@ plainpages=false
 \selectlanguage{ngerman}
 \title{Programmierleitfaden an der FVA Baden--W\"u{}rttemberg\\
 \vspace{1cm}
-\small{Version 0.1-2}}
+\small{Version 0.1-3}}
 \author{Arno R\"oder, Bernhard B\"o{}sch, Christian Vonderach,\\Dominik Cullmann,
 Gerald K\"a{}ndler, Marco Reimann}
 \maketitle
@@ -149,10 +150,10 @@ halten musst\footnote{
   Zur Verbindlichkeit unserer Regeln lies Abschnitt~\ref{sec:zwang}
 }, und Kapitel~\ref{sec:tipps} schlie\ss{}t mit vielen sinnvollen Tipps.
 
-\section{Die wichtigste Regel\label{sec:R1}}
+\subsection{Die wichtigste Regel\label{sec:R1}}
 Schreibe Code so, dass Du ihn in drei Monaten noch verstehen wirst.
 
-\section{Die zweitwichtigste Regel\label{sec:R2}}
+\subsection{Die zweitwichtigste Regel\label{sec:R2}}
 Schreibe Code so, dass Du ihn in sechs Monaten noch verstehen wirst. Nein, 
 Unfug, richtig ist: schreibe Code f\"u{}r Deine Leserinnen, nicht f\"u{}r die
 Maschinen. Die meisten Interpreter und Compiler sind heute so gut, dass es
@@ -592,11 +593,24 @@ die Software \href{http://www.rstudio.com/products/rstudio/}{RStudio},
 ohne Support ist sie unter der AGPL v3 ver\"o{}ffentlicht.
 
 \subsection{Encoding}
-%TODO: wsp
-\subsection{The \R{} Inferno}
-%TODO: R inf
-\section{Urheberrechte und Lizenzen}
-\subsection{Eigener Code}
+Es gibt nicht "`einfach nur Text"'. "`Einfach nur Text"' ist wahrscheinlich
+ASCII. ASCII stammt aber aus einer Zeit, in der Computernutzer sich auf das
+lateinische Alphabet beschr\"a{}nken mussten. Schon deutsche Umlaute sind nicht
+mehr im einfachen ASCII (im erweiterten schon) Zeichensatz verf\"u{}gbar.
+Griechische, arabische oder kyrillische Buchstaben schon gar nicht. 
+
+
+Falls Du Programme schreibst, die als Eingabe Zeichen wie ©  oder ç haben
+(k\"o{}nnen), solltest Du dich mit Encodings auseinandersetzen. Dabei ist
+wichtig, dass Du die Eingabe entsprechend kodierst und das Programm eine
+entstprechende Kodierung erwartet. Die Datei, aus der dieser Leitfaden gemacht
+wird ist beispielsweise 'utf-8'-kodiert, der Compiler, der sie in ein pdf setzt,
+erh\"a{}lt die Anweisung \verb+\inputencoding{utf8}+: sowohl tats\"a{}chliche
+als auch die erwartete Eingabe sind also 
+\href{http://en.wikipedia.org/wiki/UTF-8}{UTF-8}, eine Umsetzung des
+\href{http://en.wikipedia.org/wiki/Unicode}{Unicode}-Standards.
+\subsection{Urheberrechte und Lizenzen}
+\subsubsection{Eigener Code}
 Ma\ss{}geblich ist das deutsche "`Gesetz \"u{}ber Urheberrecht und verwandte
 Schutzrechte"' (UhrG). 
 Urheber eines Programmes bist immer Du selbst, das Urheberrecht ist auch nicht
@@ -617,7 +631,7 @@ geh\"o{}rt. Bevor Du also etwa Code unter einer Lizenz Deiner Wahl
 ver\"o{}ffentlichst, solltest Du Dir das Einverst\"a{}ndnis Deiner Vorgesetzten 
 einholen.
 
-\subsection{Fremder Code\label{sec:copy_foreign}}
+\subsubsection{Fremder Code\label{sec:copy_foreign}}
 Viel Code ist unter freien Lizenzen verf\"u{}gbar. Einige, etwa die
 \href{https://creativecommons.org/licenses/by-sa/4.0/legalcode}{create commons
 Attribution-ShareAlike 4.0 International} oder die
@@ -636,6 +650,19 @@ Da die von Dir erstellten Programme aber Deinem Arbeitgeber geh\"o{}ren und der
 sie bin\"a{}r oder als Quellcode ver\"o{}ffentlichen k\"o{}nnte, solltest Du,
 wenn Du fremden Code unter solchen Lizenzen in Deinen Programmen nutzt, dies
 vermerken.
+\subsection{\R{}-Anleitungen}
+Die offiziellen  \R{}-Anleitungen findest Du lokal auf Deinem Rechner per 
+\code{help.start()}, oder auf \url{http://cran.r-project.org/doc/manuals/}.
+Besonders hilfreich ist "`An Introduction to R"'.
+
+Inoffizielle Dokumentationen findest Du unter 
+\url{http://cran.r-project.org/doc/contrib/}, ihre Beschreibung unter 
+\url{http://cran.r-project.org/other-docs.html}. Hilfreich ist 
+"`R for Beginners"` und, auf deutsch "'R Reader"`.
+
+\href{www.burns-stat.com/pages/Tutor/R_inferno.pdf}{The \R{} Inferno} ist eine
+hilfreiche Sammlung klassischer Fallstricke in R. 
+
 
 
 \bibliography{biblio}
