@@ -30,7 +30,7 @@ programmierleitfaden.html: programmierleitfaden.tex update
 .PHONY: update
 update:
 	git add programmierleitfaden.tex && git commit -m'update' || true
-	git checkout master programmierleitfaden.tex
+	git checkout master programmierleitfaden.tex || true # for push and deploy there can't be a checkout
 
 template.pdf: template.Rnw 
 	./sweave.R 
