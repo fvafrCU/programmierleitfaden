@@ -22,8 +22,8 @@ programmierleitfaden.html: programmierleitfaden.tex
 	htlatex programmierleitfaden.tex  "html_css.cfg" "" "" "-interaction=batchmode -shell-escape" 
 .PHONY: update
 update:
-	git add programmierleitfaden.tex && git commit -m'update' || true
-	git checkout master programmierleitfaden.tex || true # for push and deploy there can't be a checkout
+	git commit -am'update' || true
+	git checkout master  .
 
 template.pdf: template.Rnw 
 	./sweave.R 
