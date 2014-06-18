@@ -107,7 +107,7 @@ plainpages=false
 \selectlanguage{ngerman}
 \title{Programmierleitfaden an der FVA Baden--W\"u{}rttemberg\\
 \vspace{1cm}
-\small{Version 0.1-6}}
+\normalsize{Version 0.1-7}}
 \author{Arno R\"oder, Bernhard B\"o{}sch, Christian Vonderach,\\Dominik Cullmann,
 Gerald K\"a{}ndler, Marco Reimann}
 \maketitle
@@ -597,17 +597,17 @@ ohne Support ist sie unter der AGPL v3 ver\"o{}ffentlicht.
 Es gibt nicht "`einfach nur Text"'. "`Einfach nur Text"' ist wahrscheinlich
 ASCII. ASCII stammt aber aus einer Zeit, in der Computernutzer sich auf das
 lateinische Alphabet beschr\"a{}nken mussten. Schon deutsche Umlaute sind nicht
-mehr im einfachen ASCII (im erweiterten schon) Zeichensatz verf\"u{}gbar.
+mehr im einfachen (im erweiterten schon) ASCII-Zeichensatz verf\"u{}gbar.
 Griechische, arabische oder kyrillische Buchstaben schon gar nicht. 
 
 
 Falls Du Programme schreibst, die als Eingabe Zeichen wie ©  oder ç haben
-(k\"o{}nnen), solltest Du dich mit Encodings auseinandersetzen. Dabei ist
-wichtig, dass Du die Eingabe entsprechend kodierst und das Programm eine
-entstprechende Kodierung erwartet. Die Datei, aus der dieser Leitfaden gemacht
-wird ist beispielsweise 'utf-8'-kodiert, der Compiler, der sie in ein pdf setzt,
-erh\"a{}lt die Anweisung \verb+\inputencoding{utf8}+: sowohl tats\"a{}chliche
-als auch die erwartete Eingabe sind also 
+\emph{k\"o{}nnten}, solltest Du dich mit Encodings auseinandersetzen. Dabei 
+ist wichtig, dass Du die Eingabe entsprechend kodierst und das Programm eine
+entsprechende Kodierung erwartet. Die Datei, aus der dieser Leitfaden kompiliert
+wird, ist beispielsweise 'utf-8'-kodiert, der Compiler, der sie in ein pdf 
+setzt, erh\"a{}lt die Anweisung \verb+\inputencoding{utf8}+: sowohl 
+tats\"a{}chliche als auch die erwartete Eingabe sind also 
 \href{http://en.wikipedia.org/wiki/UTF-8}{UTF-8}, eine Umsetzung des
 \href{http://en.wikipedia.org/wiki/Unicode}{Unicode}-Standards.
 \subsection{Urheberrechte und Lizenzen}
@@ -668,7 +668,7 @@ und, auf deutsch,
 \href{http://cran.r-project.org/doc/contrib/Grosz+Peters-R-Reader.pdf}
 {"`R Reader"'}.
 
-\href{www.burns-stat.com/pages/Tutor/R_inferno.pdf}{The \R{} Inferno} ist eine
+\href{http://www.burns-stat.com/pages/Tutor/R_inferno.pdf}{The \R{} Inferno} ist eine
 hilfreiche Sammlung klassischer Fallstricke in R. 
 \subsubsection{Skriptvorlage}
 Eine Vorlage f\"ur ein \R{}-Skript findest Du in Listing~\ref{lst:roxy_template}
