@@ -1,28 +1,23 @@
-TMP_DIRECTORY=./tmp
 PUBLIC_DIRECTORY=./public
 
 .PHONY: all
 all: compile 
 
 .PHONY: publish 
-publish: tmp
-	cp -r ${TMP_DIRECTORY} ${PUBLIC_DIRECTORY}
-
-.PHONY: tmp
-tmp: compile 
-	rm -r  ${TMP_DIRECTORY} || true
-	mkdir ${TMP_DIRECTORY} 
-	cp *.pdf ${TMP_DIRECTORY}
-	cp *html ${TMP_DIRECTORY}
-	cp *.R ${TMP_DIRECTORY}
-	cp *.c ${TMP_DIRECTORY}
-	cp *.java ${TMP_DIRECTORY}
-	rm ${TMP_DIRECTORY}/template-*.pdf || true
+publish: update compile 
+	rm -r  ${PUBLIC_DIRECTORY} || true
+	mkdir ${PUBLIC_DIRECTORY} 
+	cp *.pdf ${PUBLIC_DIRECTORY}
+	cp *html ${PUBLIC_DIRECTORY}
+	cp *.R ${PUBLIC_DIRECTORY}
+	cp *.c ${PUBLIC_DIRECTORY}
+	cp *.java ${PUBLIC_DIRECTORY}
+	rm ${PUBLIC_DIRECTORY}/template-*.pdf || true
 
 .PHONY: compile
 compile: write_readme.pdf programmierleitfaden.html programmierleitfaden.pdf 
 
-programmierleitfaden.pdf: vanilla_tex programmierleitfaden.tex 
+programmierleitfaden.pdf: vanilla_tex programmierleitfaden.tex template.pdf 
 	texi2pdf --shell-escape  programmierleitfaden.tex 
 
 programmierleitfaden.html: programmierleitfaden.tex 
