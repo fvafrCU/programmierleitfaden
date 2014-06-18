@@ -1,4 +1,4 @@
-PUBLIC_DIRECTORY=./public
+PUBLIC_DIRECTORY=/trans/h/FVA-Projekte/Methodenforum/programmierleitfaden
 
 .PHONY: all
 all: compile 
