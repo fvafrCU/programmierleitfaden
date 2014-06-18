@@ -9,7 +9,7 @@ publish: tmp
 	cp -r ${TMP_DIRECTORY} ${PUBLIC_DIRECTORY}
 
 .PHONY: tmp
-tmp:
+tmp: update compile 
 	rm -r  ${TMP_DIRECTORY} || true
 	mkdir ${TMP_DIRECTORY} 
 	cp *.pdf ${TMP_DIRECTORY}
@@ -22,10 +22,10 @@ tmp:
 .PHONY: compile
 compile: write_readme.pdf programmierleitfaden.html programmierleitfaden.pdf 
 
-programmierleitfaden.pdf: vanilla_tex programmierleitfaden.tex update
+programmierleitfaden.pdf: vanilla_tex programmierleitfaden.tex 
 	texi2pdf --shell-escape  programmierleitfaden.tex 
 
-programmierleitfaden.html: programmierleitfaden.tex update
+programmierleitfaden.html: programmierleitfaden.tex 
 	htlatex programmierleitfaden.tex  "html_css.cfg" "" "" "-interaction=batchmode -shell-escape" 
 .PHONY: update
 update:

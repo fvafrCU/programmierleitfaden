@@ -503,7 +503,7 @@ Listing~\ref{lst:roxy_ex}
 
 Ein kommentiertes Beispiel erh\"a{}lst Du
 durch den Code in Listing~\ref{lst:rroxy_demo}. 
-\lstinputlisting[float=h, label=lst:rroxy_demo, linerange={5-5,}]
+\lstinputlisting[float=h, label=lst:rroxy_demo, linerange={5-5}]
 {roxygenize_examples.R}
 
 \else 
@@ -557,7 +557,8 @@ mich f\"u{}r die Details dieser Funktion
 (die wir in Listing~\ref{lst:write_readme} sehen und die in
 Listings~\ref{lst:doccom1} beziehungsweise \ref{lst:doccom2} dokumentiert ist;
 die Funktion samt Dokumentationskommentar findest Du in 
-Listing~\ref{lst:write_readme_doccom} im Anhang \ref{app:write_readme})
+Listing~\ref{lst:write_readme_doccom} in Listing~\ref{lst:write_readme_doccom}
+im Anhang \ref{app:R})
 nicht interessiere, ist der Rest des Codes viel besser verst\"a{}ndlich.
 
 \lstinputlisting[float=h, label=lst:write_readme, firstline=11
@@ -650,7 +651,8 @@ Da die von Dir erstellten Programme aber Deinem Arbeitgeber geh\"o{}ren und der
 sie bin\"a{}r oder als Quellcode ver\"o{}ffentlichen k\"o{}nnte, solltest Du,
 wenn Du fremden Code unter solchen Lizenzen in Deinen Programmen nutzt, dies
 vermerken.
-\subsection{\R{}-Anleitungen}
+\subsection{\R{}}
+\subsubsection{Anleitungen}
 Die offiziellen  \R{}-Anleitungen findest Du lokal auf Deinem Rechner per 
 \code{help.start()}, oder auf \url{http://cran.r-project.org/doc/manuals/}.
 Besonders hilfreich ist "`An Introduction to R"'.
@@ -662,7 +664,11 @@ Inoffizielle Dokumentationen findest Du unter
 
 \href{www.burns-stat.com/pages/Tutor/R_inferno.pdf}{The \R{} Inferno} ist eine
 hilfreiche Sammlung klassischer Fallstricke in R. 
-
+\subsubsection{Skriptvorlage}
+Eine Vorlage f\"ur ein \R{}-Skript findest Du in Listing~\ref{lst:roxy_template}
+im Anhang~\ref{app:R}. Wir haben sie durch Listing~\ref{lst:template} erstellt.
+\lstinputlisting[float=h, label=lst:template, linerange={2-2,7-7}]
+{roxygenize_examples.R}
 
 
 \bibliography{biblio}
@@ -671,8 +677,9 @@ hilfreiche Sammlung klassischer Fallstricke in R.
 \section{Sweave\label{app:sweave}}
 \lstinputlisting[label=lst:sweave, language=TeX]{template.Rnw}
 \pagebreak
-\section{\R{}-Beispiel\label{app:write_readme}}
+\section{\R{}-Beispiele\label{app:R}}
 \lstinputlisting[label=lst:write_readme_doccom]{write_readme.R}
+\lstinputlisting[label=lst:roxy_template]{my_r_file.R}
 %\clearpage
 %\includepdf[pages=-]{write_readme.pdf}
 \end{document}
