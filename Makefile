@@ -2,7 +2,7 @@ TMP_DIRECTORY=./tmp
 PUBLIC_DIRECTORY=./public
 
 .PHONY: all
-all: compile publish
+all: compile 
 
 .PHONY: publish 
 publish: tmp
