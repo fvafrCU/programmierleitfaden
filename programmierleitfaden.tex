@@ -87,29 +87,20 @@ plainpages=false
   %% title=\lstname
   linewidth=\textwidth
 }
-%% Wanted colors in html, broken %\lstset{
-%% Wanted colors in html, broken %    basicstyle=\ttfamily,
-%% Wanted colors in html, broken %    language=[Sharp]C,
-%% Wanted colors in html, broken %    keywordstyle=\rmfamily\bfseries,
-%% Wanted colors in html, broken %    commentstyle=\sffamily,
-%% Wanted colors in html, broken %}
 \def\mystyle{}
 
 \begingroup\makeatletter\endlinechar=\m@ne\everyeof{\noexpand}
 \edef\x{\endgroup\def\noexpand\TeXpath{\@@input|"which tex" }}\x
 
 \begin{document}
-%% Wanted colors in html, broken % \Css{div.lstlisting .ectt-1000 {font-family: monospace;color:blue}}
-%% Wanted colors in html, broken % \Css{div.lstlisting .ecss-1000 {font-family: monospace;color:green}} 
-%% Wanted colors in html, broken % \Css{div.lstlisting .ecbx-1000 {font-family: monospace;color:red}} 
 
 
 \selectlanguage{ngerman}
 \title{Programmierleitfaden an der FVA Baden--W\"u{}rttemberg\\
 \vspace{1cm}
 \normalsize{Version 0.1-7}}
-\author{Arno R\"oder, Bernhard B\"o{}sch, Christian Vonderach,\\Dominik Cullmann,
-Gerald K\"a{}ndler, Marco Reimann}
+\author{Arno R\"oder, Bernhard B\"o{}sch, Christian Vonderach,\\
+Dominik Cullmann, Gerald K\"a{}ndler, Marco Reimann}
 \maketitle
 \tableofcontents
 \thispagestyle{fancy}
@@ -668,8 +659,8 @@ und, auf deutsch,
 \href{http://cran.r-project.org/doc/contrib/Grosz+Peters-R-Reader.pdf}
 {"`R Reader"'}.
 
-\href{http://www.burns-stat.com/pages/Tutor/R_inferno.pdf}{The \R{} Inferno} ist eine
-hilfreiche Sammlung klassischer Fallstricke in R. 
+\href{http://www.burns-stat.com/pages/Tutor/R_inferno.pdf}{The \R{} Inferno} ist
+eine hilfreiche Sammlung klassischer Fallstricke in R. 
 \subsubsection{Skriptvorlage}
 Eine Vorlage f\"ur ein \R{}-Skript findest Du in Listing~\ref{lst:roxy_template}
 im Anhang~\ref{app:R}. Wir haben sie durch Listing~\ref{lst:template} erstellt.
