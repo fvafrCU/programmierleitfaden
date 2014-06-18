@@ -9,7 +9,7 @@ publish: tmp
 	cp -r ${TMP_DIRECTORY} ${PUBLIC_DIRECTORY}
 
 .PHONY: tmp
-tmp: update compile 
+tmp: compile 
 	rm -r  ${TMP_DIRECTORY} || true
 	mkdir ${TMP_DIRECTORY} 
 	cp *.pdf ${TMP_DIRECTORY}
