@@ -5,8 +5,6 @@ all: compile
 
 .PHONY: publish 
 publish: update compile 
-	rm -r  ${PUBLIC_DIRECTORY} || true
-	mkdir ${PUBLIC_DIRECTORY} 
 	cp *.pdf ${PUBLIC_DIRECTORY}
 	cp *html ${PUBLIC_DIRECTORY}
 	cp *.R ${PUBLIC_DIRECTORY}
