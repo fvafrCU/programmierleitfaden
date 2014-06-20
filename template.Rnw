@@ -1,6 +1,6 @@
-%% File: template.Rnw
+%% template.Rnw
 %% 
-%% Description: This is a minimal template for Sweaving.
+%% This is a minimal template for Sweaving.
 %% I'm not really into Sweave since we're actually mingling two 
 %% different languages: An .Rnw file can't be complied before
 %% tangling and weaving. 

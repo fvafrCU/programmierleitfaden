@@ -1,4 +1,4 @@
-#' Write the contents of the global variable \code{README} to disk.
+#' Write the contents of the global variable \code{README} to disk
 #'
 #' Contents of \code{README} are written to file README.txt in the directory 
 #' given via the \code{directory} parameter.
