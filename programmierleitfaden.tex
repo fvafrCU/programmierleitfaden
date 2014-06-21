@@ -98,7 +98,7 @@ plainpages=false
 \selectlanguage{ngerman}
 \title{Programmierleitfaden an der FVA Baden--W\"u{}rttemberg\\
 \vspace{1cm}
-\normalsize{Version 0.1-7}}
+\normalsize{Version 0.1-8}}
 \author{Arno R\"oder, Bernhard B\"o{}sch, Christian Vonderach,\\
 Dominik Cullmann, Gerald K\"a{}ndler, Marco Reimann}
 \maketitle
@@ -116,10 +116,10 @@ wollen oder d\"u{}rfen?"'. Vielleicht wird ein anderer Mensch Dein Projekt
 \"u{}bernehmen m\"u{}ssen, vielleicht bist Du sogar mutig genug, Deinen Code
 anderen zu zeigen um zu sehen, was sie davon halten. Ziemlich sicher aber wirst
 Du selbst in drei Monaten Deinen Code wieder lesen und verstehen m\"u{}ssen. Und
-Du wirst Dir selbst sehr dankbar sein, wenn Du heute an Deinen zuk\"u{}nftiges
+Du wirst Dir selbst sehr dankbar sein, wenn Du heute an Dein zuk\"u{}nftiges
 Ich denkst und Dich an diesem Leitfaden orientierst.
 
-Manche dieser Regeln werden Dir eventuell zun\"a{}chst kleinlich erscheinen,
+Manche Regel wird Dir eventuell zun\"a{}chst kleinlich erscheinen,
 beispielsweise die mit den Leerzeichen  um  Operatoren (siehe Abschnitt
 \ref{sec:format}), aber wenn Du \"o{}fter fremden oder eigenen etwas
 angegammelten Code liest, wirst
@@ -150,9 +150,9 @@ Unfug, richtig ist: schreibe Code f\"u{}r Deine Leserinnen, nicht f\"u{}r die
 Maschinen. Die meisten Interpreter und Compiler sind heute so gut, dass es
 kaum lohnt, Code zu optimieren. Also lass es. Es sei denn, Du wei\ss{}t
 genau, was Du tust. 
+
 Versuche nicht, Deine Leser zu beeindrucken, versuche, Ihnen verst\"a{}ndlich zu
 machen, was Du tust \ldots oder eigentlich h\"a{}ttest tun wollen.
-
 Die Programme in  Listing~\ref{lst:uncool} und Listing~\ref{lst:cool} geben
 jeweils einen String aus. Lies beide und
 \"u{}berlege, welcher String wohl die jeweilige Ausgabe ist. Vergleiche dann die
@@ -168,9 +168,8 @@ Deinen \"U{}berlegungen vergleichen\footnote{%
 \selectlanguage{english}%
 Oder Du glaubst uns: uncool.c gibt 
 "\catcode`_=12 \ttfamily \input{|"gcc uncool.c -o uncool && ./uncool"}"
-aus und cool.c gibt  
-"\catcode`_=12 \ttfamily \input{|"gcc cool.c -o cool && ./cool"}"
-aus.
+aus und cool.c 
+"\catcode`_=12 \ttfamily \input{|"gcc cool.c -o cool && ./cool"}".
 \selectlanguage{ngerman}
 }%
 . 
@@ -232,8 +231,8 @@ widersprechen dem Code.
 
 Kommentiere das \emph{Was}, nicht das \emph{Wie}, das \emph{Wie} steht schon im 
 Code, und der hat immer recht.
-(und weil sich das Wie meist schneller \"a{}ndert als das Was, musst Du auch
-nicht so viele Kommentare aktualisieren.)
+Und da sich das Wie meist schneller \"a{}ndert als das Was, musst Du auch
+nicht so viele Kommentare aktualisieren.
 Falls es ein \emph{Warum} gibt: schreib es auf. 
 Gut ist  Listing \ref{lst:comment}.
 
@@ -258,46 +257,46 @@ Jedem Modul oder Paket, jeder Methode, Klasse, Funktion steht ein
 Dokumentationskommentar zu Gesicht. Dokumentationskommentare haben mindestens 
 folgende Struktur:
 \begin{enumerate}
-    \item Eine Titelzeile.
-    \item Eine (mehrzeilige) Beschreibung.
-    \item Eine Autorenangabe (am besten mit einer Kontaktinformation).
+    \item Eine Titelzeile,
+    \item Eine (mehrzeilige) Beschreibung,
+    \item Eine Autorenangabe (am besten mit einer Kontaktinformation) und
     \item Eine Versionsangabe (im einfachsten Fall das \"A{}nderungsdatum).
 \end{enumerate}
+Die Titelzeile ist immer die erste Zeile eines Dokumenationskommentares, sie
+besteht aus einem Satz ohne schlie\ss{}endes Satzzeichen und ist durch eine
+Dokumentationskommentarleerzeile von der Beschreibung getrennt. Diese ist
+wiederum durch eine Dokumentationskommentarleerzeile von den \"u{}brigen Angaben
+getrennt%
+\footnote{Diese Struktur erlaubt es, aus Dokumentationskommentaren
+automatisiert e-Mails zu erstellen. Halte sie bitte ein.}%
+, die mit \code{Sch\"u{}sselwort:} beginnen.
+
 F\"u{}r eine Funktion sollten auch 
 \begin{enumerate}[resume]
     \item (kein bis f\"u{}nf)\footnote{siehe
-	    Abschnitt~\ref{sec:parameteranzahl}} Parameter. 
-    \item eine R\"u{}ckgabe.
+	    Abschnitt~\ref{sec:parameteranzahl}} Parameter und 
+    \item eine R\"u{}ckgabe
 \end{enumerate}
-dokumentiert werden. Weiter zus\"a{}tzliche Elemente wie \emph{Copyright},
+dokumentiert werden. Weitere zus\"a{}tzliche Elemente wie \emph{Copyright},
 \emph{Note}, \emph{Warning} oder \emph{Known Bugs} schaden nicht.
 In Listing~\ref{lst:doccom1} siehst Du einen Dokumentationskommentar
 f\"u{}r eine kleine Funktion (die sehen wir sp\"a{}ter in
 Listing~\ref{lst:write_readme}).
-
 \lstinputlisting[float=h, label=lst:doccom1]{documentation.R}
 
 \minisec{R-Auswertungsskripte dokumentieren:}
 Viele von uns programmieren in der Sprache \R{}, und vielleicht schreibst 
 auch Du nicht so viele Funktionen sondern eher Auswertungsskripte f\"u{}r 
 wissenschaftliche Fragestellungen. 
-Auch solche Programme solltest Du kommentieren, und zwar sowohl mit
-Verst\"a{}ndnis- als auch mit Dokumentationskommentaren. 
 
-Letztere sollten mindestens enthalten:
-\begin{enumerate}
-    \item Den Namen der Datei.
-    \item Eine (mehrzeilige) Beschreibung.
-    \item Eine Autorenangabe (am besten mit einer Kontaktinformation).
-    \item Eine Versionsangabe (im einfachsten Fall das \"A{}nderungsdatum).
-\end{enumerate}
-
+Auch solche Programme solltest Du kommentieren, und zwar sowohl mit 
+Verst\"a{}ndnis- als auch mit einem Dokumentationskommentar am Anfangs des
+Auswertungsskriptes. Dieser Dokumentationskommentar bezieht sich nicht auf eine
+einzelne Funktion, Klasse oder Methode sondern auf den gesamten Inhalt der
+Datei. Er wird daher oft als "`(Datei-)Header"' bezeichnet und tr\"a{}gt
+h\"a{}ufig den Dateinamen in der Titelzeile.
 Listing~\ref{lst:rdoc} zeigt einen solchen Dokumentationskommentar. 
 \lstinputlisting[float=h, label=lst:rdoc]{r_documentation.R}
-Da er sich nicht auf eine Klasse oder Funktion bezieht, sondern auf alles, was 
-in der Datei so steht, enth\"a{}lt er abweichend den Dateinamen statt eines 
-Titels und wird auch gerne als "`(Datei-)Header"' bezeichnet.
-
 
 
 
@@ -317,11 +316,11 @@ Trennung von W\"o{}rten in Namen:
 \end{itemize}
 Wenn Du in ein Projekt einsteigst, halte Dich am besten an die (hoffentlich)
 vorhandene Konvention.
-Wenn Du ein neues Projekt beginnst: Sieh' nach, ob es die von Dir verwendete
-Sprache eine offizielle Namenskonventionen gibt. Suche im Internet 
+Wenn Du ein neues Projekt beginnst: Sieh' nach, ob es f\"u{}r die von Dir 
+verwendete Sprache eine offizielle Namenskonvention gibt. Suche im Internet 
 beispielsweise nach "`Java naming conventions"'.
 
-Die Sprache \R{} besitzt keine offizielle Namenskonventionen. Derzeit
+Die Sprache \R{} besitzt keine offizielle Namenskonvention. Derzeit
 popul\"a{}re "`style guides"', die auch Namenskonventionen enthalten sind die
 von
 \href{https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml}{google} und
@@ -332,7 +331,7 @@ f\"u{}r Methoden, Funktionen, Variablen, Module, Instanzvariablen und
 Funktionsparameter) nur lower\_case\_with\_underscores.
 Das entspricht dem derzeitigen Stand der
 \href{http://legacy.python.org/dev/peps/pep-0008/#naming-conventions}{python
-  naming conventions}, die Namenskonventionen Hadley Wickhams sind eine
+  naming conventions}, die Namenskonvention Hadley Wickhams ist eine
   Untermenge unserer Empfehlung.
 
 \minisec{R packages} d\"urfen keine Unterstriche im Namen tragen, wir
@@ -362,7 +361,7 @@ Am besten folgen sie einem klaren Schema und sind dadurch erratbar.
 \item\labitem{abbrevs} Namen sollten \emph{niemals} abk\"u{}rzen.
 \item \emph{Einzige} Ausnahme von Regel \refitem{abbrevs} bilden
   Abk\"u{}rzungen, die allgemein bekannter sind als ihre ausgeschriebene
-  Variante\footnote{"`allgemein"' ist dehnbar: Bei Menschen, die Deine
+  Variante\footnote{"`allgemein"' ist schwammig: Bei Menschen, die Deine
     Programme lesen, d\"u{}rfte allgemein URL bekannter sein als uniform
     resource locator. Aber bei SPD werden sie, je nach dem ob sie sich
     sonst eher mit Graphikdesign,  Wahrnehmungsst\"o{}rungen, Radeln
@@ -371,7 +370,7 @@ Am besten folgen sie einem klaren Schema und sind dadurch erratbar.
     Sozialdemokratische Partei Deutschlands denken. Gehe vor allem nicht
     davon aus, dass sie mit Deinem Kulturkreis vertraut sind.}.
 \item Die einzige \emph{andere} Ausnahme von Regel \refitem{abbrevs} bilden
-  Abk\"u{}rzungen in Tabelle~\ref{tab:abbrevs}
+  Abk\"u{}rzungen in Tabelle~\ref{tab:abbrevs}.
 \end{enumerate}
 \begin{table}[h!]
   \centering
@@ -390,9 +389,9 @@ Am besten folgen sie einem klaren Schema und sind dadurch erratbar.
 \end{table}
 
 \subsubsection{Boolsche Variable}
-Boolsche Variablen, also solche, die entweder wahr oder falsch sind, sollten zur
-besseren Verst\"a{}ndlichkeit und Abgrenzung ein einleitendes \code{is\_}
-erhalten: \code{ if~(is\_defined)~\{\ldots\}} ist klarer als
+Boolschen Variablen, also solchen, die entweder wahr oder falsch sind, solltest
+Du zur besseren Verst\"a{}ndlichkeit und Abgrenzung ein einleitendes \code{is\_}
+spendieren: \code{ if~(is\_defined)~\{\ldots\}} ist klarer als
 \code{if~(defined)\{\ldots\}}.
 
 \subsubsection{Ein Name f\"u{}r viele Dinge}
@@ -416,8 +415,11 @@ Rechtschreibung. Wir raten Dir daher:
 \href{http://en.wikipedia.org/wiki/Indent_style#Variant:_1TBS}{1TBS}).\\
   In erster Linie bedeutet dies: Bl\"o{}cke werden immer geklammert,
   \"o{}ffnende \{ kommen ans Ende einer
-  Zeile, schlie\ss{}ende \} an einen Zeilenanfang, vor einer
-  \"o{}ffnenden \{ oder $($ steht ein Leerzeichen, es seid denn,
+      Zeile\footnote{Au\ss{}er bei Funktionsdefinitionen pr\"a{}prozessierter
+      Sprachen, also etwa \code{C}, hier steht sie in der ersten Spalte einer
+  neuen Zeile.}, schlie\ss{}ende \} an einen Zeilenanfang, 
+      vor einer
+  \"o{}ffnenden \{ steht ein Leerzeichen, vor $($ ebenso, es seid denn,
   der voranstehende Bezeichner ist ein Funktions- oder Methodenname.
 \item zu einer Zeilenbreite von h\"o{}chstens 80 Zeichen. Das passt
   noch auf eine gedruckte A4-Seite. Wenn Du mehr brauchst sind
@@ -448,7 +450,7 @@ Python erkennt; f\"u{}r die letzten beiden Sprachen gibt es aber auch eigene
 Systeme: JavaDoc und docstrings). 
 Nebenbei l\"a{}sst sich meist automatisch testen, ob der
 Kommentar mit dem beschriebenen Object \"u{}bereinstimmt. 
-F\"u{}r \R{} gibt es kein offizielles automatisiertes Dokumentationssytem, aber 
+F\"u{}r \R{} gibt es kein offizielles Dokumentationssytem, aber 
 das Paket \href{http://cran.r-project.org/web/packages/roxygen2/index.html}
 {\code{roxygen2}} versucht, dem abzuhelfen. 
 Wenn wir unseren Dokumetationskommentar aus Listing~\ref{lst:doccom1} der 
@@ -471,7 +473,7 @@ Auswertungsskripten. Es kann daher mit Anweisungen, die nicht Teil von
 Funktionen, Klassen und so weiter sind, nicht umgehen. Dazu geh\"oren
 selbstverst\"a{}ndlich auch unsere Header aus Abschnitt~\ref{sec:doccom}.
 Es spricht aber nichts dagegen, sich an die Struktur von \code{roxygen2} zu
-halten und das Listing~\ref{lst:rdoc} durch \ref{lst:rroxy} zu ersetzen.
+halten und Listing~\ref{lst:rdoc} durch Listing~\ref{lst:rroxy} zu ersetzen.
 
 \lstinputlisting[float=h, label=lst:rroxy, lastline = 7]{r_roxygen.R}
 
@@ -503,7 +505,8 @@ Dateien umgehen. Oder Du machst Dir die M\"u{}he und schreibst eine
 wrapper-Funktion.
 \fi
 \minisec{Sweave} Alternativ kannst Du f\"u{}r Auswertungsskripte auch
-\code{Sweave} einsetzen. Ein Beispiel zeigt Listing~\ref{lst:sweave} im
+\href{http://www.stat.uni-muenchen.de/~leisch/Sweave/}{\code{Sweave}} einsetzen.
+Ein Beispiel zeigt Listing~\ref{lst:sweave} im
 Anhang~\ref{app:sweave}.
 Auch diese Datei hat einen Header, der analog zu den obigen aufgebaut ist, nur
 f\"u{}r \TeX{}.
@@ -548,7 +551,7 @@ mich f\"u{}r die Details dieser Funktion
 (die wir in Listing~\ref{lst:write_readme} sehen und die in
 Listings~\ref{lst:doccom1} beziehungsweise \ref{lst:doccom2} dokumentiert ist;
 die Funktion samt Dokumentationskommentar findest Du in 
-Listing~\ref{lst:write_readme_doccom} in Listing~\ref{lst:write_readme_doccom}
+Listing~\ref{lst:write_readme_doccom} 
 im Anhang \ref{app:R})
 nicht interessiere, ist der Rest des Codes viel besser verst\"a{}ndlich.
 
@@ -562,9 +565,9 @@ Brauchst Du mehr, solltest Du Teile der Funktion in Hilfsfunktionen auslagern
 oder zusammengeh\"o{}rige Parameter in Arrays \"u{}bergeben.
 
 \subsection{Fremder Code} Wenn Du fremden Code nutzen willst, solltest Du ihn in
-eigene Dateien kopieren und in dein Programm einbinden. 
+separate Dateien kopieren und in Deinen Code einbinden. 
 Formatiere ihn nicht entsprechend Deinen Konventionen um, 
-kommentiere ihn nicht au\ss{}er einer Quellenangabe. 
+kommentiere ihn nicht au\ss{}er durch eine Quellenangabe. 
 Und achte auf das Copyright (siehe Abschnitt~\ref{sec:copy_foreign}).
 
 \subsection{Versionskontrollsysteme\label{sec:vcs}}
@@ -580,7 +583,7 @@ Wenn Du Hilfe brauchst: frage Arno R\"o{}der oder Dominik Cullmann.
 
 \subsection{Entwicklungsumgebungen}
 Es gibt viele Editoren und Entwicklungsumgebungen, falls Du neu bist, noch keine
-eignen Pr\"a{}ferenzen hast und in der Sprache \R{} schreibst, empfehlen wir Dir
+eigenen Pr\"a{}ferenzen hast und in der Sprache \R{} schreibst, empfehlen wir Dir
 die Software \href{http://www.rstudio.com/products/rstudio/}{RStudio}, 
 ohne Support ist sie unter der AGPL v3 ver\"o{}ffentlicht.
 
@@ -588,14 +591,14 @@ ohne Support ist sie unter der AGPL v3 ver\"o{}ffentlicht.
 Es gibt nicht "`einfach nur Text"'. "`Einfach nur Text"' ist wahrscheinlich
 ASCII. ASCII stammt aber aus einer Zeit, in der Computernutzer sich auf das
 lateinische Alphabet beschr\"a{}nken mussten. Schon deutsche Umlaute sind nicht
-mehr im einfachen (im erweiterten schon) ASCII-Zeichensatz verf\"u{}gbar.
+mehr im einfachen (jedoch im erweiterten) ASCII-Zeichensatz verf\"u{}gbar.
 Griechische, arabische oder kyrillische Buchstaben schon gar nicht. 
 
 
 Falls Du Programme schreibst, die als Eingabe Zeichen wie ©  oder ç haben
 \emph{k\"o{}nnten}, solltest Du dich mit Encodings auseinandersetzen. Dabei 
-ist wichtig, dass Du die Eingabe entsprechend kodierst und das Programm eine
-entsprechende Kodierung erwartet. Die Datei, aus der dieser Leitfaden kompiliert
+ist wichtig, dass Du die Eingabe entsprechend kodierst und das Programm exakt
+diese Kodierung erwartet. Die Datei, aus der dieser Leitfaden kompiliert
 wird, ist beispielsweise 'utf-8'-kodiert, der Compiler, der sie in ein pdf 
 setzt, erh\"a{}lt die Anweisung \verb+\inputencoding{utf8}+: sowohl 
 tats\"a{}chliche als auch die erwartete Eingabe sind also 
@@ -625,8 +628,8 @@ einholen.
 
 \subsubsection{Fremder Code\label{sec:copy_foreign}}
 Viel Code ist unter freien Lizenzen verf\"u{}gbar. Einige, etwa die
-\href{https://creativecommons.org/licenses/by-sa/4.0/legalcode}{create commons
-Attribution-ShareAlike 4.0 International} oder die
+\href{https://creativecommons.org/licenses/by-sa/4.0/legalcode}{creative commons
+Attribution-ShareAlike 4.0 International (cc-sa)} oder die
 \href{http://www.gnu.org/licenses/gpl-3.0.html}{GNU General Public License
 (GPL)} verlangen, dass Lizenznehmer (also: Du) ihre Programme nur dann
 ver\"o{}ffentlichen, wenn sie den Code unter der selben Lizenz
@@ -637,11 +640,12 @@ die
 \href{http://opensource.org/licenses/MIT}{MIT License}%
 . }.
 Da die meisten Progamme, die Du schreiben wirst weder bin\"a{}r noch als
-Quellcode ver\"o{}ffentlicht werden werden, kann Dir das eigentlich gleich sein.
+Quellcode ver\"o{}ffentlicht zu werden drohen, kann Dir das eigentlich gleich 
+sein.
 Da die von Dir erstellten Programme aber Deinem Arbeitgeber geh\"o{}ren und der
-sie bin\"a{}r oder als Quellcode ver\"o{}ffentlichen k\"o{}nnte, solltest Du,
-wenn Du fremden Code unter solchen Lizenzen in Deinen Programmen nutzt, dies
-vermerken.
+sie bin\"a{}r oder als Quellcode ver\"o{}ffentlichen wollen  k\"o{}nnte, 
+solltest Du, wenn Du fremden Code unter solchen Lizenzen in Deinen Programmen
+nutzt, dies vermerken.
 \subsection{\R{}}
 \subsubsection{Anleitungen}
 Die offiziellen  \R{}-Anleitungen findest Du lokal auf Deinem Rechner per 
@@ -650,7 +654,7 @@ Besonders hilfreich ist
 \href{http://cran.r-project.org/doc/manuals/r-release/R-intro.pdf}
 {"`An Introduction to R"'}.
 
-Inoffizielle Dokumentationen findest Du unter 
+Inoffizielle Anleitungen findest Du unter 
 \url{http://cran.r-project.org/doc/contrib/}, ihre Beschreibung unter 
 \url{http://cran.r-project.org/other-docs.html}. Hilfreich ist 
 \href{http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf}
@@ -663,7 +667,11 @@ und, auf deutsch,
 eine hilfreiche Sammlung klassischer Fallstricke in R. 
 \subsubsection{Skriptvorlage}
 Eine Vorlage f\"ur ein \R{}-Skript findest Du in Listing~\ref{lst:roxy_template}
-im Anhang~\ref{app:R}. Wir haben sie durch Listing~\ref{lst:template} erstellt.
+im Anhang~\ref{app:R}. 
+Lies sie aufmerksam, passe sie an Deine Bed\"u{}rfnisse an und gew\"o{}hne Dich
+daran, Deine Version dieser Vorlage f\"u{}r alle Deine \R{}-Auswertungsskripte
+zu nutzen.
+Wir haben sie durch Listing~\ref{lst:template} erstellt.
 \lstinputlisting[float=h, label=lst:template, linerange={2-2,7-7}]
 {roxygenize_examples.R}
 
