@@ -1,4 +1,5 @@
-install.packages('roxygen2', repos = 'http://ftp5.gwdg.de/pub/misc/cran/')
 package <- 'roxygen2ForSingleFiles_0.1-3.tar.gz'
 path <- 'H:/FVA-Projekte/Methodenforum/programmierleitfaden'
+## Install dependencies first.
+install.packages('roxygen2', repos = 'http://ftp5.gwdg.de/pub/misc/cran/')
 install.packages(paste(path, package, sep = '/'), repos = NULL, type = 'source')
