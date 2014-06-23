@@ -1,6 +1,6 @@
-# Title: Write the contents of the global variable README to disk.
+# Write the contents of the global variable README to disk.
 #
-# Description: Contents of README are written to file README.txt in the 
+# Contents of README are written to file README.txt in the 
 # directory given via the directory parameter.
 #
 # Author: Dominik Cullmann <dominik.cullmann@@forst.bwl.de>

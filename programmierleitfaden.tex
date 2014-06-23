@@ -9,6 +9,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{adctex}
+\usepackage{makeidx}
+\usepackage[notlot,notlof]{tocbibind}
 \usepackage{timestamp}
 \usepackage{svn} % Ich arbeite mit GIT, aber svn macht einfache ID.
 \usepackage{fancyhdr}
@@ -91,7 +93,7 @@ plainpages=false
 
 \begingroup\makeatletter\endlinechar=\m@ne\everyeof{\noexpand}
 \edef\x{\endgroup\def\noexpand\TeXpath{\@@input|"which tex" }}\x
-
+\makeindex
 \begin{document}
 
 
@@ -217,7 +219,7 @@ und Du auch nicht mit dem Programmieren nebenbei Dein Englisch ein wenig
 verbessern willst: dann schreib' auf Deutsch.
 
 \subsection{Kommentare}
-\subsubsection{Verst\"a{}ndniskommentare}
+\subsubsection{Verst\"a{}ndniskommentare\label{sec:compcom}}
 Es gibt Menschen, die Kommentare im Code f\"u{}r sch\"a{}dlich halten -- weil 
 Code so verst\"a{}ndlich sein sollte, da\ss{} er unkommentiert verstanden
 werden kann.
@@ -284,20 +286,29 @@ f\"u{}r eine kleine Funktion (die sehen wir sp\"a{}ter in
 Listing~\ref{lst:write_readme}).
 \lstinputlisting[float=h, label=lst:doccom1]{documentation.R}
 
-\minisec{R-Auswertungsskripte dokumentieren}
+\subsubsection{\R{}-Auswertungsskripte
+    dokumentieren\index{R!Auswertungsskripte!dokumentieren|textbf}}
 Viele von uns programmieren in der Sprache \R{}, und vielleicht schreibst 
 auch Du nicht so viele Funktionen sondern eher Auswertungsskripte f\"u{}r 
 wissenschaftliche Fragestellungen. 
-
 Auch solche Programme solltest Du kommentieren, und zwar sowohl mit 
-Verst\"a{}ndnis- als auch mit einem Dokumentationskommentar am Anfangs des
-Auswertungsskriptes. Dieser Dokumentationskommentar bezieht sich nicht auf eine
-einzelne Funktion, Klasse oder Methode sondern auf den gesamten Inhalt der
+Verst\"a{}ndnis- als auch gegebenenfalls mit  Dokumentationskommentaren, wie wir
+sie gerade in den Abschnitten \ref{sec:compcom} und \ref{sec:doccom} gesehen 
+haben.
+
+Aber der wichtigste Kommentar eines \R{}-Auswertungsskriptes steht  
+\index{R!Auswertungsskripte!dokumentieren|textbf}
+am Anfang der Datei: dieser Dokumentationskommentar bezieht sich nicht auf eine
+einzelne Definition (einer Funktion, Klasse oder Methode) sondern auf den 
+gesamten Inhalt der
 Datei. Er wird daher oft als "`(Datei-)Header"' bezeichnet und tr\"a{}gt
 h\"a{}ufig den Dateinamen in der Titelzeile.
 Listing~\ref{lst:rdoc} zeigt einen solchen Dokumentationskommentar. 
-\lstinputlisting[float=h, label=lst:rdoc]{r_documentation.R}
-
+\index{R!Auswertungsskripte!dokumentieren|textbf}
+\lstinputlisting[float=h, label=lst:rdoc]{header.R}
+ 
+In Abschnitt~\ref{sec:roxygen2ForSingleFiles} werden wir sehen, wie wir solche
+Kommentare automatisiert verarbeiteten k\"o{}nnen.
 
 
 \subsection{Namesgebung\label{sec:naming}}
@@ -320,7 +331,8 @@ Wenn Du ein neues Projekt beginnst: Sieh' nach, ob es f\"u{}r die von Dir
 verwendete Sprache eine offizielle Namenskonvention gibt. Suche im Internet 
 beispielsweise nach "`Java naming conventions"'.
 
-Die Sprache \R{} besitzt keine offizielle Namenskonvention. Derzeit
+\paragraph{Die Sprache \R{}\index{R!Namenskonvention}} besitzt keine offizielle
+Namenskonvention. Derzeit
 popul\"a{}re "`style guides"', die auch Namenskonventionen enthalten sind die
 von
 \href{https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml}{google} und
@@ -328,17 +340,19 @@ von
 Wir empfehlen f\"u{}r neue Projekte in \R{}: 
 ExceptionNames und ClassNames, GLOBAL\_VARIABLES, KONSTANTS und sonst (also
 f\"u{}r Methoden, Funktionen, Variablen, Module, Instanzvariablen und
-Funktionsparameter) nur lower\_case\_with\_underscores.
+Funktionsparameter) nur 
+lower\_case\_with\_underscores\index{R!Namenskonvention}.
 Das entspricht dem derzeitigen Stand der
 \href{http://legacy.python.org/dev/peps/pep-0008/#naming-conventions}{python
   naming conventions}, die Namenskonvention Hadley Wickhams ist eine
   Untermenge unserer Empfehlung.
 
-\minisec{R packages} d\"urfen keine Unterstriche im Namen tragen, wir
+\minisec{R packages\index{R!Paketnamen} } d\"urfen keine Unterstriche im Namen 
+tragen, wir
 empfehlen daher f\"u{}r \emph{\R{} packages} abweichend lowerCamelCase, 
 da Listing~\ref{lst:rpackages} derzeit ein Ergebnis gr\"o{}\ss{}er eins 
 liefert.
-\lstinputlisting[float=h, label=lst:rpackages]{r_packages.R}
+\lstinputlisting[float=h, label=lst:rpackages]{query_package_names.R}
 
 \subsubsection{Sprechende Namen}
 Die gute Bennenung von Variablen, Funktionen, Klassen und so weiter ist in etwa
@@ -450,7 +464,8 @@ Python erkennt; f\"u{}r die letzten beiden Sprachen gibt es aber auch eigene
 Systeme: JavaDoc und docstrings). 
 Nebenbei l\"a{}sst sich meist automatisch testen, ob der
 Kommentar mit dem beschriebenen Object \"u{}bereinstimmt. 
-F\"u{}r \R{} gibt es kein offizielles Dokumentationssytem, aber 
+\paragraph{F\"u{}r die Sprache \R{}\index{R!Dokumentationssystem} }
+gibt es kein offizielles Dokumentationssytem, aber 
 das Paket \href{http://cran.r-project.org/web/packages/roxygen2/index.html}
 {\code{roxygen2}} versucht, dem abzuhelfen. 
 Wenn wir unseren Dokumetationskommentar aus Listing~\ref{lst:doccom1} der 
@@ -467,7 +482,9 @@ abnimmt.
 Aus Listing~\ref{lst:doccom2}  kann \code{roxygen2} eine Dokumentation in pdf 
 erstellen, die Du \href{write_readme.pdf}{hier} sehen kannst.
 
-\minisec{R-Auswertungsskripte dokumentieren}
+\subsubsection{\R{}-Auswertungsskripte
+    dokumentieren\index{R!Auswertungsskripte!dokumentieren}
+    \label{sec:roxygen2ForSingleFiles}}
 \code{roxygen2} dient der Dokumentation von \R{}-Paketen, nicht von
 Auswertungsskripten. Es kann daher mit Anweisungen, die nicht Teil von
 Funktionen, Klassen und so weiter sind, nicht umgehen. Dazu geh\"oren
@@ -475,43 +492,45 @@ selbstverst\"a{}ndlich auch unsere Header aus Abschnitt~\ref{sec:doccom}.
 Es spricht aber nichts dagegen, sich an die Struktur von \code{roxygen2} zu
 halten und Listing~\ref{lst:rdoc} durch Listing~\ref{lst:rroxy} zu ersetzen.
 
-\lstinputlisting[float=h, label=lst:rroxy, lastline = 7]{r_roxygen.R}
+\lstinputlisting[float=h, label=lst:rroxy, lastline = 7]{header_roxygen.R}
 
-\newif\ifrpack
-\rpacktrue
-\ifrpack
 Im Gegenteil, mit Listing~\ref{lst:package} kannst Du Dir ein \R{}-Paket
-installieren, mit dem Du Dateiheader f\"u{}r Auswertungscode in pdf umwandeln
-kannst. 
+installieren, mit dem Du Dateiheader f\"u{}r \R{}-Auswertungsskripte in pdf 
+umwandeln
+kannst. \index{R!Auswertungsskripte!Dokumentationskommentar} 
 \lstinputlisting[float=h, label=lst:package]{install_roxy.R}
-
 Wenn Du jetzt den Kommentar in  Listing~\ref{lst:rroxy} zu
 Listing~\ref{lst:rroxy_working} 
-\lstinputlisting[float=h, label=lst:rroxy_working]{r_roxygen.R}
+\lstinputlisting[float=h, label=lst:rroxy_working]{header_roxygen.R}
 erweiterst, erh\"altst Du durch
 Listing~\ref{lst:roxy_ex} 
 \lstinputlisting[float=h, label=lst:roxy_ex, linerange={2-2,4-4}]
-{roxygenize_examples.R}
-\href{r_roxygen.pdf}{diese Datei}.  
+{roxygenize_examples.R} die Datei \\*
+\href{%
+header_roxygen.pdf}{%  
+H:\textbackslash{}FVA-Projekte\textbackslash{}Methodenforum\textbackslash{}%
+programmierleitfaden\textbackslash{}header\_roxygen.pdf}.  
 
 Ein kommentiertes Beispiel erh\"a{}lst Du
 durch den Code in Listing~\ref{lst:rroxy_demo}. 
+\index{R!Auswertungsskripte!Dokumentationskommentar} 
 \lstinputlisting[float=h, label=lst:rroxy_demo, linerange={2-2,5-5}]
 {roxygenize_examples.R}
+\clearpage
 
-\else 
-Im Gegenteil, vielleicht kann ja \code{roxygen2} einst einmal mit solchen
-Dateien umgehen. Oder Du machst Dir die M\"u{}he und schreibst eine
-wrapper-Funktion.
-\fi
-\minisec{Sweave} Alternativ kannst Du f\"u{}r Auswertungsskripte auch
+\minisec{Sweave\index{Sweave|textbf}} Alternativ kannst Du f\"u{}r Auswertungsskripte auch
 \href{http://www.stat.uni-muenchen.de/~leisch/Sweave/}{\code{Sweave}} einsetzen.
 Ein Beispiel zeigt Listing~\ref{lst:sweave} im
 Anhang~\ref{app:sweave}.
 Auch diese Datei hat einen Header, der analog zu den obigen aufgebaut ist, nur
 f\"u{}r \TeX{}.
-Aus  Listing~\ref{lst:sweave} kann \href{template.pdf}{diese Datei} generiert
-werden. 
+Aus  Listing~\ref{lst:sweave} kann die Datei \\* 
+\href{%
+template.pdf
+}{%
+H:\textbackslash{}FVA-Projekte\textbackslash{}Methodenforum\textbackslash{}%
+programmierleitfaden\textbackslash{}template.pdf}  
+generiert werden. 
 \subsection{Dateien} Fasse zusammengeh\"o{}rige Funktionen, Klassen und
 so fort in Dateien zusammen; trenne Dateien auf, wo es sich anbietet.
 Eine Datei sollte nicht zu lang sein. F\"u{}nf Bildschirmseiten sind
@@ -583,8 +602,9 @@ Wenn Du Hilfe brauchst: frage Arno R\"o{}der oder Dominik Cullmann.
 
 \subsection{Entwicklungsumgebungen}
 Es gibt viele Editoren und Entwicklungsumgebungen, falls Du neu bist, noch keine
-eigenen Pr\"a{}ferenzen hast und in der Sprache \R{} schreibst, empfehlen wir Dir
-die Software \href{http://www.rstudio.com/products/rstudio/}{RStudio}, 
+eigenen Pr\"a{}ferenzen hast und in der Sprache \R{} schreibst, empfehlen wir 
+Dir die Software \href{http://www.rstudio.com/products/rstudio/}{RStudio}, 
+\index{R!Entwicklungsumgebung} 
 ohne Support ist sie unter der AGPL v3 ver\"o{}ffentlicht.
 
 \subsection{Encoding}
@@ -647,7 +667,7 @@ sie bin\"a{}r oder als Quellcode ver\"o{}ffentlichen wollen  k\"o{}nnte,
 solltest Du, wenn Du fremden Code unter solchen Lizenzen in Deinen Programmen
 nutzt, dies vermerken.
 \subsection{\R{}}
-\subsubsection{Anleitungen}
+\subsubsection{Anleitungen\index{R!Anleitungen} }
 Die offiziellen  \R{}-Anleitungen findest Du lokal auf Deinem Rechner per 
 \code{help.start()}, oder auf \url{http://cran.r-project.org/doc/manuals/}.
 Besonders hilfreich ist 
@@ -665,7 +685,8 @@ und, auf deutsch,
 
 \href{http://www.burns-stat.com/pages/Tutor/R_inferno.pdf}{The \R{} Inferno} ist
 eine hilfreiche Sammlung klassischer Fallstricke in R. 
-\subsubsection{Skriptvorlage}
+\subsubsection{Skriptvorlage\index{R!Auswertungsskripte}
+\index{R!Auswertungsskripte!Vorlage|textbf} }
 Eine Vorlage f\"ur ein \R{}-Skript findest Du in Listing~\ref{lst:roxy_template}
 im Anhang~\ref{app:R}. 
 Lies sie aufmerksam, passe sie an Deine Bed\"u{}rfnisse an und gew\"o{}hne Dich
@@ -678,13 +699,15 @@ Wir haben sie durch Listing~\ref{lst:template} erstellt.
 
 \bibliography{biblio}
 \bibliographystyle{unsrt}
+\printindex
 \appendix
-\section{Sweave\label{app:sweave}}
+\section{Sweave\label{app:sweave}\index{Sweave}}
 \lstinputlisting[label=lst:sweave, language=TeX]{template.Rnw}
 \pagebreak
-\section{\R{}-Beispiele\label{app:R}}
+\section{\R{}-Beispiele\label{app:R}\index{R!Beispiele}}
 \lstinputlisting[label=lst:write_readme_doccom]{write_readme.R}
-\lstinputlisting[label=lst:roxy_template]{my_r_file.R}
+\index{R!Auswertungsskripte!Vorlage}%
+\lstinputlisting[label=lst:roxy_template]{my_r_file.R}%
 %\clearpage
 %\includepdf[pages=-]{write_readme.pdf}
 \end{document}

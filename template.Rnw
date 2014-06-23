@@ -47,9 +47,9 @@ or by running \emph{sweave.R} on a command line.
 \begin{verbwrite}{sweave.R}
 #!/usr/bin/Rscript --vanilla
 ## 
-## File: sweave.R.
+## sweave.R.
 ## 
-## Description: run Sweave example.
+## run Sweave example.
 ## 
 ## Author: Dominik Cullmann
 ## Version: $Id$

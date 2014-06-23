@@ -1,8 +1,8 @@
 #!/usr/bin/Rscript --vanilla
 ##
-## File: sweave.R.
+## sweave.R.
 ##
-## Description: run Sweave example.
+## run Sweave example.
 ##
 ## Author: Dominik Cullmann
 ## Version: $Id$
