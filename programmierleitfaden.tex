@@ -94,6 +94,28 @@ plainpages=false
 \begingroup\makeatletter\endlinechar=\m@ne\everyeof{\noexpand}
 \edef\x{\endgroup\def\noexpand\TeXpath{\@@input|"which tex" }}\x
 \makeindex
+
+% http://mintaka.sdsu.edu/GF/bibliog/latex/floats.html
+% Alter some LaTeX defaults for better treatment of figures:
+    % See p.105 of "TeX Unbound" for suggested values.
+    % See pp. 199-200 of Lamport's "LaTeX" book for details.
+    %   General parameters, for ALL pages:
+\renewcommand{\topfraction}{0.9}	% max fraction of floats at top
+\renewcommand{\bottomfraction}{0.8}	% max fraction of floats at bottom
+    %   Parameters for TEXT pages (not float pages):
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}     % 2 may work better
+\setcounter{dbltopnumber}{2}    % for 2-column pages
+\renewcommand{\dbltopfraction}{0.9}	% fit big float above 2-col. text
+\renewcommand{\textfraction}{0.07}	% allow minimal text w. figs
+    %   Parameters for FLOAT pages (not text pages):
+\renewcommand{\floatpagefraction}{0.7}	% require fuller float pages
+	% N.B.: floatpagefraction MUST be less than topfraction !!
+\renewcommand{\dblfloatpagefraction}{0.7}	% require fuller float pages
+	% remember to use [htp] or [htpb] for placement
+
+
 \begin{document}
 
 
@@ -286,8 +308,9 @@ f\"u{}r eine kleine Funktion (die sehen wir sp\"a{}ter in
 Listing~\ref{lst:write_readme}).
 \lstinputlisting[float=h, label=lst:doccom1]{documentation.R}
 
-\subsubsection{\R{}-Auswertungsskripte
-    dokumentieren\index{R!Auswertungsskripte!dokumentieren|textbf}}
+\subsubsection{\R{}-Auswertungsskripte dokumentieren
+\label{sec:rdoc}
+\index{R!Auswertungsskripte!dokumentieren|textbf}}
 Viele von uns programmieren in der Sprache \R{}, und vielleicht schreibst 
 auch Du nicht so viele Funktionen sondern eher Auswertungsskripte f\"u{}r 
 wissenschaftliche Fragestellungen. 
@@ -464,92 +487,30 @@ Python erkennt; f\"u{}r die letzten beiden Sprachen gibt es aber auch eigene
 Systeme: JavaDoc und docstrings). 
 Nebenbei l\"a{}sst sich meist automatisch testen, ob der
 Kommentar mit dem beschriebenen Object \"u{}bereinstimmt. 
-\paragraph{F\"u{}r die Sprache \R{}\index{R!Dokumentationssystem} }
-gibt es kein offizielles Dokumentationssytem, aber 
-das Paket \href{http://cran.r-project.org/web/packages/roxygen2/index.html}
-{\code{roxygen2}} versucht, dem abzuhelfen. 
-Wenn wir unseren Dokumetationskommentar aus Listing~\ref{lst:doccom1} der 
-Struktur von \code{roxygen2} anpassen, erhalten wir Listing~\ref{lst:doccom2}:
-
-\lstinputlisting[float=h, label=lst:doccom2, lastline=10]%
-{write_readme.R}
-
-Das ist inhaltsgleich zu  Listing~\ref{lst:doccom1}, nur die Version haben wir 
-durch den ID-tag eines Versionskontrollsystems (siehe Abschnitt~\ref{sec:vcs}) 
-ersetzt. Das hat den Vorteil, dass wir das Datum nicht mehr von Hand
-\"a{}ndern m\"u{}ssen, sondern unserer Versionskontrollsystem uns die Arbeit
-abnimmt.
-Aus Listing~\ref{lst:doccom2}  kann \code{roxygen2} eine Dokumentation in pdf 
-erstellen, die Du \href{write_readme.pdf}{hier} sehen kannst.
-
-\subsubsection{\R{}-Auswertungsskripte
-    dokumentieren\index{R!Auswertungsskripte!dokumentieren}
-    \label{sec:roxygen2ForSingleFiles}}
-\code{roxygen2} dient der Dokumentation von \R{}-Paketen, nicht von
-Auswertungsskripten. Es kann daher mit Anweisungen, die nicht Teil von
-Funktionen, Klassen und so weiter sind, nicht umgehen. Dazu geh\"oren
-selbstverst\"a{}ndlich auch unsere Header aus Abschnitt~\ref{sec:doccom}.
-Es spricht aber nichts dagegen, sich an die Struktur von \code{roxygen2} zu
-halten und Listing~\ref{lst:rdoc} durch Listing~\ref{lst:rroxy} zu ersetzen.
-
-\lstinputlisting[float=h, label=lst:rroxy, lastline = 7]{header_roxygen.R}
-
-Im Gegenteil, mit Listing~\ref{lst:package} kannst Du Dir ein \R{}-Paket
-installieren, mit dem Du Dateiheader f\"u{}r \R{}-Auswertungsskripte in pdf 
-umwandeln
-kannst. \index{R!Auswertungsskripte!Dokumentationskommentar} 
-\lstinputlisting[float=h, label=lst:package]{install_roxy.R}
-Wenn Du jetzt den Kommentar in  Listing~\ref{lst:rroxy} zu
-Listing~\ref{lst:rroxy_working} 
-\lstinputlisting[float=h, label=lst:rroxy_working]{header_roxygen.R}
-erweiterst, erh\"altst Du durch
-Listing~\ref{lst:roxy_ex} 
-\lstinputlisting[float=h, label=lst:roxy_ex, linerange={2-2,4-4}]
-{roxygenize_examples.R} die Datei \\*
-\href{%
-header_roxygen.pdf}{%  
-H:\textbackslash{}FVA-Projekte\textbackslash{}Methodenforum\textbackslash{}%
-programmierleitfaden\textbackslash{}header\_roxygen.pdf}.  
-
-Ein kommentiertes Beispiel erh\"a{}lst Du
-durch den Code in Listing~\ref{lst:rroxy_demo}. 
-\index{R!Auswertungsskripte!Dokumentationskommentar} 
-\lstinputlisting[float=h, label=lst:rroxy_demo, linerange={2-2,5-5}]
-{roxygenize_examples.R}
-\clearpage
-
-\minisec{Sweave\index{Sweave|textbf}} Alternativ kannst Du f\"u{}r Auswertungsskripte auch
-\href{http://www.stat.uni-muenchen.de/~leisch/Sweave/}{\code{Sweave}} einsetzen.
-Ein Beispiel zeigt Listing~\ref{lst:sweave} im
-Anhang~\ref{app:sweave}.
-Auch diese Datei hat einen Header, der analog zu den obigen aufgebaut ist, nur
-f\"u{}r \TeX{}.
-Aus  Listing~\ref{lst:sweave} kann die Datei \\* 
-\href{%
-template.pdf}{%
-H:\textbackslash{}FVA-Projekte\textbackslash{}Methodenforum\textbackslash{}%
-programmierleitfaden\textbackslash{}template.pdf}  
-generiert werden. 
-\subsection{Dateien} Fasse zusammengeh\"o{}rige Funktionen, Klassen und
-so fort in Dateien zusammen; trenne Dateien auf, wo es sich anbietet.
+\subsection{Code und Dateien}
+\subsubsection{Dateien}
+Fasse zusammengeh\"o{}rige Funktionen, Klassen und so fort in Dateien zusammen; 
+trenne Dateien auf, wo es sich anbietet.
 Eine Datei sollte nicht zu lang sein. F\"u{}nf Bildschirmseiten sind
 lang (bei einer Aufl\"o{}sung von 1280 x 1024 Pixel, einer
 Schriftgr\"o{}\ss{}e von 10 Punkt und ein wenig Platzverbrauch durch die
 Bedingunselemente Deines Editor/Deiner IDE entspricht das etwa 300
 Zeilen).
 
-\subsection{Funktionsl\"a{}nge} Ein Dutzend Zeilen sind gut, 50 sind zu lang.
+\subsubsection{Funktionsl\"a{}nge} 
+Ein Dutzend Zeilen sind gut, 50 sind zu lang.
 Lagere einzelne Teile aus (siehe Abschnitt~\ref{sec:if}).
 
-\subsection{Funktionsbreite\label{sec:breite}} Verschachtele nicht zu tief. Drei
-Ebenen sollten reichen. Lagere einzelne Zweige in eigene Funktionen aus.
+\subsubsection{Funktionsbreite\label{sec:breite}} 
+Verschachtele nicht zu tief. Drei Ebenen sollten reichen. 
+Lagere einzelne Zweige in eigene Funktionen aus.
 
-\subsection{Kurze Einr\"u{}ckungen} Einr\"u{}ckungen, zum Beispiel bei Schleifen
-oder \code{if}-Zweigen,
+\subsubsection{Kurze Einr\"u{}ckungen} 
+Einr\"u{}ckungen, zum Beispiel bei Schleifen oder \code{if}-Zweigen,
 die sich \"u{}ber viele (beispielsweise mehr als 12 Zeilen) erstrecken, betteln
 nach einer eigenen Funktion.
 
-\subsection{if-Verschachtelungen\label{sec:if}}
+\subsubsection{if-Verschachtelungen\label{sec:if}}
 In Listing~\ref{lst:if1} siehst Du eine \code{if}-Verschachtelung, leider ist
 der Code recht breit, er hat immerhin zwei statt besser eine Verschachtelung.
 Au\ss{}erdem wird erst auf den R\"u{}ckgabewert von
@@ -576,14 +537,14 @@ nicht interessiere, ist der Rest des Codes viel besser verst\"a{}ndlich.
 \lstinputlisting[float=h, label=lst:write_readme, firstline=11
 ]{write_readme.R}
 
-\subsection{Parameteranzahl\label{sec:parameteranzahl}} Funktionen sollten nicht
-mehr als 5 Parameter
-besitzen.
+\subsubsection{Parameteranzahl\label{sec:parameteranzahl}} 
+Funktionen sollten nicht mehr als 5 Parameter besitzen.
 Brauchst Du mehr, solltest Du Teile der Funktion in Hilfsfunktionen auslagern
 oder zusammengeh\"o{}rige Parameter in Arrays \"u{}bergeben.
 
-\subsection{Fremder Code} Wenn Du fremden Code nutzen willst, solltest Du ihn in
-separate Dateien kopieren und in Deinen Code einbinden. 
+\subsubsection{Fremder Code} 
+Wenn Du fremden Code nutzen willst, solltest Du ihn in separate Dateien kopieren
+und in Deinen Code einbinden. 
 Formatiere ihn nicht entsprechend Deinen Konventionen um, 
 kommentiere ihn nicht au\ss{}er durch eine Quellenangabe. 
 Und achte auf das Copyright (siehe Abschnitt~\ref{sec:copy_foreign}).
@@ -684,6 +645,77 @@ und, auf deutsch,
 
 \href{http://www.burns-stat.com/pages/Tutor/R_inferno.pdf}{The \R{} Inferno} ist
 eine hilfreiche Sammlung klassischer Fallstricke in R. 
+
+\subsubsection{Dokumentationssystem\index{R!Dokumentationssystem}}
+F\"u{}r die Sprache \R{}
+gibt es kein offizielles Dokumentationssytem, aber 
+das Paket \href{http://cran.r-project.org/web/packages/roxygen2/index.html}
+{\code{roxygen2}} versucht, dem abzuhelfen. 
+Wenn wir unseren Dokumetationskommentar aus Listing~\ref{lst:doccom1} der 
+Struktur von \code{roxygen2} anpassen, erhalten wir Listing~\ref{lst:doccom2}:
+
+\lstinputlisting[float=h, label=lst:doccom2, lastline=10]%
+{write_readme.R}
+
+Das ist inhaltsgleich zu  Listing~\ref{lst:doccom1}, nur die Version haben wir 
+durch den ID-tag eines Versionskontrollsystems (siehe Abschnitt~\ref{sec:vcs}) 
+ersetzt (damit wir das Datum nicht mehr von Hand
+\"a{}ndern m\"u{}ssen, sondern unserer Versionskontrollsystem uns die Arbeit
+abnimmt).
+Aus Listing~\ref{lst:doccom2}  kann \code{roxygen2} eine Dokumentation in pdf 
+erstellen, die Du \href{write_readme.pdf}{hier} sehen kannst.
+
+\subsubsection{\R{}-Auswertungsskripte dokumentieren
+\index{R!Auswertungsskripte!dokumentieren}
+\label{sec:roxygen2ForSingleFiles}}
+\code{roxygen2} dient der Dokumentation von \R{}-Paketen, nicht von
+Auswertungsskripten. Es kann daher mit Anweisungen, die nicht Teil von
+Funktionen, Klassen und so weiter sind, nicht umgehen. Dazu geh\"oren
+selbstverst\"a{}ndlich auch unsere Header aus Abschnitt~\ref{sec:rdoc}.
+Es spricht aber nichts dagegen, sich an die Struktur von \code{roxygen2} zu
+halten und Listing~\ref{lst:rdoc} durch Listing~\ref{lst:rroxy} zu ersetzen.
+\lstinputlisting[float=h, label=lst:rroxy, lastline = 7]{header_roxygen.R}
+
+Im Gegenteil, mit Listing~\ref{lst:package} kannst Du Dir ein \R{}-Paket
+installieren, mit dem Du 
+Dateiheader\index{R!Auswertungsskripte!Dokumentationskommentar} 
+\index{R!Auswertungsskripte!Dateiheader|see {Dokumentationskommentar}}
+f\"u{}r \R{}-Auswertungsskripte in pdf 
+umwandeln
+kannst.\lstinputlisting[float=h, label=lst:package]{install_roxy.R}
+Wenn Du jetzt den Kommentar in  Listing~\ref{lst:rroxy} zu
+Listing~\ref{lst:rroxy_working} 
+\lstinputlisting[float=h, label=lst:rroxy_working]{header_roxygen.R}
+erweiterst, erh\"altst Du durch
+Listing~\ref{lst:roxy_ex} 
+\lstinputlisting[float=h, label=lst:roxy_ex, linerange={2-2,4-4}]
+{roxygenize_examples.R} die Datei \\*
+\href{%
+header_roxygen.pdf}{%  
+H:\textbackslash{}FVA-Projekte\textbackslash{}Methodenforum\textbackslash{}%
+programmierleitfaden\textbackslash{}header\_roxygen.pdf}.  
+
+Ein kommentiertes Beispiel erh\"a{}lst Du
+durch den Code in Listing~\ref{lst:rroxy_demo}. 
+\index{R!Auswertungsskripte!Dokumentationskommentar} 
+\lstinputlisting[float=h, label=lst:rroxy_demo, linerange={2-2,5-5}]
+{roxygenize_examples.R}
+%%%%\clearpage
+
+\minisec{Sweave\index{Sweave|textbf}} Alternativ kannst Du f\"u{}r 
+Auswertungsskripte auch
+\href{http://www.stat.uni-muenchen.de/~leisch/Sweave/}{\code{Sweave}} einsetzen.
+Ein Beispiel zeigt Listing~\ref{lst:sweave} im
+Anhang~\ref{app:sweave}.
+Auch diese Datei hat einen Header, der analog zu den obigen aufgebaut ist, nur
+f\"u{}r \TeX{}.
+Aus  Listing~\ref{lst:sweave} kann die Datei \\* 
+\href{%
+template.pdf}{%
+H:\textbackslash{}FVA-Projekte\textbackslash{}Methodenforum\textbackslash{}%
+programmierleitfaden\textbackslash{}template.pdf}  
+generiert werden.
+
 \subsubsection{Skriptvorlage\index{R!Auswertungsskripte}
 \index{R!Auswertungsskripte!Vorlage|textbf} }
 Eine Vorlage f\"ur ein \R{}-Skript findest Du in Listing~\ref{lst:roxy_template}
