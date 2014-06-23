@@ -122,7 +122,7 @@ plainpages=false
 \selectlanguage{ngerman}
 \title{Programmierleitfaden an der FVA Baden--W\"u{}rttemberg\\
 \vspace{1cm}
-\normalsize{Version 0.1-10}}
+\normalsize{Version 0.1-11}}
 \author{Arno R\"oder, Bernhard B\"o{}sch, Christian Vonderach,\\
 Dominik Cullmann, Gerald K\"a{}ndler, Marco Reimann}
 \maketitle
@@ -480,14 +480,7 @@ findest Du in Listing~\ref{lst:format}.
 
 
 \section{Tipps\label{sec:tipps}}
-\subsection{Dokumentationssyteme}
-Die meisten Sprachen besitzen Dokumentationssyteme, die Dokumentationskommentare
-auslesen und Dokumentationen daraus fertigen (etwa Doxygen, das C, C++, Java und
-Python erkennt; f\"u{}r die letzten beiden Sprachen gibt es aber auch eigene
-Systeme: JavaDoc und docstrings). 
-Nebenbei l\"a{}sst sich meist automatisch testen, ob der
-Kommentar mit dem beschriebenen Object \"u{}bereinstimmt. 
-\subsection{Code und Dateien}
+\subsection{Stilfragen}
 \subsubsection{Dateien}
 Fasse zusammengeh\"o{}rige Funktionen, Klassen und so fort in Dateien zusammen; 
 trenne Dateien auf, wo es sich anbietet.
@@ -549,6 +542,13 @@ Formatiere ihn nicht entsprechend Deinen Konventionen um,
 kommentiere ihn nicht au\ss{}er durch eine Quellenangabe. 
 Und achte auf das Copyright (siehe Abschnitt~\ref{sec:copy_foreign}).
 
+\subsection{Entwicklungsumgebungen}
+Es gibt viele Editoren und Entwicklungsumgebungen, falls Du neu bist, noch keine
+eigenen Pr\"a{}ferenzen hast und in der Sprache \R{} schreibst, empfehlen wir 
+Dir die Software \href{http://www.rstudio.com/products/rstudio/}{RStudio}, 
+\index{R!Entwicklungsumgebung} 
+ohne Support ist sie unter der AGPL v3 ver\"o{}ffentlicht.
+
 \subsection{Versionskontrollsysteme\label{sec:vcs}}
 Programmieren ohne Versionskontrollsystem ist wie Computerspielen ohne 
 Spielstandspeicherung: ein Fehler, und alles ist futsch.
@@ -560,13 +560,13 @@ subversion (\url{http://subversion.apache.org/})
 und git (\url{http://git-scm.com/}).
 Wenn Du Hilfe brauchst: frage Arno R\"o{}der oder Dominik Cullmann.  
 
-\subsection{Entwicklungsumgebungen}
-Es gibt viele Editoren und Entwicklungsumgebungen, falls Du neu bist, noch keine
-eigenen Pr\"a{}ferenzen hast und in der Sprache \R{} schreibst, empfehlen wir 
-Dir die Software \href{http://www.rstudio.com/products/rstudio/}{RStudio}, 
-\index{R!Entwicklungsumgebung} 
-ohne Support ist sie unter der AGPL v3 ver\"o{}ffentlicht.
-
+\subsection{Dokumentationssyteme}
+Die meisten Sprachen besitzen Dokumentationssyteme, die Dokumentationskommentare
+auslesen und Dokumentationen daraus fertigen (etwa Doxygen, das C, C++, Java und
+Python erkennt; f\"u{}r die letzten beiden Sprachen gibt es aber auch eigene
+Systeme: JavaDoc und docstrings). 
+Nebenbei l\"a{}sst sich meist automatisch testen, ob der
+Kommentar mit dem beschriebenen Object \"u{}bereinstimmt. 
 \subsection{Encoding}
 Es gibt nicht "`einfach nur Text"'. "`Einfach nur Text"' ist wahrscheinlich
 ASCII. ASCII stammt aber aus einer Zeit, in der Computernutzer sich auf das
