@@ -13,6 +13,9 @@
 *.out
 *.pdf
 *.tmp
+*.ilg
+*.idx
+*.ind
 *.toc
 *.xref
 *.eps
