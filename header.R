@@ -1,4 +1,4 @@
-# r_documentation.R
+# Analyse the swiss data set
 #
 # This is an analysis of the swiss data set in the base R package.
 # Or was it the base R system?

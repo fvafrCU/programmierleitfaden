@@ -125,7 +125,7 @@ H:\textbackslash{}FVA-Projekte\textbackslash{}Methodenforum\textbackslash{}%
 \selectlanguage{ngerman}
 \title{Programmierleitfaden an der FVA Baden--W\"u{}rttemberg\\
 \vspace{1cm}
-\normalsize{Version 0.1-12}}
+\normalsize{Version 0.2-0
 \author{Arno R\"oder, Bernhard B\"o{}sch, Christian Vonderach,\\
 Dominik Cullmann, Gerald K\"a{}ndler, Marco Reimann}
 \maketitle
@@ -136,28 +136,29 @@ Mit diesem Leitfaden m\"o{}chten wir Dir, liebe Leserin, lieber Leser (und auch
 uns selbst) helfen, weniger schlecht zu programmieren.
 Es gibt an der FVA recht viele Menschen, die programmieren und nur wenige, die
 dies richtig gelernt haben. Wenn wir uns auf einen gemeinsamen Satz von Regeln
-einlassen k\"o{}nnen, werden wir den Code Anderer leichter lesen und verstehen
-k\"o{}nnen.
+einlassen k\"o{}nnen, werden wir den Code unserer Kolleginnen und Kollegen
+leichter lesen und verstehen k\"o{}nnen.
+
 Nun stellst Du Dir vielleicht die Frage: "`Wieso sollte jemand meinen Code lesen
 wollen oder d\"u{}rfen?"'. Vielleicht wird ein anderer Mensch Dein Projekt
 \"u{}bernehmen m\"u{}ssen, vielleicht bist Du sogar mutig genug, Deinen Code
 anderen zu zeigen um zu sehen, was sie davon halten. Ziemlich sicher aber wirst
-Du selbst in drei Monaten Deinen Code wieder lesen und verstehen m\"u{}ssen. Und
-Du wirst Dir selbst sehr dankbar sein, wenn Du heute an Dein zuk\"u{}nftiges
-Ich denkst und Dich an diesem Leitfaden orientierst.
+Du selbst Deinen Code wieder fr\"u{}her oder sp\"a{}ter wieder lesen und 
+verstehen m\"u{}ssen. Und Du wirst Dir selbst sehr dankbar sein, wenn Du heute 
+an Dein zuk\"u{}nftiges Ich denkst und Dich an diesem Leitfaden orientierst.
 
 Manche Regel wird Dir eventuell zun\"a{}chst kleinlich erscheinen,
 beispielsweise die mit den Leerzeichen  um  Operatoren (siehe Abschnitt
 \ref{sec:format}), aber wenn Du \"o{}fter fremden oder eigenen etwas
 angegammelten Code liest, wirst
-du merken das sich der code viel leichter lesen laest falls sich der autorin  an
-bestimte regeln gehalten hat auch wen diese ihm oder ihr nicht einleuchteten
+du merken das sich der code viel leichter lesen laest falls sich der autorin an
+bestimte regeln gehalten hat auch wen diese ihm oder ihr nicht einleuchteten das
+verhelt sich enlich wie mitt ter rechtschreipunk
 
 Da unseres Wissens derzeit weitaus die meisten programmierenden Mitarbeiterinnen
-und Mitarbeiter an der FVA in der Programmiersprache \R{} schreiben, sind die
+und Mitarbeiter an der FVA mit der Programmiersprache \R{} arbeiten, sind die
 meisten Beispiele dieses Leitfadens in \R{} verfasst und wir haben beim
 Zusammenstellen der Regeln haupts\"a{}chlich an \R{} gedacht.
-% und auch einige rregeln beziehen sich nur auf \R{}.
 Sinngem\"a{}\ss{} lassen sich aber die meisten Regeln auf die meisten
 anderen Sprache \"u{}bertragen. Wir haben sie ja auch nicht selbst erfunden
 sondern nur zusammengetragen, gr\"o{}\ss{}tenteils aus \cite{cc} und \cite{wsp}.
@@ -174,11 +175,11 @@ findest Du im Verzeichnis
 
 
 \subsection{Die wichtigste Regel\label{sec:R1}}
-Schreibe Code so, dass Du ihn in drei Monaten noch verstehen wirst.
+Schreibe Deinen Code so, dass Du ihn in drei Monaten noch verstehen wirst.
 
 \subsection{Die zweitwichtigste Regel\label{sec:R2}}
-Schreibe Code so, dass Du ihn in sechs Monaten noch verstehen wirst. Nein, 
-Unfug, richtig ist: schreibe Code f\"u{}r Deine Leserinnen, nicht f\"u{}r die
+Schreibe Deinen Code so, dass Du ihn in sechs Monaten noch verstehen wirst. 
+Nein, Unfug, richtig ist: schreibe Code f\"u{}r Menschen und nicht f\"u{}r 
 Maschinen. Die meisten Interpreter und Compiler sind heute so gut, dass es
 kaum lohnt, Code zu optimieren. Also lass es. Es sei denn, Du wei\ss{}t
 genau, was Du tust. 
@@ -190,7 +191,6 @@ jeweils einen String aus. Lies beide und
 \"u{}berlege, welcher String wohl die jeweilige Ausgabe ist. Vergleiche dann die
 Zeiten, die Du f\"u{}r Deine \"U{}berlegungen ben\"o{}tigt 
 hast. 
-
 \lstinputlisting[float=h, label=lst:uncool, language=C]{uncool.c}
 
 \lstinputlisting[float=h, label=lst:cool, language=C]{cool.c}
@@ -228,16 +228,15 @@ Kernighan und Ritchie.
   aller existierenden Programmiersprachen sind in Englisch implementiert.
   Gehe also davon aus, dass die meisten Menschen, die Deine Codes lesen
   k\"o{}nnten, zumindest rudiment\"a{}re Englischkenntnisse besitzen.
-\item Stell Dir vor, Du \"u{}bernimmst ein Projekt einer ausscheidenden
-  Mitarbeiterin. M\"o{}chtest Du Code wie in Listing \ref{lst:meghal}
-  lesen?
+\item Stell Dir vor, Du \"u{}bernimmst ein Projekt. M\"o{}chtest Du Code wie 
+  in Listing \ref{lst:meghal} lesen?
 \end{itemize}
 \lstinputlisting[float=h, label=lst:meghal, language=Java]{meghal.java}
 
 \minisec{Welches Englisch?} Britisches Englisch mag \"a{}sthetischer sein,
 aber da die meiste Software in amerikanischem Englisch geschrieben wird: halte
-es ebenso. Warum? Weil dann Menschen (\ldots und wieder: Du selbst in einem
-Jahr), die Deinen Code benuzten, vorhersagen k\"o{}nnen, dass die Variable
+es ebenso. Warum? Weil dann Menschen, die Deinen Code benuzten 
+(auch Du selbst!), vorhersagen k\"o{}nnen, dass die Variable
 \code{background\_colors} nicht \code{background\_colours} hei\ss{}t (mehr zu
 Namen gibt's in Abschnitt~\ref{sec:naming}). 
 
@@ -267,7 +266,6 @@ Und da sich das Wie meist schneller \"a{}ndert als das Was, musst Du auch
 nicht so viele Kommentare aktualisieren.
 Falls es ein \emph{Warum} gibt: schreib es auf. 
 Gut ist  Listing \ref{lst:comment}.
-
 \lstinputlisting[float=h, label=lst:comment]{sum_up.R}
 
 Nutze Schl\"u{}sselworte in Deinen Kommentaren. Halte Dich dabei an die folgende
@@ -285,7 +283,7 @@ development environment) diese Schl\"u{}sselworte erkennt oder wie Du sie
 ihm/ihr beibringst.
 
 \subsubsection{Dokumentationskommentare\label{sec:doccom}}
-Jedem Modul oder Paket, jeder Methode, Klasse, Funktion steht ein
+Jedem Modul oder Paket, jeder Methode, Klasse oder Funktion steht ein
 Dokumentationskommentar zu Gesicht. Dokumentationskommentare haben mindestens 
 folgende Struktur:
 \begin{enumerate}
@@ -301,7 +299,7 @@ wiederum durch eine Dokumentationskommentarleerzeile von den \"u{}brigen Angaben
 getrennt%
 \footnote{Diese Struktur erlaubt es, aus Dokumentationskommentaren
 automatisiert e-Mails zu erstellen. Halte sie bitte ein.}%
-, die mit \code{Sch\"u{}sselwort:} beginnen.
+, die mit einem \code{Sch\"u{}sselwort} beginnen.
 
 F\"u{}r eine Funktion sollten auch 
 \begin{enumerate}[resume]
@@ -354,7 +352,7 @@ Trennung von W\"o{}rten in Namen:
 \item UPPERCASE
 \item lower\_case\_with\_underscores,
 \item UPPER\_CASE\_WITH\_UNDERSCORES
-\item Upper\_Camel\_Case\_With\_Underscores (Igitt)
+\item Upper\_Camel\_Case\_With\_Underscores
 \end{itemize}
 Wenn Du in ein Projekt einsteigst, halte Dich am besten an die (hoffentlich)
 vorhandene Konvention.
@@ -382,11 +380,12 @@ Das entspricht dem derzeitigen Stand der
 tragen, wir
 empfehlen daher f\"u{}r \emph{\R{} packages} abweichend lowerCamelCase, 
 da Listing~\ref{lst:rpackages} derzeit ein Ergebnis gr\"o{}\ss{}er eins 
-liefert.
+liefert (es also mehr cranPackages als CranPackages gibt).
 \lstinputlisting[float=h, label=lst:rpackages]{query_package_names.R}
 
 \subsubsection{Sprechende Namen}
-Die gute Bennenung von Variablen, Funktionen, Klassen und so weiter ist in etwa
+Die gute Bennenung von Bezeichnern (Variablen, Funktionen, Klassen, \ldots)
+ist in etwa
 das Schwierigste am Programmieren. Gute Name sprechen. Sie sind gut leserlich,
 nicht leicht zu verwechseln und logisch (also nicht: \code{l1I},
 \code{international\_f\emph{or}m} und \code{international\_f\emph{ro}m} im 
@@ -456,7 +455,7 @@ Funktionen tun etwas, spendiere Ihnen daher ein \emph{einleitendes} Verb:
 Die Formatierung eines Quellcodes ist in etwa \"a{}quivalent zur
 Rechtschreibung. Wir raten Dir daher:
 \begin{itemize}
-\item folge "`the one true brace style"' (%
+\item folge dem "` one true brace style"' (%
 \href{http://en.wikipedia.org/wiki/Indent_style#Variant:_1TBS}{1TBS}).\\
   In erster Linie bedeutet dies: Bl\"o{}cke werden immer geklammert,
   \"o{}ffnende \{ kommen ans Ende einer
@@ -478,9 +477,14 @@ Rechtschreibung. Wir raten Dir daher:
   musst Dich nur festlegen. Und Leerzeichen statt
   Tabulatoren verwenden.)
 \item fasse Operatoren mit Leerzeichen ein.
+\item lasse jedem Komma ein Leerzeichen folgen.
 \item schreibe mehrteilige Bedingungen auf mehrere Zeilen.
-\item breche mehrzeilige Anweisungen nach Operatoren oder Kommata
-  um.
+\item breche mehrzeilige Anweisungen nach Operatoren oder Kommata um.
+\item r\"u{}cke mehrzeilige geklammerte Bl\"o{}cke (etwa Funktionsdefinitionen 
+    mit mehrzeiliger Parameterliste oder mehrteilige Bedingungen) so ein, dass 
+    sich die Einr\"u{}ckung der Folgezeilen in diesem Block an der Position der
+    \"o{}ffnenden Klammer orientiert (jeder gute Editor, jede gute IDE macht das
+    automatisch f\"u{}r Dich).
 \end{itemize}
 Ein Beispiel der obigen Empfehlungen 
 findest Du in Listing~\ref{lst:format}.
@@ -498,6 +502,15 @@ Schriftgr\"o{}\ss{}e von 10 Punkt und ein wenig Platzverbrauch durch die
 Bedingunselemente Deines Editor/Deiner IDE entspricht das etwa 300
 Zeilen).
 
+%diese info noch irgendwo unterbringen, oder hab ich sie verpasst?
+\subsubsection{Funktionen}
+Wenn Du merkst, dass Du eine Code-Teil per copy-and-paste vervielf\"a{}ltigst
+(und dann eventuell leicht, immer an den selben Stellen, modifizierst),
+solltest Du ihn in einer Funktion zusammenfassen (die modifizierten werden die
+Funktionsparameter). 
+\"A{}nderungen musst Du dadurch nur an einer Stelle vornehmmen, Fehler 
+findest Du leichter.
+
 \subsubsection{Funktionsl\"a{}nge} 
 Ein Dutzend Zeilen sind gut, 50 sind zu lang.
 Lagere einzelne Teile aus (siehe Abschnitt~\ref{sec:if}).
@@ -508,8 +521,8 @@ Lagere einzelne Zweige in eigene Funktionen aus.
 
 \subsubsection{Kurze Einr\"u{}ckungen} 
 Einr\"u{}ckungen, zum Beispiel bei Schleifen oder \code{if}-Zweigen,
-die sich \"u{}ber viele (beispielsweise mehr als 12 Zeilen) erstrecken, betteln
-nach einer eigenen Funktion.
+die sich \"u{}ber viele (beispielsweise mehr als 12 Zeilen) erstrecken, 
+verlangen nach einer eigenen Funktion.
 
 \subsubsection{if-Verschachtelungen\label{sec:if}}
 In Listing~\ref{lst:if1} siehst Du eine \code{if}-Verschachtelung, leider ist
@@ -517,14 +530,10 @@ der Code recht breit, er hat immerhin zwei statt besser eine Verschachtelung.
 Au\ss{}erdem wird erst auf den R\"u{}ckgabewert von
 \code{file.exists()} getestet, aber der Fehlerfall f\"u{}r
 \code{exists()} zuerst bearbeitet.
-
 \lstinputlisting[float=h, label=lst:if1]{if_1.R}
-
 Das macht das Ganze zwar nicht v\"o{}llig unverst\"a{}ndlich, aber
 Listing~\ref{lst:if2} ist deutlich lesbarer:
-
 \lstinputlisting[float=h, label=lst:if2]{if_2.R}
-
 Das Schreiben des README ist in
 einer eigenen Funktion verschwunden, deren Name verst\"a{}ndlich ist. Wenn ich
 mich f\"u{}r die Details dieser Funktion 
@@ -534,10 +543,11 @@ die Funktion samt Dokumentationskommentar findest Du in
 Listing~\ref{lst:write_readme_doccom} 
 im Anhang \ref{app:R})
 nicht interessiere, ist der Rest des Codes viel besser verst\"a{}ndlich.
-
 \lstinputlisting[float=h, label=lst:write_readme, firstline=11
 ]{write_readme.R}
 
+Falls Du tiefe \code{if-else}-B\"a{}ume schreibst, brauchst Du eventuell 
+ein \code{case} (in \R{} hei\ss{}t es \code{switch}).
 \subsubsection{Parameteranzahl\label{sec:parameteranzahl}} 
 Funktionen sollten nicht mehr als 5 Parameter besitzen.
 Brauchst Du mehr, solltest Du Teile der Funktion in Hilfsfunktionen auslagern
@@ -551,7 +561,8 @@ kommentiere ihn nicht au\ss{}er durch eine Quellenangabe.
 Und achte auf das Copyright (siehe Abschnitt~\ref{sec:copy_foreign}).
 
 \subsection{Entwicklungsumgebungen}
-Es gibt viele Editoren und Entwicklungsumgebungen, falls Du neu bist, noch keine
+Es gibt viele Editoren und Entwicklungsumgebungen, falls Du neu an der FVA bist,
+noch keine
 eigenen Pr\"a{}ferenzen hast und in der Sprache \R{} schreibst, empfehlen wir 
 Dir die Software \href{http://www.rstudio.com/products/rstudio/}{RStudio}, 
 \index{R!Entwicklungsumgebung} 
@@ -574,9 +585,11 @@ auslesen und Dokumentationen daraus fertigen (etwa Doxygen, das C, C++, Java und
 Python erkennt; f\"u{}r die letzten beiden Sprachen gibt es aber auch eigene
 Systeme: JavaDoc und docstrings). 
 Nebenbei l\"a{}sst sich meist automatisch testen, ob der
-Kommentar mit dem beschriebenen Object \"u{}bereinstimmt. 
+Kommentar mit dem beschriebenen Objekt \"u{}bereinstimmt. 
+
 \subsection{Encoding}
-Es gibt nicht "`einfach nur Text"'. "`Einfach nur Text"' ist wahrscheinlich
+Es gibt nicht "`einfach nur Text"'. "`Einfach nur Text"' bekommt man mit Papier 
+und Bleistift. "`Einfacher Text auf dem Bildschirm"'ist wahrscheinlich
 ASCII. ASCII stammt aber aus einer Zeit, in der Computernutzer sich auf das
 lateinische Alphabet beschr\"a{}nken mussten. Schon deutsche Umlaute sind nicht
 mehr im einfachen (jedoch im erweiterten) ASCII-Zeichensatz verf\"u{}gbar.
@@ -595,10 +608,10 @@ tats\"a{}chliche als auch die erwartete Eingabe sind also
 \subsection{Urheberrechte und Lizenzen}
 \subsubsection{Eigener Code}
 Ma\ss{}geblich ist das deutsche "`Gesetz \"u{}ber Urheberrecht und verwandte
-Schutzrechte"' (UhrG). 
+Schutzrechte"' (UrhG). 
 Urheber eines Programmes bist immer Du selbst, das Urheberrecht ist auch nicht
 \"u{}bertragbar (\$ 29 UrhG).
-Das UhrG enth\"a{}lt derzeit in Abschnitt 8 "`Besondere Bestimmungen
+Das UrhG enth\"a{}lt derzeit in Abschnitt 8 "`Besondere Bestimmungen
 f\"u{}r 
 Computerprogramme"' folgenden Paragraphen:
 \minisec{\$ 69b Urheber in Arbeits- und Dienstverh\"a{}ltnissen}
@@ -660,7 +673,7 @@ gibt es kein offizielles Dokumentationssytem, aber
 das Paket \href{http://cran.r-project.org/web/packages/roxygen2/index.html}
 {\code{roxygen2}} versucht, dem abzuhelfen. 
 Wenn wir unseren Dokumetationskommentar aus Listing~\ref{lst:doccom1} der 
-Struktur von \code{roxygen2} anpassen, erhalten wir Listing~\ref{lst:doccom2}:
+Struktur von \code{roxygen2} anpassen, erhalten wir Listing~\ref{lst:doccom2}.
 
 \lstinputlisting[float=h, label=lst:doccom2, lastline=10]%
 {write_readme.R}
