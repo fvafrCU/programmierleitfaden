@@ -1,4 +1,4 @@
-#' r_documentation.R
+#' A file header for roxygen
 #'
 #' This is an analysis of the swiss data set in the base R package.
 #' Or was it the base R system?

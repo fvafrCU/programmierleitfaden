@@ -115,14 +115,17 @@ plainpages=false
 \renewcommand{\dblfloatpagefraction}{0.7}	% require fuller float pages
 	% remember to use [htp] or [htpb] for placement
 
-
+\providecommand{\proot}{%
+H:\textbackslash{}FVA-Projekte\textbackslash{}Methodenforum\textbackslash{}%
+}
+\providecommand{\pdir}{\proot{}programmierleitfaden\textbackslash{}}
 \begin{document}
 
 
 \selectlanguage{ngerman}
 \title{Programmierleitfaden an der FVA Baden--W\"u{}rttemberg\\
 \vspace{1cm}
-\normalsize{Version 0.1-11}}
+\normalsize{Version 0.1-12}}
 \author{Arno R\"oder, Bernhard B\"o{}sch, Christian Vonderach,\\
 Dominik Cullmann, Gerald K\"a{}ndler, Marco Reimann}
 \maketitle
@@ -164,6 +167,11 @@ vor, Kapitel~\ref{sec:conventions} enth\"a{}lt alle Regeln, an die Du Dich
 halten musst\footnote{
   Zur Verbindlichkeit unserer Regeln lies Abschnitt~\ref{sec:zwang}
 }, und Kapitel~\ref{sec:tipps} schlie\ss{}t mit vielen sinnvollen Tipps.
+
+S\"a{}mtliche Listings zeigen einen Dateinamen, diese und andere  Dateien 
+findest Du im Verzeichnis  
+\pdir.
+
 
 \subsection{Die wichtigste Regel\label{sec:R1}}
 Schreibe Code so, dass Du ihn in drei Monaten noch verstehen wirst.
@@ -692,8 +700,7 @@ Listing~\ref{lst:roxy_ex}
 {roxygenize_examples.R} die Datei \\*
 \href{%
 header_roxygen.pdf}{%  
-H:\textbackslash{}FVA-Projekte\textbackslash{}Methodenforum\textbackslash{}%
-programmierleitfaden\textbackslash{}header\_roxygen.pdf}.  
+\pdir{}header\_roxygen.pdf}.  
 
 Ein kommentiertes Beispiel erh\"a{}lst Du
 durch den Code in Listing~\ref{lst:rroxy_demo}. 
@@ -712,8 +719,7 @@ f\"u{}r \TeX{}.
 Aus  Listing~\ref{lst:sweave} kann die Datei \\* 
 \href{%
 template.pdf}{%
-H:\textbackslash{}FVA-Projekte\textbackslash{}Methodenforum\textbackslash{}%
-programmierleitfaden\textbackslash{}template.pdf}  
+\pdir{}template.pdf}  
 generiert werden.
 
 \subsubsection{Skriptvorlage\index{R!Auswertungsskripte}
