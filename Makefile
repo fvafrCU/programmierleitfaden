@@ -6,7 +6,6 @@ all: compile
 .PHONY: publish 
 publish: update compile 
 	cp *.pdf ${PUBLIC_DIRECTORY}
-	cp *html ${PUBLIC_DIRECTORY}
 	cp *.R ${PUBLIC_DIRECTORY}
 	cp *.c ${PUBLIC_DIRECTORY}
 	cp *.java ${PUBLIC_DIRECTORY}
