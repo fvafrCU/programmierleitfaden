@@ -1,5 +1,5 @@
 PUBLIC_DIRECTORY=/trans/h/FVA-Projekte/Methodenforum/programmierleitfaden
-
+NAME=programmierleitfaden
 .PHONY: all
 all: compile 
 
@@ -13,13 +13,13 @@ publish: update compile
 	rm ${PUBLIC_DIRECTORY}/template-*.pdf || true
 
 .PHONY: compile
-compile: write_readme.pdf programmierleitfaden.html programmierleitfaden.pdf 
+compile: write_readme.pdf ${NAME}.pdf 
 
-programmierleitfaden.pdf: vanilla_tex programmierleitfaden.tex template.pdf 
-	texi2pdf --shell-escape  programmierleitfaden.tex 
+${NAME}.pdf: vanilla_tex ${NAME}.tex template.pdf 
+	texi2pdf --shell-escape  ${NAME}.tex 
 
-programmierleitfaden.html: programmierleitfaden.tex 
-	htlatex programmierleitfaden.tex  "html_css.cfg" "" "" "-interaction=batchmode -shell-escape" 
+${NAME}.html: vanilla_tex  ${NAME}.tex 
+	htlatex ${NAME}.tex  "html_css.cfg" "" "" "-interaction=batchmode -shell-escape" 
 .PHONY: update
 update:
 	git commit -am'update' || true
@@ -33,7 +33,12 @@ write_readme.pdf: vanilla_roxygen
 
 .PHONY: vanilla_tex
 vanilla_tex:
-	rm programmierleitfaden.aux || true
+	for suffix in aux bbl blg dvi log nav out pdf ps snm toc vrb \
+	    ind ilg idx html 4ct 4tc xref tmp lg idv css;\
+	do\
+	  rm ${NAME}.$${suffix} || true;\
+	done
+	rm ${NAME}[0-9]*.html || true
 
 .PHONY: vanilla_roxygen
 vanilla_roxygen:
