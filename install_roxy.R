@@ -5,7 +5,7 @@
 # Microsoft operating system, so they will need to install the dependencies 
 # manually.
 # 
-# Author: Dominik Cullmann <dominik.cullmann@@forst.bwl.de>
+# Author: Dominik Cullmann <dominik.cullmann@forst.bwl.de>
 # Version: Wed Jun  4 11:10:32 CEST 2014
 
 package <- 'roxygen2ForSingleFiles_0.1-3.tar.gz'
