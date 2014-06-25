@@ -1,15 +1,15 @@
-File: README
+README
 
-Description: Dieses Verzeichnis enthaelt meinen Entwurf eines 
-    Programmierleitfadens. Hauptquelle ist programmierleitfaden.tex, es gibt 
-    eine pdf- und eine html-Version des Outputs. Gestartet wird das Ganze mit 
-    ./compile.sh
-    .
-    Habe nach http://krisjordan.com/essays/setting-up-push-to-deploy-with-git
-    ein push-to-deploy auf H:/BuI/Persoenlich/cullmann/programmierleitfaden
-    eingrichtet. Das ist der GIT_WORK_TREE des public repositories 
-    H:/BuI/Persoenlich/cullmann/git/programmierleitfaden, aus welchem mensch
-    sich ebenfalls ein lokals repository klonen kann.
+Dieses Verzeichnis enthaelt meinen Entwurf eines 
+Programmierleitfadens. Hauptquelle ist programmierleitfaden.tex, es gibt 
+eine pdf- und eine html-Version des Outputs. Gestartet wird das Ganze mit 
+./compile.sh
+.
+Habe nach http://krisjordan.com/essays/setting-up-push-to-deploy-with-git
+ein push-to-deploy auf H:/BuI/Persoenlich/cullmann/programmierleitfaden
+eingrichtet. Das ist der GIT_WORK_TREE des public repositories 
+H:/BuI/Persoenlich/cullmann/git/programmierleitfaden, aus welchem mensch
+sich ebenfalls ein lokals repository klonen kann.
 
 
 Author: Dominik Cullmann, <dominik.cullmann@forst.bwl.de>
