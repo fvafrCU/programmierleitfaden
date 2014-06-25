@@ -10,15 +10,17 @@ publish: update compile
 	cp *.c ${PUBLIC_DIRECTORY}
 	cp *.java ${PUBLIC_DIRECTORY}
 	rm ${PUBLIC_DIRECTORY}/template-*.pdf || true
+	cd ${PUBLIC_DIRECTORY} && zip ./${NAME}.zip ./* --exclude ${NAME}.zip
 
 .PHONY: compile
-compile: write_readme.pdf ${NAME}.pdf 
+compile: is_roxygenized ${NAME}.pdf 
 
 ${NAME}.pdf: vanilla_tex ${NAME}.tex template.pdf 
 	texi2pdf --shell-escape  ${NAME}.tex 
 
 ${NAME}.html: vanilla_tex  ${NAME}.tex 
 	htlatex ${NAME}.tex  "html_css.cfg" "" "" "-interaction=batchmode -shell-escape" 
+
 .PHONY: update
 update:
 	git commit -am'update' || true
@@ -27,7 +29,10 @@ update:
 template.pdf: template.Rnw 
 	./sweave.R 
 
-write_readme.pdf: vanilla_roxygen
+.PHONY: is_roxygenized
+is_roxygenized: write_readme.pdf 
+
+write_readme.pdf header_roxygen.pdf  roxygen2ForSingleFiles_template.pdf my_r_file.pdf: vanilla_roxygen
 	./roxygenize_examples.R
 
 .PHONY: vanilla_tex
