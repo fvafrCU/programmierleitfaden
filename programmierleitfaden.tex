@@ -5,7 +5,8 @@
 %%
 %% Author: Dominik Cullmann, <dominik.cullmann@forst.bwl.de>
 %% Version: $Id$
-\documentclass[twoside]{scrartcl}
+
+\documentclass[twoside]{scrreprt}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -126,14 +127,33 @@ H:\textbackslash{}FVA-Projekte\textbackslash{}Methodenforum\textbackslash{}%
 \selectlanguage{ngerman}
 \title{Programmierleitfaden an der FVA Baden--W\"u{}rttemberg\\
 \vspace{1cm}
-\normalsize{Version 0.2-2}
+\normalsize{Version 0.2-3}
 }
 \author{Arno R\"oder, Bernhard B\"o{}sch, Christian Vonderach,\\
 Dominik Cullmann, Gerald K\"a{}ndler, Marco Reimann}
+\uppertitleback{%
+Kommentare, Fragen, Kritik und Korrekturvorschl\"a{}ge kannst Du gerne an
+uns richten: <dominik.cullmann@forst.bwl.de> 
+}
+\lowertitleback{%
+Copyright:\newline
+© Forstliche Versuchs- und Forschungsanstalt Baden-W\"u{}rttemberg\newline 
+Wonnhaldestra\ss{}e 4, 79100 Freiburg, \url{www.fva-bw.de}
+
+\smallskip
+This work is licensed under the 
+Creative Commons Attribution 4.0 International License.
+To view a copy of this license, 
+visit \url{http://creativecommons.org/licenses/by/4.0/}.
+
+
+
+}
+
 \maketitle
 \tableofcontents
 \thispagestyle{fancy}
-\section{Worum geht's?}
+\chapter{Worum geht's?}
 Mit diesem Leitfaden m\"o{}chten wir Dir, liebe Leserin, lieber Leser (und auch
 uns selbst) helfen, weniger schlecht zu programmieren.
 Es gibt an der FVA recht viele Menschen, die programmieren und nur wenige, die
@@ -176,10 +196,10 @@ findest Du im Verzeichnis
 \pdir.
 
 
-\subsection{Die wichtigste Regel\label{sec:R1}}
+\section{Die wichtigste Regel\label{sec:R1}}
 Schreibe Deinen Code so, dass Du ihn in drei Monaten noch verstehen wirst.
 
-\subsection{Die zweitwichtigste Regel\label{sec:R2}}
+\section{Die zweitwichtigste Regel\label{sec:R2}}
 Schreibe Deinen Code so, dass Du ihn in sechs Monaten noch verstehen wirst. 
 Nein, Unfug, richtig ist: schreibe Code f\"u{}r Menschen und nicht f\"u{}r 
 Maschinen. Die meisten Interpreter und Compiler sind heute so gut, dass es
@@ -208,14 +228,14 @@ aus und cool.c
 }%
 . 
 
-\section{Konventionen\label{sec:conventions}}
-\subsection{Verbindlichkeit der Konventionen\label{sec:zwang}}
+\chapter{Konventionen\label{sec:conventions}}
+\section{Verbindlichkeit der Konventionen\label{sec:zwang}}
 Alle unsere Regeln sind unverbindlich. Aber wenn Du bis hierher gelesen hast,
 hoffen wir, dass Du dennoch entschieden hast, Dich an sie halten zu wollen.
 Alternativ kannst Du auch einfach \cite{KR} lesen und alles so machen wir 
 Kernighan und Ritchie.
 
-\subsection{Englisch oder nicht?}
+\section{Englisch oder nicht?}
 \minisec{Wider}
 \begin{itemize}
 \item Englisch ist wahrscheinlich nicht Deine Muttersprache.
@@ -249,8 +269,8 @@ sein werden und es Dir \emph{wirklich} schwer f\"a{}llt, Englisch zu schreiben
 und Du auch nicht mit dem Programmieren nebenbei Dein Englisch ein wenig
 verbessern willst: dann schreib' auf Deutsch.
 
-\subsection{Kommentare}
-\subsubsection{Verst\"a{}ndniskommentare\label{sec:compcom}}
+\section{Kommentare}
+\subsection{Verst\"a{}ndniskommentare\label{sec:compcom}}
 Es gibt Menschen, die Kommentare im Code f\"u{}r sch\"a{}dlich halten -- weil 
 Code so verst\"a{}ndlich sein sollte, da\ss{} er unkommentiert verstanden
 werden kann.
@@ -284,7 +304,7 @@ Und finde heraus, ob Dein bevorzugter Editor oder Deine IDE (integrated
 development environment) diese Schl\"u{}sselworte erkennt oder wie Du sie
 ihm/ihr beibringst.
 
-\subsubsection{Dokumentationskommentare\label{sec:doccom}}
+\subsection{Dokumentationskommentare\label{sec:doccom}}
 Jedem Modul oder Paket, jeder Methode, Klasse oder Funktion steht ein
 Dokumentationskommentar zu Gesicht. Dokumentationskommentare haben mindestens 
 folgende Struktur:
@@ -316,7 +336,7 @@ f\"u{}r eine kleine Funktion (die sehen wir sp\"a{}ter in
 Listing~\ref{lst:write_readme}).
 \lstinputlisting[float=h, label=lst:doccom1]{documentation.R}
 
-\subsubsection{\R{}-Auswertungsskripte dokumentieren
+\subsection{\R{}-Auswertungsskripte dokumentieren
 \label{sec:rdoc}
 \index{R!Auswertungsskripte!dokumentieren|textbf}}
 Viele von uns programmieren in der Sprache \R{}, und vielleicht schreibst 
@@ -342,8 +362,8 @@ In Abschnitt~\ref{sec:roxygen2ForSingleFiles} werden wir sehen, wie wir solche
 Kommentare automatisiert verarbeiteten k\"o{}nnen.
 
 
-\subsection{Namesgebung\label{sec:naming}}
-\subsubsection{Worttrennung}
+\section{Namesgebung\label{sec:naming}}
+\subsection{Worttrennung}
 Es gibt viele m\"o{}gliche Konventionen zur Gro\ss{}- und Kleinschreibung  von
 Namen und
 Trennung von W\"o{}rten in Namen:
@@ -385,7 +405,7 @@ da Listing~\ref{lst:rpackages} derzeit ein Ergebnis gr\"o{}\ss{}er eins
 liefert (es also mehr cranPackages als CranPackages gibt).
 \lstinputlisting[float=h, label=lst:rpackages]{query_package_names.R}
 
-\subsubsection{Sprechende Namen}
+\subsection{Sprechende Namen}
 Die gute Bennenung von Bezeichnern (Variablen, Funktionen, Klassen, \ldots)
 ist in etwa
 das Schwierigste am Programmieren. Gute Name sprechen. Sie sind gut leserlich,
@@ -402,7 +422,7 @@ Sie sind nicht allzu lang und vor allem nie zu kurz.
   akzeptabel.}.
 Am besten folgen sie einem klaren Schema und sind dadurch erratbar.
 
-\subsubsection{Abk\"u{}rzungen}
+\subsection{Abk\"u{}rzungen}
 \begin{enumerate}
 \item\labitem{abbrevs} Namen sollten \emph{niemals} abk\"u{}rzen.
 \item \emph{Einzige} Ausnahme von Regel \refitem{abbrevs} bilden
@@ -434,13 +454,13 @@ Am besten folgen sie einem klaren Schema und sind dadurch erratbar.
   \label{tab:abbrevs}
 \end{table}
 
-\subsubsection{Boolsche Variable}
+\subsection{Boolsche Variable}
 Boolschen Variablen, also solchen, die entweder wahr oder falsch sind, solltest
 Du zur besseren Verst\"a{}ndlichkeit und Abgrenzung ein einleitendes \code{is\_}
 spendieren: \code{ if~(is\_defined)~\{\ldots\}} ist klarer als
 \code{if~(defined)\{\ldots\}}.
 
-\subsubsection{Ein Name f\"u{}r viele Dinge}
+\subsection{Ein Name f\"u{}r viele Dinge}
 Wenn ein Name etwas bezeichnet, das aus vielen Elementen besteht (eine Liste,
 einen Array oder Vektor), so gibt ihm ein Plural-S:
 \begin{lstlisting}
@@ -448,12 +468,12 @@ einen Array oder Vektor), so gibt ihm ein Plural-S:
   foreground_colors <- c('red', 'black')
 \end{lstlisting}
 
-\subsubsection{Funktionsnamen}
+\subsection{Funktionsnamen}
 Funktionen tun etwas, spendiere Ihnen daher ein \emph{einleitendes} Verb:
 \code{show\_help()} statt \code{help()} (und schon gar nicht  
 \code{help\_show()}).
 
-\subsection{Formatierung\label{sec:format}}
+\section{Formatierung\label{sec:format}}
 Die Formatierung eines Quellcodes ist in etwa \"a{}quivalent zur
 Rechtschreibung. Wir raten Dir daher:
 \begin{itemize}
@@ -493,9 +513,9 @@ findest Du in Listing~\ref{lst:format}.
 \lstinputlisting[float=h, label=lst:format]{format.R}
 
 
-\section{Tipps\label{sec:tipps}}
-\subsection{Stilfragen}
-\subsubsection{Dateien}
+\chapter{Tipps\label{sec:tipps}}
+\section{Stilfragen}
+\subsection{Dateien}
 Fasse zusammengeh\"o{}rige Funktionen, Klassen und so fort in Dateien zusammen; 
 trenne Dateien auf, wo es sich anbietet.
 Eine Datei sollte nicht zu lang sein. F\"u{}nf Bildschirmseiten sind
@@ -505,7 +525,7 @@ Bedingunselemente Deines Editor/Deiner IDE entspricht das etwa 300
 Zeilen).
 
 %diese info noch irgendwo unterbringen, oder hab ich sie verpasst?
-\subsubsection{Funktionen}
+\subsection{Funktionen}
 Wenn Du merkst, dass Du eine Code-Teil per copy-and-paste vervielf\"a{}ltigst
 (und dann eventuell leicht, immer an den selben Stellen, modifizierst),
 solltest Du ihn in einer Funktion zusammenfassen (die modifizierten werden die
@@ -513,20 +533,20 @@ Funktionsparameter).
 \"A{}nderungen musst Du dadurch nur an einer Stelle vornehmmen, Fehler 
 findest Du leichter.
 
-\subsubsection{Funktionsl\"a{}nge} 
+\subsection{Funktionsl\"a{}nge} 
 Ein Dutzend Zeilen sind gut, 50 sind zu lang.
 Lagere einzelne Teile aus (siehe Abschnitt~\ref{sec:if}).
 
-\subsubsection{Funktionsbreite\label{sec:breite}} 
+\subsection{Funktionsbreite\label{sec:breite}} 
 Verschachtele nicht zu tief. Drei Ebenen sollten reichen. 
 Lagere einzelne Zweige in eigene Funktionen aus.
 
-\subsubsection{Kurze Einr\"u{}ckungen} 
+\subsection{Kurze Einr\"u{}ckungen} 
 Einr\"u{}ckungen, zum Beispiel bei Schleifen oder \code{if}-Zweigen,
 die sich \"u{}ber viele (beispielsweise mehr als 12 Zeilen) erstrecken, 
 verlangen nach einer eigenen Funktion.
 
-\subsubsection{if-Verschachtelungen\label{sec:if}}
+\subsection{if-Verschachtelungen\label{sec:if}}
 In Listing~\ref{lst:if1} siehst Du eine \code{if}-Verschachtelung, leider ist
 der Code recht breit, er hat immerhin zwei statt besser eine Verschachtelung.
 Au\ss{}erdem wird erst auf den R\"u{}ckgabewert von
@@ -550,19 +570,19 @@ nicht interessiere, ist der Rest des Codes viel besser verst\"a{}ndlich.
 
 Falls Du tiefe \code{if-else}-B\"a{}ume schreibst, brauchst Du eventuell 
 ein \code{case} (in \R{} hei\ss{}t es \code{switch}).
-\subsubsection{Parameteranzahl\label{sec:parameteranzahl}} 
+\subsection{Parameteranzahl\label{sec:parameteranzahl}} 
 Funktionen sollten nicht mehr als 5 Parameter besitzen.
 Brauchst Du mehr, solltest Du Teile der Funktion in Hilfsfunktionen auslagern
 oder zusammengeh\"o{}rige Parameter in Arrays \"u{}bergeben.
 
-\subsubsection{Fremder Code} 
+\subsection{Fremder Code} 
 Wenn Du fremden Code nutzen willst, solltest Du ihn in separate Dateien kopieren
 und in Deinen Code einbinden. 
 Formatiere ihn nicht entsprechend Deinen Konventionen um, 
 kommentiere ihn nicht au\ss{}er durch eine Quellenangabe. 
 Und achte auf das Copyright (siehe Abschnitt~\ref{sec:copy_foreign}).
 
-\subsection{Entwicklungsumgebungen}
+\section{Entwicklungsumgebungen}
 Es gibt viele Editoren und Entwicklungsumgebungen, falls Du neu an der FVA bist,
 noch keine
 eigenen Pr\"a{}ferenzen hast und in der Sprache \R{} schreibst, empfehlen wir 
@@ -570,7 +590,7 @@ Dir die Software \href{http://www.rstudio.com/products/rstudio/}{RStudio},
 \index{R!Entwicklungsumgebung} 
 ohne Support ist sie unter der AGPL v3 ver\"o{}ffentlicht.
 
-\subsection{Versionskontrollsysteme\label{sec:vcs}}
+\section{Versionskontrollsysteme\label{sec:vcs}}
 Programmieren ohne Versionskontrollsystem ist wie Computerspielen ohne 
 Spielstandspeicherung: ein Fehler, und alles ist futsch.
 Tu Dir den Gefallen, und nutze eines.
@@ -581,7 +601,7 @@ subversion (\url{http://subversion.apache.org/})
 und git (\url{http://git-scm.com/}).
 Wenn Du Hilfe brauchst: frage Arno R\"o{}der oder Dominik Cullmann.  
 
-\subsection{Dokumentationssyteme}
+\section{Dokumentationssyteme}
 Die meisten Sprachen besitzen Dokumentationssyteme, die Dokumentationskommentare
 auslesen und Dokumentationen daraus fertigen (etwa Doxygen, das C, C++, Java und
 Python erkennt; f\"u{}r die letzten beiden Sprachen gibt es aber auch eigene
@@ -589,7 +609,7 @@ Systeme: JavaDoc und docstrings).
 Nebenbei l\"a{}sst sich meist automatisch testen, ob der
 Kommentar mit dem beschriebenen Objekt \"u{}bereinstimmt. 
 
-\subsection{Encoding}
+\section{Encoding}
 Es gibt nicht "`einfach nur Text"'. "`Einfach nur Text"' bekommt man mit Papier 
 und Bleistift. "`Einfacher Text auf dem Bildschirm"'ist wahrscheinlich
 ASCII. ASCII stammt aber aus einer Zeit, in der Computernutzer sich auf das
@@ -607,8 +627,8 @@ setzt, erh\"a{}lt die Anweisung \verb+\inputencoding{utf8}+: sowohl
 tats\"a{}chliche als auch die erwartete Eingabe sind also 
 \href{http://en.wikipedia.org/wiki/UTF-8}{UTF-8}, eine Umsetzung des
 \href{http://en.wikipedia.org/wiki/Unicode}{Unicode}-Standards.
-\subsection{Urheberrechte und Lizenzen}
-\subsubsection{Eigener Code}
+\section{Urheberrechte und Lizenzen}
+\subsection{Eigener Code}
 Ma\ss{}geblich ist das deutsche "`Gesetz \"u{}ber Urheberrecht und verwandte
 Schutzrechte"' (UrhG). 
 Urheber eines Programmes bist immer Du selbst, das Urheberrecht ist auch nicht
@@ -629,7 +649,7 @@ geh\"o{}rt. Bevor Du also etwa Code unter einer Lizenz Deiner Wahl
 ver\"o{}ffentlichst, solltest Du Dir das Einverst\"a{}ndnis Deiner Vorgesetzten 
 einholen.
 
-\subsubsection{Fremder Code\label{sec:copy_foreign}}
+\subsection{Fremder Code\label{sec:copy_foreign}}
 Viel Code ist unter freien Lizenzen verf\"u{}gbar. Einige, etwa die
 \href{https://creativecommons.org/licenses/by-sa/4.0/legalcode}{creative commons
 Attribution-ShareAlike 4.0 International (cc-sa)} oder die
@@ -649,8 +669,8 @@ Da die von Dir erstellten Programme aber Deinem Arbeitgeber geh\"o{}ren und der
 sie bin\"a{}r oder als Quellcode ver\"o{}ffentlichen wollen  k\"o{}nnte, 
 solltest Du, wenn Du fremden Code unter solchen Lizenzen in Deinen Programmen
 nutzt, dies vermerken.
-\subsection{\R{}}
-\subsubsection{Anleitungen\index{R!Anleitungen} }
+\section{\R{}}
+\subsection{Anleitungen\index{R!Anleitungen} }
 Die offiziellen  \R{}-Anleitungen findest Du lokal auf Deinem Rechner per 
 \code{help.start()}, oder auf \url{http://cran.r-project.org/doc/manuals/}.
 Besonders hilfreich ist 
@@ -669,7 +689,7 @@ und, auf deutsch,
 \href{http://www.burns-stat.com/pages/Tutor/R_inferno.pdf}{The \R{} Inferno} ist
 eine hilfreiche Sammlung klassischer Fallstricke in R. 
 
-\subsubsection{Dokumentationssystem\index{R!Dokumentationssystem}}
+\subsection{Dokumentationssystem\index{R!Dokumentationssystem}}
 F\"u{}r die Sprache \R{}
 gibt es kein offizielles Dokumentationssytem, aber 
 das Paket \href{http://cran.r-project.org/web/packages/roxygen2/index.html}
@@ -688,7 +708,7 @@ abnimmt).
 Aus Listing~\ref{lst:doccom2}  kann \code{roxygen2} eine Dokumentation in pdf 
 erstellen, die Du \href{write_readme.pdf}{hier} sehen kannst.
 
-\subsubsection{\R{}-Auswertungsskripte dokumentieren
+\subsection{\R{}-Auswertungsskripte dokumentieren
 \index{R!Auswertungsskripte!dokumentieren}
 \label{sec:roxygen2ForSingleFiles}}
 \code{roxygen2} dient der Dokumentation von \R{}-Paketen, nicht von
@@ -737,7 +757,7 @@ template.pdf}{%
 \pdir{}template.pdf}  
 generiert werden.
 
-\subsubsection{Skriptvorlage\index{R!Auswertungsskripte}
+\subsection{Skriptvorlage\index{R!Auswertungsskripte}
 \index{R!Auswertungsskripte!Vorlage|textbf} }
 Eine Vorlage f\"ur ein \R{}-Skript findest Du in Listing~\ref{lst:roxy_template}
 im Anhang~\ref{app:R}. 
@@ -753,10 +773,10 @@ Wir haben sie durch Listing~\ref{lst:template} erstellt.
 \bibliographystyle{unsrt}
 \printindex
 \appendix
-\section{Sweave\label{app:sweave}\index{Sweave}}
+\chapter{Sweave\label{app:sweave}\index{Sweave}}
 \lstinputlisting[label=lst:sweave, language=TeX]{template.Rnw}
 \pagebreak
-\section{\R{}-Beispiele\label{app:R}\index{R!Beispiele}}
+\chapter{\R{}-Beispiele\label{app:R}\index{R!Beispiele}}
 \lstinputlisting[label=lst:write_readme_doccom]{write_readme.R}
 \index{R!Auswertungsskripte!Vorlage}%
 \lstinputlisting[label=lst:roxy_template]{my_r_file.R}%
