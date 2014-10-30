@@ -1,10 +1,13 @@
 PUBLIC_DIRECTORY=/trans/h/FVA-Projekte/Methodenforum/programmierleitfaden
 NAME=programmierleitfaden
+ROXY_PACKAGE_PATH=~/git.data/roxygen2ForSingleFiles
+ROXY_PACKAGE=roxygen2ForSingleFiles_0.1-4.tar.gz
+
 .PHONY: all
 all: compile 
 
 .PHONY: publish 
-publish: update compile 
+publish: update compile ${PUBLIC_DIRECTORY}/${ROXY_PACKAGE}  
 	cp *.pdf ${PUBLIC_DIRECTORY}
 	cp *.R ${PUBLIC_DIRECTORY}
 	cp *.c ${PUBLIC_DIRECTORY}
@@ -12,9 +15,14 @@ publish: update compile
 	rm ${PUBLIC_DIRECTORY}/template-*.pdf || true
 	cd ${PUBLIC_DIRECTORY} && zip ./${NAME}.zip ./* --exclude ${NAME}.zip
 
+
+${PUBLIC_DIRECTORY}/${ROXY_PACKAGE}:
+	cp ${ROXY_PACKAGE_PATH}/${ROXY_PACKAGE} ${PUBLIC_DIRECTORY}
+
 .PHONY: compile
 compile: is_roxygenized ${NAME}.pdf 
 
+.PHONY: ${NAME}.pdf
 ${NAME}.pdf: vanilla_tex ${NAME}.tex template.pdf 
 	texi2pdf --shell-escape  ${NAME}.tex 
 
@@ -26,12 +34,14 @@ update:
 	git commit -am'update' || true
 	git checkout master  .
 
+.PHONY: template.pdf
 template.pdf: template.Rnw 
 	./sweave.R 
 
 .PHONY: is_roxygenized
 is_roxygenized: write_readme.pdf 
 
+.PHONY: write_readme.pdf
 write_readme.pdf header_roxygen.pdf  roxygen2ForSingleFiles_template.pdf my_r_file.pdf: vanilla_roxygen
 	./roxygenize_examples.R
 
