@@ -8,7 +8,7 @@
 # Author: Dominik Cullmann <dominik.cullmann@forst.bwl.de>
 # Version: Wed Jun  4 11:10:32 CEST 2014
 
-package <- 'roxygen2ForSingleFiles_0.1-3.tar.gz'
+package <- 'roxygen2ForSingleFiles_0.1-4.tar.gz'
 path <- 'H:/FVA-Projekte/Methodenforum/programmierleitfaden'
 ## Install dependencies first.
 install.packages('roxygen2', repos = 'http://ftp5.gwdg.de/pub/misc/cran/')
