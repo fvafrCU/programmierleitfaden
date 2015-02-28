@@ -1,10 +1,10 @@
 README
 
 Dieses Verzeichnis enthaelt meinen Entwurf eines 
-Programmierleitfadens. Hauptquelle ist programmierleitfaden.tex, es gibt 
-eine pdf- und eine html-Version des Outputs. Gestartet wird das Ganze mit 
-./compile.sh
-.
+Programmierleitfadens, Hauptquelle ist programmierleitfaden.tex.
+Es gibt eine pdf- und eine html-Version des Outputs, letztere ist derzeit defekt. 
+Gestartet wird das Ganze mit make [TARGET].
+
 Habe nach http://krisjordan.com/essays/setting-up-push-to-deploy-with-git
 ein push-to-deploy auf H:/BuI/Persoenlich/cullmann/programmierleitfaden
 eingrichtet. Das ist der GIT_WORK_TREE des public repositories 
