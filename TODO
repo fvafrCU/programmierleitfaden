@@ -1,0 +1,13 @@
+* ersetze roxygen2ForSingleFiles durch github.com/fvafrCU/documentation.
+* Javacode mit Quellenangabe und als inline-listing.
+* Verschiebe die Listings nach listings/.
+* Pruefe Makefile-targets.
+* fuege README.md hinzu.
+* fuege VERSION hinzu.
+  - lies VERSION in TeX.
+  - make target gittag, das VERSION gegen tags tested und ggf. tag hinzufuegt.
+* fuege README.md hinzu.
+* fuege LICENSE hinzu.
+
+
+
