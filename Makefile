@@ -2,7 +2,7 @@ PUBLIC_DIRECTORY=/trans/h/FVA-Projekte/Methodenforum/programmierleitfaden
 NAME=programmierleitfaden
 ROXY_PACKAGE_PATH=~/git.data/roxygen2ForSingleFiles
 ROXY_PACKAGE=roxygen2ForSingleFiles_0.1-4.tar.gz
-
+version=$$(cat VERSION)
 .PHONY: all
 all: compile 
 
@@ -63,7 +63,7 @@ vanilla_roxygen:
 
 .PHONY: gittag
 gittag:
-	git tag -l | grep $(cat VERSION) || git tag -a v$(cat VERSION)
+	git tag -l | grep $(cat VERSION) ||  eval git tag -a v${version}
 .PHONY: clean
 clean:
 	git clean -x -f
