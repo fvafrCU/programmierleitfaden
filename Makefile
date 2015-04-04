@@ -61,6 +61,9 @@ vanilla_roxygen:
 	rm roxygen2ForSingleFiles_template.pdf || true
 	rm my_r_file.pdf|| true
 
+.PHONY: gittag
+gittag:
+	git tag -l | grep $(cat VERSION) || git tag -a v$(cat VERSION)
 .PHONY: clean
 clean:
 	git clean -x -f

@@ -1,6 +1,4 @@
-* fuege VERSION hinzu.
-  - lies VERSION in TeX.
-  - make target gittag, das VERSION gegen tags tested und ggf. tag hinzufuegt.
+*  Version: make target gittag als Abhaengigkeit fuer make ...
 * ersetze roxygen2ForSingleFiles durch github.com/fvafrCU/documentation.
 * Javacode mit Quellenangabe und als inline-listing.
 * Verschiebe die Listings nach listings/.
