@@ -63,7 +63,7 @@ vanilla_roxygen:
 
 .PHONY: gittag
 gittag:
-	git tag -l | grep $(cat VERSION) ||  eval git tag -a v${version}
+	git tag -l | grep ${version} ||  eval git tag -a v${version}
 .PHONY: clean
 clean:
 	git clean -x -f
