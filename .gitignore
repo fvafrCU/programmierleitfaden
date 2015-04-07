@@ -29,3 +29,8 @@ template.tex
 my_r_file.R
 public
 tmp
+write_readme.txt
+header_roxygen.txt
+*.md
+documentation_write_readme.R.*
+

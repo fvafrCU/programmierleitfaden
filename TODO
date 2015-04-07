@@ -1,5 +1,3 @@
-* Version: make target gittag als Abhaengigkeit fuer make ...
-* ersetze roxygen2ForSingleFiles durch github.com/fvafrCU/documentation.
 * Javacode mit Quellenangabe und als inline-listing.
 * Verschiebe die Listings nach listings/.
 * Pruefe Makefile-targets.

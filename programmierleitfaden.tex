@@ -1,7 +1,7 @@
-%% programmierleitfaden.tex
+%% documentation programmierleitfaden.tex
 %%
-%% draft for a style guide / for naming conventions / collection of
-%%     tips and tricks for programming at the FVA-BW
+%% a style guide / for naming conventions / collection of tips and tricks 
+%% for programming at FVA-BW.
 %%
 %% Author: Dominik Cullmann, <dominik.cullmann@forst.bwl.de>
 %% Version: $Id$
@@ -234,6 +234,7 @@ aus und cool.c
 }%
 . 
 
+\selectlanguage{ngerman}
 \chapter{Konventionen\label{sec:conventions}}
 \section{Verbindlichkeit der Konventionen\label{sec:zwang}}
 Alle unsere Regeln sind unverbindlich. Aber wenn Du bis hierher gelesen hast,
@@ -343,7 +344,7 @@ schaden nicht.
 In Listing~\ref{lst:doccom1} siehst Du einen Dokumentationskommentar
 f\"u{}r eine kleine Funktion (die sehen wir sp\"a{}ter in
 Listing~\ref{lst:write_readme}).
-\lstinputlisting[float=h, label=lst:doccom1]{documentation.R}
+\lstinputlisting[float=h, label=lst:doccom1]{write_readme_doc.R}
 
 \subsection{\R{}-Auswertungsskripte dokumentieren
 \label{sec:rdoc}
@@ -367,7 +368,7 @@ Listing~\ref{lst:rdoc} zeigt einen solchen Dokumentationskommentar.
 \index{R!Auswertungsskripte!dokumentieren|textbf}
 \lstinputlisting[float=h, label=lst:rdoc]{header.R}
  
-In Abschnitt~\ref{sec:roxygen2ForSingleFiles} werden wir sehen, wie wir solche
+In Abschnitt~\ref{sec:documentation} werden wir sehen, wie wir solche
 Kommentare automatisiert verarbeiteten k\"o{}nnen.
 
 
@@ -719,7 +720,7 @@ erstellen, die Du \href{write_readme.pdf}{hier} sehen kannst.
 
 \subsection{\R{}-Auswertungsskripte dokumentieren
 \index{R!Auswertungsskripte!dokumentieren}
-\label{sec:roxygen2ForSingleFiles}}
+\label{sec:documentation}}
 \code{roxygen2} dient der Dokumentation von \R{}-Paketen, nicht von
 Auswertungsskripten. Es kann daher mit Anweisungen, die nicht Teil von
 Funktionen, Klassen und so weiter sind, nicht umgehen. Dazu geh\"oren
@@ -734,23 +735,17 @@ Dateiheader\index{R!Auswertungsskripte!Dokumentationskommentar}
 \index{R!Auswertungsskripte!Dateiheader|see {Dokumentationskommentar}}
 f\"u{}r \R{}-Auswertungsskripte in pdf 
 umwandeln
-kannst.\lstinputlisting[float=h, label=lst:package]{install_roxy.R}
+kannst.\lstinputlisting[float=h, label=lst:package]{install_documentation.R}
 Wenn Du jetzt den Kommentar in  Listing~\ref{lst:rroxy} zu
 Listing~\ref{lst:rroxy_working} 
 \lstinputlisting[float=h, label=lst:rroxy_working]{header_roxygen.R}
 erweiterst, erh\"altst Du durch
 Listing~\ref{lst:roxy_ex} 
 \lstinputlisting[float=h, label=lst:roxy_ex, linerange={2-2,4-4}]
-{roxygenize_examples.R} die Datei \\*
+{documentation_examples.R} die Datei \\*
 \href{%
 header_roxygen.pdf}{%  
 \pdir{}header\_roxygen.pdf}.  
-
-Ein kommentiertes Beispiel erh\"a{}lst Du
-durch den Code in Listing~\ref{lst:rroxy_demo}. 
-\index{R!Auswertungsskripte!Dokumentationskommentar} 
-\lstinputlisting[float=h, label=lst:rroxy_demo, linerange={2-2,5-5}]
-{roxygenize_examples.R}
 %%%%\clearpage
 
 \minisec{Sweave\index{Sweave|textbf}} Alternativ kannst Du f\"u{}r 
@@ -774,8 +769,8 @@ Lies sie aufmerksam, passe sie an Deine Bed\"u{}rfnisse an und gew\"o{}hne Dich
 daran, Deine Version dieser Vorlage f\"u{}r alle Deine \R{}-Auswertungsskripte
 zu nutzen.
 Wir haben sie durch Listing~\ref{lst:template} erstellt.
-\lstinputlisting[float=h, label=lst:template, linerange={2-2,7-7}]
-{roxygenize_examples.R}
+\lstinputlisting[float=h, label=lst:template, linerange={2-2,6-6}]
+{documentation_examples.R}
 
 
 \bibliography{biblio}
