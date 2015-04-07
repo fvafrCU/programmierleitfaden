@@ -1,3 +1,4 @@
+#!/usr/bin/Rscript --vanilla
 ## I haven't yet had time to read the documentation, 
 ## so I don't have a clue if there's a
 ## standard library to do it. TODO: RTFM

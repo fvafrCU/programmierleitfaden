@@ -49,22 +49,24 @@ Sweave(paste(NAME, "Rnw", sep = ".")) # run R code, extract tex code to NAME.Tex
 Stangle(paste(NAME, "Rnw", sep = ".")) # extract R code to NAME.r
 tools::texi2dvi(paste(NAME, "tex", sep ="."), pdf = FALSE) # produce document
 @
-or by running \emph{sweave.R} on a command line.
-\begin{verbwrite}{sweave.R}
+or by running \emph{sweave.r} on a command line.
+\begin{verbwrite}{sweave.r}
 #!/usr/bin/Rscript --vanilla
-## 
-## sweave.R.
-## 
-## run Sweave example.
-## 
-## Author: Dominik Cullmann
-## Version: $Id$
-
-NAME <- 'template'
-
-Sweave(paste(NAME, "Rnw", sep = ".")) # run R code, extract tex code to NAME.Tex
-# Stangle(paste(NAME, "Rnw", sep = ".")) # extract R code to NAME.r
-tools::texi2dvi(paste(NAME, "tex", sep ="."), pdf = TRUE) # produce document
+# Sweave: run Rnw files.
+# 
+# This is just a little helper script. RStudio has a 'Sweave'-Button, I use
+# scripts. Oh, and this Button Stangle()s the Rnw.
+# 
+# Author: Dominik Cullmann
+# Version: $Id$
+args <- commandArgs(trailingOnly = TRUE)
+NAME <- sub(".Rnw", '', args[1], fixed = TRUE)
+if (is.na(NAME)) stop('please specify an Rnw file for input.')
+r_file  <- paste0(NAME, ".Rnw")
+tex_file <- paste0(basename(NAME), ".tex")
+Stangle(r_file, encoding = "utf8") # extract R code to NAME.r
+Sweave(r_file, encoding = "utf8") # run R code, extract tex code to NAME.Tex
+tools::texi2dvi(tex_file, pdf = TRUE) # produce document
 \end{verbwrite}
 
 

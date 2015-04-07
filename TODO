@@ -1,7 +1,5 @@
-* Javacode mit Quellenangabe und als inline-listing.
-* Verschiebe die Listings nach listings/.
+* make listings: teste alle (R und C-)listings
 * Pruefe Makefile-targets.
-* fuege README.md hinzu.
 * fuege README.md hinzu.
 * fuege LICENSE hinzu.
 

@@ -62,6 +62,7 @@ plainpages=false
 %%%%% \let\lst@floatdefault\lst@float
 %%%%% \makeatother
 \lstset{ %
+    inputpath=listings,
   %% backgroundcolor=\color{white},
   basicstyle=\footnotesize\ttfamily,
   %% identifierstyle=\color{mygray},%\sffamily,
@@ -258,9 +259,20 @@ Kernighan und Ritchie.
   Gehe also davon aus, dass die meisten Menschen, die Deine Codes lesen
   k\"o{}nnten, zumindest rudiment\"a{}re Englischkenntnisse besitzen.
 \item Stell Dir vor, Du \"u{}bernimmst ein Projekt. M\"o{}chtest Du Code wie 
-  in Listing \ref{lst:meghal} lesen?
+    in Listing \ref{lst:meghal} 
+    lesen\footnote{Dieses Beispiel stammt aus \cite{wsp}.}?
 \end{itemize}
-\lstinputlisting[float=h, label=lst:meghal, language=Java]{meghal.java}
+\begin{lstlisting}[float=h, label=lst:meghal, language=Java]
+/*
+ * Kincskereso halalat vezenzli le.
+ */
+
+public void meghal()
+{
+  Game.jatekVege();
+  this.mezo.setCellaElem(null);
+}
+\end{lstlisting}
 
 \minisec{Welches Englisch?} Britisches Englisch mag \"a{}sthetischer sein,
 aber da die meiste Software in amerikanischem Englisch geschrieben wird: halte
@@ -295,7 +307,7 @@ Und da sich das Wie meist schneller \"a{}ndert als das Was, musst Du auch
 nicht so viele Kommentare aktualisieren.
 Falls es ein \emph{Warum} gibt: schreib es auf. 
 Gut ist  Listing \ref{lst:comment}.
-\lstinputlisting[float=h, label=lst:comment]{sum_up.R}
+\lstinputlisting[float=h, label=lst:comment, firstline=2]{sum_up.r}
 
 Nutze Schl\"u{}sselworte in Deinen Kommentaren. Halte Dich dabei an die folgende
 Liste:
@@ -344,7 +356,7 @@ schaden nicht.
 In Listing~\ref{lst:doccom1} siehst Du einen Dokumentationskommentar
 f\"u{}r eine kleine Funktion (die sehen wir sp\"a{}ter in
 Listing~\ref{lst:write_readme}).
-\lstinputlisting[float=h, label=lst:doccom1]{write_readme_doc.R}
+\lstinputlisting[float=h, label=lst:doccom1, firstline = 2]{write_readme_doc.r}
 
 \subsection{\R{}-Auswertungsskripte dokumentieren
 \label{sec:rdoc}
@@ -366,7 +378,7 @@ Datei. Er wird daher oft als "`(Datei-)Header"' bezeichnet und tr\"a{}gt
 h\"a{}ufig den Dateinamen in der Titelzeile.
 Listing~\ref{lst:rdoc} zeigt einen solchen Dokumentationskommentar. 
 \index{R!Auswertungsskripte!dokumentieren|textbf}
-\lstinputlisting[float=h, label=lst:rdoc]{header.R}
+\lstinputlisting[float=h, label=lst:rdoc, firstline = 2]{header.r}
  
 In Abschnitt~\ref{sec:documentation} werden wir sehen, wie wir solche
 Kommentare automatisiert verarbeiteten k\"o{}nnen.
@@ -413,7 +425,7 @@ tragen, wir
 empfehlen daher f\"u{}r \emph{\R{} packages} abweichend lowerCamelCase, 
 da Listing~\ref{lst:rpackages} derzeit ein Ergebnis gr\"o{}\ss{}er eins 
 liefert (es also mehr cranPackages als CranPackages gibt).
-\lstinputlisting[float=h, label=lst:rpackages]{query_package_names.R}
+\lstinputlisting[float=h, label=lst:rpackages, firstline = 2]{query_package_names.r}
 
 \subsection{Sprechende Namen}
 Die gute Bennenung von Bezeichnern (Variablen, Funktionen, Klassen, \ldots)
@@ -520,7 +532,7 @@ Rechtschreibung. Wir raten Dir daher:
 \end{itemize}
 Ein Beispiel der obigen Empfehlungen 
 findest Du in Listing~\ref{lst:format}.
-\lstinputlisting[float=h, label=lst:format]{format.R}
+\lstinputlisting[float=h, label=lst:format, firstline = 2]{format.r}
 
 
 \chapter{Tipps\label{sec:tipps}}
@@ -562,10 +574,10 @@ der Code recht breit, er hat immerhin zwei statt besser eine Verschachtelung.
 Au\ss{}erdem wird erst auf den R\"u{}ckgabewert von
 \code{file.exists()} getestet, aber der Fehlerfall f\"u{}r
 \code{exists()} zuerst bearbeitet.
-\lstinputlisting[float=h, label=lst:if1]{if_1.R}
+\lstinputlisting[float=h, label=lst:if1, firstline = 2]{if_1.r}
 Das macht das Ganze zwar nicht v\"o{}llig unverst\"a{}ndlich, aber
 Listing~\ref{lst:if2} ist deutlich lesbarer:
-\lstinputlisting[float=h, label=lst:if2]{if_2.R}
+\lstinputlisting[float=h, label=lst:if2, firstline = 2]{if_2.r}
 Das Schreiben des README ist in
 einer eigenen Funktion verschwunden, deren Name verst\"a{}ndlich ist. Wenn ich
 mich f\"u{}r die Details dieser Funktion 
@@ -575,8 +587,8 @@ die Funktion samt Dokumentationskommentar findest Du in
 Listing~\ref{lst:write_readme_doccom} 
 im Anhang \ref{app:R})
 nicht interessiere, ist der Rest des Codes viel besser verst\"a{}ndlich.
-\lstinputlisting[float=h, label=lst:write_readme, firstline=11
-]{write_readme.R}
+\lstinputlisting[float=h, label=lst:write_readme, firstline=12
+]{write_readme.r}
 
 Falls Du tiefe \code{if-else}-B\"a{}ume schreibst, brauchst Du eventuell 
 ein \code{case} (in \R{} hei\ss{}t es \code{switch}).
@@ -707,8 +719,8 @@ das Paket \href{http://cran.r-project.org/web/packages/roxygen2/index.html}
 Wenn wir unseren Dokumetationskommentar aus Listing~\ref{lst:doccom1} der 
 Struktur von \code{roxygen2} anpassen, erhalten wir Listing~\ref{lst:doccom2}.
 
-\lstinputlisting[float=h, label=lst:doccom2, lastline=10]%
-{write_readme.R}
+\lstinputlisting[float=h, label=lst:doccom2, firstline = 2, lastline=11]%
+{write_readme.r}
 
 Das ist inhaltsgleich zu  Listing~\ref{lst:doccom1}, nur die Version haben wir 
 durch den ID-tag eines Versionskontrollsystems (siehe Abschnitt~\ref{sec:vcs}) 
@@ -716,7 +728,8 @@ ersetzt (damit wir das Datum nicht mehr von Hand
 \"a{}ndern m\"u{}ssen, sondern unserer Versionskontrollsystem uns die Arbeit
 abnimmt).
 Aus Listing~\ref{lst:doccom2}  kann \code{roxygen2} eine Dokumentation in pdf 
-erstellen, die Du \href{write_readme.pdf}{hier} sehen kannst.
+erstellen, die Du unter \href{write_readme.pdf}{\pdir{}write\_readme.pdf} sehen 
+kannst.
 
 \subsection{\R{}-Auswertungsskripte dokumentieren
 \index{R!Auswertungsskripte!dokumentieren}
@@ -727,7 +740,8 @@ Funktionen, Klassen und so weiter sind, nicht umgehen. Dazu geh\"oren
 selbstverst\"a{}ndlich auch unsere Header aus Abschnitt~\ref{sec:rdoc}.
 Es spricht aber nichts dagegen, sich an die Struktur von \code{roxygen2} zu
 halten und Listing~\ref{lst:rdoc} durch Listing~\ref{lst:rroxy} zu ersetzen.
-\lstinputlisting[float=h, label=lst:rroxy, lastline = 7]{header_roxygen.R}
+\lstinputlisting[float=h, label=lst:rroxy, firstline = 2, lastline = 8]
+{header_roxygen.r}
 
 Im Gegenteil, mit Listing~\ref{lst:package} kannst Du Dir ein \R{}-Paket
 installieren, mit dem Du 
@@ -735,14 +749,16 @@ Dateiheader\index{R!Auswertungsskripte!Dokumentationskommentar}
 \index{R!Auswertungsskripte!Dateiheader|see {Dokumentationskommentar}}
 f\"u{}r \R{}-Auswertungsskripte in pdf 
 umwandeln
-kannst.\lstinputlisting[float=h, label=lst:package]{install_documentation.R}
-Wenn Du jetzt den Kommentar in  Listing~\ref{lst:rroxy} zu
+kannst.\lstinputlisting[float=h, label=lst:package, firstline = 2]
+{install_documentation.r}
+ Wenn Du jetzt den Kommentar in  Listing~\ref{lst:rroxy} zu
 Listing~\ref{lst:rroxy_working} 
-\lstinputlisting[float=h, label=lst:rroxy_working]{header_roxygen.R}
+\lstinputlisting[float=h, label=lst:rroxy_working, firstline = 2]
+{header_roxygen.r}
 erweiterst, erh\"altst Du durch
 Listing~\ref{lst:roxy_ex} 
 \lstinputlisting[float=h, label=lst:roxy_ex, linerange={2-2,4-4}]
-{documentation_examples.R} die Datei \\*
+{documentation_examples.r} die Datei \\*
 \href{%
 header_roxygen.pdf}{%  
 \pdir{}header\_roxygen.pdf}.  
@@ -770,7 +786,7 @@ daran, Deine Version dieser Vorlage f\"u{}r alle Deine \R{}-Auswertungsskripte
 zu nutzen.
 Wir haben sie durch Listing~\ref{lst:template} erstellt.
 \lstinputlisting[float=h, label=lst:template, linerange={2-2,6-6}]
-{documentation_examples.R}
+{documentation_examples.r}
 
 
 \bibliography{biblio}
@@ -781,9 +797,9 @@ Wir haben sie durch Listing~\ref{lst:template} erstellt.
 \lstinputlisting[label=lst:sweave, language=TeX]{template.Rnw}
 \pagebreak
 \chapter{\R{}-Beispiele\label{app:R}\index{R!Beispiele}}
-\lstinputlisting[label=lst:write_readme_doccom]{write_readme.R}
+\lstinputlisting[label=lst:write_readme_doccom]{write_readme.r}
 \index{R!Auswertungsskripte!Vorlage}%
-\lstinputlisting[label=lst:roxy_template]{my_r_file.R}%
+\lstinputlisting[label=lst:roxy_template]{my_r_file.r}%
 %\clearpage
 %\includepdf[pages=-]{write_readme.pdf}
 \end{document}

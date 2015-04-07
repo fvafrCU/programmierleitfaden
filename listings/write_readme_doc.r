@@ -1,3 +1,4 @@
+#!/usr/bin/Rscript --vanilla
 # Write the contents of the global variable README to disk.
 #
 # Contents of README are written to file README.txt in the 

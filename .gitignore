@@ -21,16 +21,12 @@
 *.eps
 *.ps
 *.dvi
-tmp.*
+*.md
 cool
 uncool
-template.bib
-template.tex
-my_r_file.R
 public
 tmp
-write_readme.txt
-header_roxygen.txt
-*.md
+tmp.*
+template.*
 documentation_write_readme.R.*
 

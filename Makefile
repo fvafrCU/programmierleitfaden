@@ -7,7 +7,7 @@ all: compile
 .PHONY: publish 
 publish: update compile 
 	cp *.pdf ${PUBLIC_DIRECTORY}
-	cp *.R ${PUBLIC_DIRECTORY}
+	cp *.r ${PUBLIC_DIRECTORY}
 	cp *.c ${PUBLIC_DIRECTORY}
 	cp *.java ${PUBLIC_DIRECTORY}
 	rm ${PUBLIC_DIRECTORY}/template-*.pdf || true
@@ -31,15 +31,15 @@ update:
 	git checkout master  .
 
 .PHONY: template.pdf
-template.pdf: template.Rnw 
-	./sweave.R 
+template.pdf: listings/template.Rnw 
+	./sweave.r listings/template.Rnw 
 
 .PHONY: is_roxygenized
 is_roxygenized: write_readme.pdf 
 
 .PHONY: write_readme.pdf
 write_readme.pdf header_roxygen.pdf  roxygen2ForSingleFiles_template.pdf my_r_file.pdf: vanilla_roxygen
-	./documentation_examples.R
+	cd listings && ./documentation_examples.r && mv *pdf ../
 
 .PHONY: vanilla_tex
 vanilla_tex:

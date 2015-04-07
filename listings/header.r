@@ -1,3 +1,4 @@
+#!/usr/bin/Rscript --vanilla
 # Analyse the swiss data set
 #
 # This is an analysis of the swiss data set in the base R package.
