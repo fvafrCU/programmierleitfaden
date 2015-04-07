@@ -1,4 +1,4 @@
-% documentation programmierleitfaden.tex
+% programmierleitfaden.tex
 %
 % a style guide / for naming conventions / collection of tips and tricks 
 % for programming at FVA-BW.
@@ -45,7 +45,7 @@ urlcolor=mygreen,
 citecolor=mygray,
 plainpages=false
 ]{hyperref}
-
+\usepackage{breakurl}
 
 \lstset{ %
     inputpath=listings,
@@ -396,7 +396,7 @@ popul\"a{}re "`style guides"', die auch Namenskonventionen enthalten, sind die
 von
 \href{https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml}{google} und
 \href{http://adv-r.had.co.nz/Style.html}{Hadley Wickham}.
-Wir empfehlen f\"u{}r neue Projekte in \R{}: 
+\paragraph{Wir empfehlen f\"u{}r neue Projekte in \R{}:}
 ExceptionNames und ClassNames, GLOBAL\_VARIABLES, KONSTANTS und sonst (also
 f\"u{}r Methoden, Funktionen, Variablen, Module, Instanzvariablen und
 Funktionsparameter) nur 
@@ -466,8 +466,8 @@ Am besten folgen sie einem klaren Schema und sind dadurch erratbar.
 \subsection{Boolsche Variable}
 Boolschen Variablen, also solchen, die entweder wahr oder falsch sind, solltest
 Du zur besseren Verst\"a{}ndlichkeit und Abgrenzung ein einleitendes \code{is\_}
-spendieren: \code{ if~(is\_defined)~\{\ldots\}} ist klarer als
-\code{if~(defined)\{\ldots\}}.
+spendieren: \linebreak\code{ if~(is\_defined)~\{\ldots\}} ist klarer als
+\code{if~(defined)~\{\ldots\}}.
 
 \subsection{Ein Name f\"u{}r viele Dinge}
 Wenn ein Name etwas bezeichnet, das aus vielen Elementen besteht (eine Liste,
@@ -660,8 +660,10 @@ einholen.
 
 \subsection{Fremder Code\label{sec:copy_foreign}}
 Viel Code ist unter freien Lizenzen verf\"u{}gbar. Einige, etwa die
+\linebreak{}
 \href{https://creativecommons.org/licenses/by-sa/4.0/legalcode}{creative commons
 Attribution-ShareAlike 4.0 International (cc-sa)} oder die
+\linebreak{}
 \href{http://www.gnu.org/licenses/gpl-3.0.html}{GNU General Public License
 (GPL)} verlangen, dass Lizenznehmer (also: Du) ihre Programme nur dann
 ver\"o{}ffentlichen, wenn sie den Code unter der selben Lizenz
@@ -683,6 +685,7 @@ nutzt, dies vermerken.
 Die offiziellen  \R{}-Anleitungen findest Du lokal auf Deinem Rechner per 
 \code{help.start()}, oder auf \url{http://cran.r-project.org/doc/manuals/}.
 Besonders hilfreich ist 
+\linebreak{}
 \href{http://cran.r-project.org/doc/manuals/r-release/R-intro.pdf}
 {"`An Introduction to R"'}.
 
@@ -714,6 +717,7 @@ durch den ID-tag eines Versionskontrollsystems (siehe Abschnitt~\ref{sec:vcs})
 ersetzt (damit wir das Datum nicht mehr von Hand
 \"a{}ndern m\"u{}ssen, sondern unserer Versionskontrollsystem uns die Arbeit
 abnimmt).
+
 Aus Listing~\ref{lst:doccom2}  kann \code{roxygen2} eine Dokumentation in pdf 
 erstellen, die Du unter \href{write_readme.pdf}{\pdir{}write\_readme.pdf} sehen 
 kannst.
