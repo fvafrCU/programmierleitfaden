@@ -16,12 +16,11 @@ publish: update compile test_listings coldr
 .PHONY: compile
 compile: is_roxygenized ${NAME}.pdf 
 
-.PHONY: ${NAME}.pdf
-${NAME}.pdf: vanilla_tex ${NAME}.tex template.pdf gittag
-	texi2pdf --shell-escape  ${NAME}.tex 
+${NAME}.pdf: ${NAME}.ps
+	ps2pdf ${NAME}.ps
 
-${NAME}.html: vanilla_tex  ${NAME}.tex 
-	htlatex ${NAME}.tex  "html_css.cfg" "" "" "-interaction=batchmode -shell-escape" 
+${NAME}.ps: vanilla_tex ${NAME}.tex template.pdf gittag
+	texi2dvi --shell-escape  ${NAME}.tex && dvips ${NAME}.dvi
 
 .PHONY: update
 update:
