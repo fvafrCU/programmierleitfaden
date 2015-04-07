@@ -1,10 +1,10 @@
-%% documentation programmierleitfaden.tex
-%%
-%% a style guide / for naming conventions / collection of tips and tricks 
-%% for programming at FVA-BW.
-%%
-%% Author: Dominik Cullmann, <dominik.cullmann@forst.bwl.de>
-%% Version: $Id$
+% documentation programmierleitfaden.tex
+%
+% a style guide / for naming conventions / collection of tips and tricks 
+% for programming at FVA-BW.
+%
+% Author: Dominik Cullmann, <dominik.cullmann@forst.bwl.de>
+% Version: $Id$
 
 \documentclass[twoside]{scrreprt}
 \usepackage[utf8]{inputenc}
@@ -22,16 +22,7 @@
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{listings}
 \usepackage{verbatim}
-%\usepackage{pdfpages}
 \SVN $Id$
-% \input{/home/nik/work/latex/custom/packages.tex}
-% \input{./custom/packages.tex}
-% \input{/home/nik/work/latex/custom/definitions.tex}
-% \input{./custom/definitions.tex}
-% \input{/home/nik/work/latex/custom/commands.tex}
-% \input{./custom/commands.tex}
-% \input{/home/nik/work/latex/custom/preamble.tex}
-% \input{./custom/preamble.tex}
 \fancyfoot{}
 \fancyhead{}
 \fancyhead[LE,RO]{git ID: \SVNId}
@@ -47,20 +38,15 @@
 \definecolor{mygray}{gray}{0.3}
 \definecolor{mymauve}{RGB}{52,16,67}
 
-\usepackage[%pdftex,
+\usepackage[
 colorlinks=true,
 linkcolor=mymauve,
 urlcolor=mygreen,
 citecolor=mygray,
-%pdfpagelabels,
 plainpages=false
 ]{hyperref}
 
 
-%%%%% \lstset{float}
-%%%%% \makeatletter
-%%%%% \let\lst@floatdefault\lst@float
-%%%%% \makeatother
 \lstset{ %
     inputpath=listings,
   %% backgroundcolor=\color{white},
@@ -425,7 +411,8 @@ tragen, wir
 empfehlen daher f\"u{}r \emph{\R{} packages} abweichend lowerCamelCase, 
 da Listing~\ref{lst:rpackages} derzeit ein Ergebnis gr\"o{}\ss{}er eins 
 liefert (es also mehr cranPackages als CranPackages gibt).
-\lstinputlisting[float=h, label=lst:rpackages, firstline = 2]{query_package_names.r}
+\lstinputlisting[float=h, label=lst:rpackages, firstline = 3]%
+{query_package_names.r}
 
 \subsection{Sprechende Namen}
 Die gute Bennenung von Bezeichnern (Variablen, Funktionen, Klassen, \ldots)
@@ -574,10 +561,10 @@ der Code recht breit, er hat immerhin zwei statt besser eine Verschachtelung.
 Au\ss{}erdem wird erst auf den R\"u{}ckgabewert von
 \code{file.exists()} getestet, aber der Fehlerfall f\"u{}r
 \code{exists()} zuerst bearbeitet.
-\lstinputlisting[float=h, label=lst:if1, firstline = 2]{if_1.r}
+\lstinputlisting[float=h, label=lst:if1, firstline = 3]{if_1.r}
 Das macht das Ganze zwar nicht v\"o{}llig unverst\"a{}ndlich, aber
 Listing~\ref{lst:if2} ist deutlich lesbarer:
-\lstinputlisting[float=h, label=lst:if2, firstline = 2]{if_2.r}
+\lstinputlisting[float=h, label=lst:if2, firstline = 4]{if_2.r}
 Das Schreiben des README ist in
 einer eigenen Funktion verschwunden, deren Name verst\"a{}ndlich ist. Wenn ich
 mich f\"u{}r die Details dieser Funktion 

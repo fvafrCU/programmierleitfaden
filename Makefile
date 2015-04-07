@@ -5,11 +5,9 @@ version=$$(cat VERSION)
 all: compile 
 
 .PHONY: publish 
-publish: update compile 
+publish: update compile test_listings 
 	cp *.pdf ${PUBLIC_DIRECTORY}
-	cp *.r ${PUBLIC_DIRECTORY}
-	cp *.c ${PUBLIC_DIRECTORY}
-	cp *.java ${PUBLIC_DIRECTORY}
+	cp -r listings/ ${PUBLIC_DIRECTORY}
 	rm ${PUBLIC_DIRECTORY}/template-*.pdf || true
 	cd ${PUBLIC_DIRECTORY} && zip ./${NAME}.zip ./* --exclude ${NAME}.zip
 
@@ -56,6 +54,16 @@ vanilla_roxygen:
 	rm write_readme.pdf || true
 	rm roxygen2ForSingleFiles_template.pdf || true
 	rm my_r_file.pdf|| true
+
+.PHONY: test_listings
+test_listings: test_listings_R test_listings_C
+.PHONY: test_listings_R
+test_listings_R: 
+	./test_listings_R.cl
+.PHONY: test_listings_C
+test_listings_C: 
+	./test_listings_C.cl
+
 
 .PHONY: gittag
 gittag:

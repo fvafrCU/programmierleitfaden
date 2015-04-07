@@ -1,7 +1,7 @@
 #!/usr/bin/Rscript --vanilla
 while (TRUE &&
        ! FALSE) {
-  message("this is an infinite loop, we're breaking it!")
+  message("This is an infinite loop, we're breaking it!")
   break
 }
 if (TRUE &&
