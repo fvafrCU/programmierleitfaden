@@ -5,7 +5,7 @@ version=$$(cat VERSION)
 all: compile 
 
 .PHONY: publish 
-publish: update compile test_listings 
+publish: update compile test_listings coldr 
 	cp *.pdf ${PUBLIC_DIRECTORY}
 	cp -r listings/ ${PUBLIC_DIRECTORY}
 	rm ${PUBLIC_DIRECTORY}/template-*.pdf || true
@@ -54,7 +54,8 @@ vanilla_roxygen:
 	rm write_readme.pdf || true
 	rm roxygen2ForSingleFiles_template.pdf || true
 	rm my_r_file.pdf|| true
-
+.PHONY: coldr
+	./coldr.r
 .PHONY: test_listings
 test_listings: test_listings_R test_listings_C
 .PHONY: test_listings_R
