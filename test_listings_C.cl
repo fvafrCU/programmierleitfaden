@@ -2,5 +2,5 @@
 cd listings
 for file in $(ls *.c)
 do
-    gcc $file || exit 1
+    gcc $file || (echo "$file died!"; exit 1)
 done

@@ -2,5 +2,5 @@
 cd listings
 for file in $(ls *.r)
 do
-    ./$file || exit 1
+    ./$file || (echo "$file died!"; exit 1)
 done
