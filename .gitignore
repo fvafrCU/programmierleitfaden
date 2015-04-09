@@ -28,4 +28,4 @@ tmp
 tmp.*
 template.*
 documentation_write_readme.R.*
-
+.gittag

@@ -11,15 +11,18 @@ publish: update compile test_listings coldr
 	rm ${PUBLIC_DIRECTORY}/template-*.pdf || true
 	cd ${PUBLIC_DIRECTORY} && zip ./${NAME}.zip ./* --exclude ${NAME}.zip
 
-
-
-.PHONY: compile
-compile: is_roxygenized ${NAME}.pdf 
+.PHONY: compile 
+compile: gittag  write_readme.pdf header_roxygen.pdf ${NAME}.pdf 
 
 ${NAME}.pdf: ${NAME}.ps
 	ps2pdf ${NAME}.ps
 
-${NAME}.ps: vanilla_tex ${NAME}.tex template.pdf gittag
+.PHONY: gittag
+gittag: ${NAME}.ps 
+	if git status --porcelain | grep "^ M" > /dev/null; then printf "found uncommitted changes.\n"; exit 1; fi
+	git tag -l | grep ${version} ||  eval git tag -a v${version}
+
+${NAME}.ps: ${NAME}.tex template.pdf VERSION 
 	texi2dvi --shell-escape  ${NAME}.tex && dvips ${NAME}.dvi
 
 .PHONY: update
@@ -27,15 +30,10 @@ update:
 	git commit -am'update' || true
 	git checkout master  .
 
-.PHONY: template.pdf
 template.pdf: listings/template.Rnw 
 	./sweave.r listings/template.Rnw 
 
-.PHONY: is_roxygenized
-is_roxygenized: write_readme.pdf 
-
-.PHONY: write_readme.pdf
-write_readme.pdf header_roxygen.pdf  roxygen2ForSingleFiles_template.pdf my_r_file.pdf: vanilla_roxygen
+write_readme.pdf header_roxygen.pdf: vanilla_roxygen
 	cd listings && ./documentation_examples.r && mv *pdf ../
 
 .PHONY: vanilla_tex
@@ -53,21 +51,21 @@ vanilla_roxygen:
 	rm write_readme.pdf || true
 	rm roxygen2ForSingleFiles_template.pdf || true
 	rm my_r_file.pdf|| true
+
 .PHONY: coldr
 	./coldr.r
+
 .PHONY: test_listings
 test_listings: test_listings_R test_listings_C
+
 .PHONY: test_listings_R
 test_listings_R: 
 	./test_listings_R.cl
+
 .PHONY: test_listings_C
 test_listings_C: 
 	./test_listings_C.cl
 
-
-.PHONY: gittag
-gittag:
-	git tag -l | grep ${version} ||  eval git tag -a v${version}
 .PHONY: clean
 clean:
 	git clean -x -f
