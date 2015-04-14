@@ -22,7 +22,7 @@ gittag: ${NAME}.ps
 	if git status --porcelain | grep "^ M" > /dev/null; then printf "found uncommitted changes.\n"; exit 1; fi
 	git tag -l | grep ${version} ||  eval git tag -a v${version}
 
-${NAME}.ps: ${NAME}.tex template.pdf VERSION 
+${NAME}.ps: ${NAME}.tex  VERSION 
 	texi2dvi --shell-escape  ${NAME}.tex && dvips ${NAME}.dvi
 
 .PHONY: update
