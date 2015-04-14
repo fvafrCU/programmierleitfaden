@@ -1,8 +1,7 @@
 #!/usr/bin/Rscript --vanilla
-# Analyse the swiss data set
+# Jahrestagung_ForstBW_CU.R
 #
-# This is an analysis of the swiss data set in the base R package.
-# Or was it the base R system?
+# create graphics for presentation at the 2015 annual convention of ForstBW.
 #
-# Author: Dominik Cullmann <dominik.cullmann@forst.bwl.de>
-# Version: Wed Jun  4 11:00:33 CEST 2014
+# Author: Dominik Cullmann, <dominik.cullmann@forst.bwl.de>
+# Version: Tue Apr 14 10:23:26 CEST 2015

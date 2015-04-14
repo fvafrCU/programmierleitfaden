@@ -1,12 +1,12 @@
 #!/usr/bin/Rscript --vanilla
-#' A file header for roxygen
+#' Jahrestagung_ForstBW_CU.R
 #'
-#' This is an analysis of the swiss data set in the base R package.
-#' Or was it the base R system?
+#' create graphics for presentation at the 2015 annual convention of ForstBW.
 #'
-#' @author Dominik Cullmann <dominik.cullmann@@forst.bwl.de>
-#' @section Version: Wed Jun  4 11:00:33 CEST 2014
+#' @author Dominik Cullmann, <dominik.cullmann@forst.bwl.de>
+#' @section Version: Tue Apr 14 10:22:59 CEST 2015
 #' @docType data  
 #' @name Header
-NULL 
+NULL
+# ROXYGEN_STOP
 
