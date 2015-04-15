@@ -616,7 +616,7 @@ subversion (\url{http://subversion.apache.org/})
 und git (\url{http://git-scm.com/}).
 Wenn Du Hilfe brauchst: frage Arno R\"o{}der oder Dominik Cullmann.  
 
-\section{Dokumentationssyteme}
+\section{Dokumentationssyteme\label{sec:doxygen}}
 Die meisten Sprachen besitzen Dokumentationssyteme, die Dokumentationskommentare
 auslesen und Dokumentationen daraus fertigen (etwa Doxygen, das C, C++, Java und
 Python erkennt; f\"u{}r die letzten beiden Sprachen gibt es aber auch eigene
@@ -759,9 +759,25 @@ die Datei \\* \href{header_roxygen.pdf}{\pdir{}header\_roxygen.pdf}.
 {documentation_examples.r} 
 %%%%\clearpage
 
-\minisec{Sweave\index{Sweave|textbf}} Alternativ kannst Du f\"u{}r 
-Auswertungsskripte auch
-\href{http://www.stat.uni-muenchen.de/~leisch/Sweave/}{\code{Sweave}} einsetzen.
+\minisec{Sweave\index{Sweave|textbf}} 
+\href{http://www.stat.uni-muenchen.de/~leisch/Sweave/}{\code{Sweave}} und das
+\R{}-package
+\href{http://cran.r-project.org/web/packages/knitr/index.html}{\code{knitr}}
+bieten die M\"o{}glichkeit, Auswertungen mit einem Begleittext zu versehen.
+Sie zielen in erster Linie auf wissenschaftliche Ver\"o{}ffentlichungen: der
+Code, der die Ergebnisse, Graphiken und Tabellen f\"u{}r eine
+Ver\"o{}ffentlichung erstellt, lebt in der selben Datei, aus der auch die 
+Ver\"o{}ffentlichung selbst (aus einer Markup-Language, also zum Beispiel
+\LaTeX{}, HTML oder Markdown) erstellt wird.
+
+Wir empfehlen ausdr\"u{}cklich den Gebrauch von \code{Sweave} (das, im Gegensatz
+zu \code{knitr}, kein Package Dritter sondern Teil von \R{} ist) im Bereich
+wissenschaftlicher Arbeiten. Um die Interpretation von mit \R{} erstellten
+Ergebnissen an den die Ergebnisse erzeugenden Code zu binden, \emph{nicht} aber,
+um den Code selbst zu dokumentieren. Allein deshalb schon nicht, weil sich eine 
+so verfasste Dokumentation nicht einfach automatisiert gegen den dokuemntierten 
+Code testen l\"a{}sst (siehe Abschnitt \ref{sec:doxygen}).
+
 Ein Beispiel zeigt Listing~\ref{lst:sweave} im
 Anhang~\ref{app:sweave}.
 Auch diese Datei hat einen Header, der analog zu den obigen aufgebaut ist, nur
