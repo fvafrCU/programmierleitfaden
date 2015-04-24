@@ -5,7 +5,7 @@ version=$$(cat VERSION)
 all: compile 
 
 .PHONY: publish 
-publish: update compile test_listings coldr 
+publish: update compile test_listings coldr template.pdf 
 	cp *.pdf ${PUBLIC_DIRECTORY}
 	cp -r listings/ ${PUBLIC_DIRECTORY}
 	rm ${PUBLIC_DIRECTORY}/template-*.pdf || true
