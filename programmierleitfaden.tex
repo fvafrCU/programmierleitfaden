@@ -10,7 +10,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage{adctex}
 \usepackage{makeidx}
 \usepackage[notlot,notlof]{tocbibind}
 \usepackage{timestamp}
@@ -158,8 +157,8 @@ Nun stellst Du Dir vielleicht die Frage: "`Wieso sollte jemand meinen Code lesen
 wollen oder d\"u{}rfen?"'. Vielleicht wird ein anderer Mensch Dein Projekt
 \"u{}bernehmen m\"u{}ssen, vielleicht bist Du sogar mutig genug, Deinen Code
 anderen zu zeigen um zu sehen, was sie davon halten. Ziemlich sicher aber wirst
-Du selbst Deinen Code wieder fr\"u{}her oder sp\"a{}ter wieder lesen und 
-verstehen m\"u{}ssen. Und Du wirst Dir selbst sehr dankbar sein, wenn Du heute 
+Du selbst Deinen Code fr\"u{}her oder sp\"a{}ter wieder lesen und 
+verstehen m\"u{}ssen. Und Du wirst Dir sehr dankbar sein, wenn Du heute 
 an Dein zuk\"u{}nftiges Ich denkst und Dich an diesem Leitfaden orientierst.
 
 Manche Regel wird Dir eventuell zun\"a{}chst kleinlich erscheinen,
@@ -186,7 +185,7 @@ halten musst\footnote{
 
 S\"a{}mtliche Listings zeigen einen Dateinamen, diese und andere  Dateien 
 findest Du im Verzeichnis  
-\pdir.
+\pdir{}listings.
 
 
 \section{Die wichtigste Regel\label{sec:R1}}
@@ -194,7 +193,8 @@ Schreibe Deinen Code so, dass Du ihn in drei Monaten noch verstehen wirst.
 
 \section{Die zweitwichtigste Regel\label{sec:R2}}
 Schreibe Deinen Code so, dass Du ihn in sechs Monaten noch verstehen wirst. 
-Nein, Unfug, richtig ist: schreibe Code f\"u{}r Menschen und nicht f\"u{}r 
+Nein, Unfug, richtig ist: verstehe Dich als Autorin. Dein Code ist ein Dokument,
+das Menschen lesen werden. Also schreibe Code f\"u{}r Menschen und nicht f\"u{}r 
 Maschinen. Die meisten Interpreter und Compiler sind heute so gut, dass es
 kaum lohnt, Code zu optimieren. Also lass es. Es sei denn, Du wei\ss{}t
 genau, was Du tust. 
@@ -210,7 +210,7 @@ hast.
 
 \lstinputlisting[float=h, label=lst:cool, language=C]{cool.c}
 
-Wenn Du willst, kannst Du  beide Programme komplieren und ihre Ausgaben mit
+Wenn Du willst, kannst Du  beide Programme kompilieren und ihre Ausgaben mit
 Deinen \"U{}berlegungen vergleichen\footnote{%
 \selectlanguage{english}%
 Oder Du glaubst uns: uncool.c gibt 
@@ -276,14 +276,22 @@ verbessern willst: dann schreib' auf Deutsch.
 
 \section{Kommentare}
 \subsection{Verst\"a{}ndniskommentare\label{sec:compcom}}
-Es gibt Menschen, die Kommentare im Code f\"u{}r sch\"a{}dlich halten -- weil 
-Code so verst\"a{}ndlich sein sollte, da\ss{} er unkommentiert verstanden
-werden kann.
+Es gibt Menschen, die Kommentare im Code f\"u{}r sch\"a{}dlich halten -- 
+weil Code so verst\"a{}ndlich sein sollte, da\ss{} wir ihn unkommentiert
+verstehen.
 Und weil die Kommentare oft veralten, w\"a{}hrend Du den Code \"a{}nderst.
+Kernighan und Plauger raten in \cite{KP}: 
+"`Don't comment bad code -- rewrite it."'
 Diese Menschen sind sehr gute Programmierer.
 Da Du das wahrscheinlich nicht bist:
-Kommentiere viel. Und aktualisiere die Kommentare! 
-Mittelschlecher Code mit Kommentaren liest sich besser als mittelschlechter  
+Kommentiere viel\footnote{Viele Programmierinnen kommentieren immer weniger, je
+    besseren Code sie schreiben: da ihr Code immer selbsterkl\"a{}render wird,
+    ben\"o{}tigen sie weniger Kommentare. Es gibt aber auch Autoren, die guten 
+    Code heftig kommentieren. Und sich dann die M\"u{}he machen, die Kommentare 
+    zu pflegen.
+}. 
+Und aktualisiere die Kommentare! 
+Mittelschlechter Code mit Kommentaren liest sich besser als mittelschlechter  
 Code ohne Kommentare. Es sei denn, die Kommentare sind veraltet und/oder 
 widersprechen dem Code.
 
@@ -304,7 +312,7 @@ entsprechend verh\"a{}lt\footnote{In den meisten Programmiersprachen beginnen
 Nutze Schl\"u{}sselworte in Deinen Kommentaren. Halte Dich dabei an die folgende
 Liste:
 \begin{description}
-\item[TODO:] Hier gibt es was zu verbessern. Aber der Code tut, was er soll.
+\item[TODO:] Hier gibt es etwas zu verbessern. Aber der Code tut, was er soll.
   Vielleicht ist er h\"a{}sslich, unverst\"a{}ndlich oder langsam,
   aber er ist nicht gef\"a{}hrlich.
 \item[FIXME:] Hier ist etwas kaputt und sollte sofort repariert werden.
@@ -403,7 +411,7 @@ von
 \href{https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml}{google} und
 \href{http://adv-r.had.co.nz/Style.html}{Hadley Wickham}.
 \paragraph{Wir empfehlen f\"u{}r neue Projekte in \R{}:}
-ExceptionNames und ClassNames, GLOBAL\_VARIABLES, KONSTANTS und sonst (also
+ExceptionNames und ClassNames, GLOBAL\_VARIABLES, CONSTANTS und sonst (also
 f\"u{}r Methoden, Funktionen, Variablen, Module, Instanzvariablen und
 Funktionsparameter) nur 
 lower\_case\_with\_underscores\index{R!Namenskonvention}.
@@ -431,10 +439,10 @@ schlimm ist -- oder \code{left\_column} statt \code{navigation\_column}: die
 \emph{Lage} der Spalte ist weder relevant noch zwingend fix, ihre 
 \emph{Funktion} hingegen beschreibt sie gut).
 Sie sind nicht allzu lang und vor allem nie zu kurz.
-\code{val}, \code{ding}, \code{foobar} gehen gar nicht%
-\footnote{Einzig \code{x, y, z} f\"ur Koordinaten
-  und \code{i, j, k}\ldots f\"ur tempor\"a{}re Z\"a{}hler in Schleifen sind
-  akzeptabel.}.
+\code{val}, \code{ding} und, \code{foobar} gehen gar nicht\footnote{Einzig 
+    \code{x, y, z} f\"ur Koordinaten und \code{i, j, k}\ldots f\"ur 
+    tempor\"a{}re Z\"a{}hler in Schleifen sind akzeptabel.
+}.
 Am besten folgen sie einem klaren Schema und sind dadurch erratbar.
 
 \subsection{Abk\"u{}rzungen}
