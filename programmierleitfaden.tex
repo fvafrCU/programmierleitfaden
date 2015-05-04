@@ -146,8 +146,10 @@ visit \url{http://creativecommons.org/licenses/by/4.0/}.
 \tableofcontents
 \thispagestyle{fancy}
 \chapter{Worum geht's?}
-Mit diesem Leitfaden m\"o{}chten wir Dir, liebe Leserin, lieber Leser (und auch
-uns selbst) helfen, weniger schlecht zu programmieren.
+Mit diesem Leitfaden m\"o{}chten wir Dir, liebe Leserin\footnote{
+    Der Lesbarkeit wegen verzichten wir in diesem Text auf die m\"a{}nnliche 
+    Form. 
+}, (und auch uns selbst) helfen, weniger schlecht zu programmieren.
 Es gibt an der FVA recht viele Menschen, die programmieren und nur wenige, die
 dies richtig gelernt haben. Wenn wir uns auf einen gemeinsamen Satz von Regeln
 einlassen k\"o{}nnen, werden wir den Code unserer Kolleginnen und Kollegen
@@ -170,7 +172,7 @@ bestimte regeln gehalten hat auch wen diese nicht einleuchteten ihm das
 sich verhelt enlich wie mitt krammmatik unt rechtschreipunk
 
 Da unseres Wissens derzeit weitaus die meisten programmierenden Mitarbeiterinnen
-und Mitarbeiter an der FVA mit der Programmiersprache \R{} arbeiten, sind die
+an der FVA mit der Programmiersprache \R{} arbeiten, sind die
 meisten Beispiele dieses Leitfadens in \R{} verfasst und wir haben beim
 Zusammenstellen der Regeln haupts\"a{}chlich an \R{} gedacht.
 Sinngem\"a{}\ss{} lassen sich aber die meisten Regeln auf die meisten
@@ -199,8 +201,9 @@ Maschinen. Die meisten Interpreter und Compiler sind heute so gut, dass es
 kaum lohnt, Code zu optimieren. Also lass es. Es sei denn, Du wei\ss{}t
 genau, was Du tust. 
 
-Versuche nicht, Deine Leser zu beeindrucken, versuche, Ihnen verst\"a{}ndlich zu
-machen, was Du tust \ldots oder eigentlich h\"a{}ttest tun wollen.
+Versuche nicht, Deine Leserinnen zu beeindrucken, versuche, Ihnen 
+verst\"a{}ndlich zu machen, was Du tust \ldots oder eigentlich h\"a{}ttest tun 
+wollen.
 Die Programme in  Listing~\ref{lst:uncool} und Listing~\ref{lst:cool} geben
 jeweils einen String aus. Lies beide und
 \"u{}berlege, welcher String wohl die jeweilige Ausgabe ist. Vergleiche dann die
@@ -268,7 +271,7 @@ es ebenso. Warum? Weil dann Menschen, die Deinen Code benuzten
 Namen gibt's in Abschnitt~\ref{sec:naming}). 
 
 \minisec{Kompromiss} Ja, die Umgangssprache an der FVA ist Deutsch, und Du
-kannst davon ausgehen, dass die meisten Leser an der FVA besser Deutsch als
+kannst davon ausgehen, dass die meisten Leserinnen an der FVA besser Deutsch als
 Englisch lesen. Wenn Du glaubst, dass alle Deine Leserinnen nur an der FVA
 sein werden und es Dir \emph{wirklich} schwer f\"a{}llt, Englisch zu schreiben
 und Du auch nicht mit dem Programmieren nebenbei Dein Englisch ein wenig
@@ -280,15 +283,15 @@ Es gibt Menschen, die Kommentare im Code f\"u{}r sch\"a{}dlich halten --
 weil Code so verst\"a{}ndlich sein sollte, da\ss{} wir ihn unkommentiert
 verstehen.
 Und weil die Kommentare oft veralten, w\"a{}hrend Du den Code \"a{}nderst.
+Diese Menschen sind sehr gute Programmiererinnen.
 Kernighan und Plauger raten in \cite{KP}: 
 "`Don't comment bad code -- rewrite it."'
-Diese Menschen sind sehr gute Programmierer.
 Da Du das wahrscheinlich nicht bist:
-Kommentiere viel\footnote{Viele Programmierinnen kommentieren immer weniger, je
-    besseren Code sie schreiben: da ihr Code immer selbsterkl\"a{}render wird,
-    ben\"o{}tigen sie weniger Kommentare. Es gibt aber auch Autoren, die guten 
-    Code heftig kommentieren. Und sich dann die M\"u{}he machen, die Kommentare 
-    zu pflegen.
+Kommentiere viel\footnote{Viele Programmiererinnen kommentieren immer weniger, 
+    je besseren Code sie schreiben: da ihr Code immer selbsterkl\"a{}render 
+    wird, ben\"o{}tigen sie weniger Kommentare. Es gibt aber auch Autorinnen, 
+    die guten Code heftig kommentieren. Und sich dann die M\"u{}he machen, die 
+    Kommentare zu pflegen.
 }. 
 Und aktualisiere die Kommentare! 
 Mittelschlechter Code mit Kommentaren liest sich besser als mittelschlechter  
@@ -301,7 +304,7 @@ Und da sich das Wie meist schneller \"a{}ndert als das Was, musst Du auch
 nicht so viele Kommentare aktualisieren.
 Falls es ein \emph{Warum} gibt: schreib es auf. 
 Gut ist  Listing \ref{lst:comment}: Im ersten Kommentar erkl\"a{}rt die Autorin
-ihrem Leser, warum sie die Funktion geschrieben hat und wei\ss{}t darauf hin,
+ihrer Leserin, warum sie die Funktion geschrieben hat und wei\ss{}t darauf hin,
 dass es wahrscheinlich (bessere) Alternativen gibt; mit dem zweiten
 erkl\"a{}rt sie ihrem zuk\"u{}nftigen Ich, dass \R{} sich nicht ihrer Erwartung
 entsprechend verh\"a{}lt\footnote{In den meisten Programmiersprachen beginnen
@@ -330,7 +333,7 @@ folgende Struktur:
 \begin{enumerate}
     \item Eine Titelzeile,
     \item Eine (mehrzeilige) Beschreibung,
-    \item Eine Autorenangabe (am besten mit einer Kontaktinformation) und
+    \item Eine Autorinnenangabe (am besten mit einer Kontaktinformation) und
     \item Eine Versionsangabe (im einfachsten Fall das \"A{}nderungsdatum).
 \end{enumerate}
 Die Titelzeile ist immer die erste Zeile eines Dokumenationskommentares, sie
