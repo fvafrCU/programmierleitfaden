@@ -12,7 +12,6 @@
 \usepackage{lmodern}
 \usepackage{makeidx}
 \usepackage[notlot,notlof]{tocbibind}
-\usepackage{timestamp}
 \usepackage{svn} % Ich arbeite mit GIT, aber svn macht einfache ID.
 \usepackage{fancyhdr}
 \usepackage{enumitem} % fuer [resume]
@@ -33,7 +32,7 @@
 \providecommand{\R}{\texttt{R}}
 \providecommand{\code}[1]{\texttt{#1}}
 \providecommand{\BW}{Baden-W\"urttemberg}
-\providecommand{\FVA}[1]{Forstliche#1 Versuchs- und Forschungsanstalt}
+\providecommand{\FVA}[1]{Forstliche#1 Versuchs- und Forschungs\-anstalt}
 \providecommand{\FVABW}[1]{\FVA{#1} \BW{}}
 
 
@@ -118,7 +117,8 @@ H:\textbackslash{}FVA-Projekte\textbackslash{}Methodenforum\textbackslash{}%
 \normalsize{Version \input{VERSION}}
 }
 \author{Arno R\"oder, Axel Albrecht, Bernhard B\"o{}sch, Christian Vonderach,\\
-Dominik Cullmann, Elke Erhardt, Gerald K\"a{}ndler, Marco Reimann}
+Dominik Cullmann, Elke Erhardt, Franziska Berg, Gerald K\"a{}ndler,\\ 
+Marco Reimann}
 \uppertitleback{%
     Wir haben diesen Leitfaden f\"u{}r den Hausgebrauch an der \FVA{n}
     geschrieben, Pfadangaben wie \pdir{} ergeben au\ss{}erhalb der \FVA{n}
@@ -187,6 +187,11 @@ du merken dasser sich fil laichter lesen laest falls sich der autorin an
 bestimte regeln gehalten hat auch wen diese nicht einleuchteten ihm das
 sich verhelt enlich wie mitt krammmatik unt rechtschreipunk
 
+Am letzten Satz hast Du gesehen, was passiert, wenn wir uns beim Schreiben an
+einige Regeln nicht halten: wir erschweren uns das Lesen, ohne den Text
+unbrauchbar zu machen. Wenn das f\"u{}r eine nat\"u{}rliche Sprache gilt, warum
+sollte es nicht f\"u{}r eine Programmiersprache gelten?
+
 Da unseres Wissens derzeit weitaus die meisten programmierenden Mitarbeiterinnen
 an der \FVA{n} mit der Programmiersprache \R{} arbeiten, sind die
 meisten Beispiele dieses Leitfadens in \R{} verfasst und wir haben beim
@@ -228,9 +233,8 @@ jeweils einen String aus. Lies beide und
 \"u{}berlege, welcher String wohl die jeweilige Ausgabe ist. Vergleiche dann die
 Zeiten, die Du f\"u{}r Deine \"U{}berlegungen ben\"o{}tigt
 hast.
-\lstinputlisting[float=h, label=lst:uncool, language=C]{uncool.c}
-
-\lstinputlisting[float=h, label=lst:cool, language=C]{cool.c}
+\lstinputlisting[float=H!, label=lst:uncool, language=C]{uncool.c}
+\lstinputlisting[float=H!, label=lst:cool, language=C]{cool.c}
 
 Wenn Du willst, kannst Du  beide Programme kompilieren und ihre Ausgaben mit
 Deinen \"U{}berlegungen vergleichen\footnote{%
@@ -242,6 +246,14 @@ aus und cool.c
 \selectlanguage{ngerman}
 }%
 .
+
+Die \R{}-Versionen der beiden Listings findest Du in 
+Listings~\ref{lst:r_uncool} und \ref{lst:r_cool}. Falls Du \R{} programmierst
+aber C nicht kennst, kannst Du sie vielleicht besser lesen.
+\lstinputlisting[float=H!, label=lst:r_uncool, language=R, firstline = 2]%
+{uncool.r}
+\lstinputlisting[float=H!, label=lst:r_cool, language=R, firstline = 2]{cool.r}
+
 
 \selectlanguage{ngerman}
 \chapter{Konventionen\label{sec:conventions}}
@@ -318,8 +330,8 @@ Mittelschlechter Code mit Kommentaren liest sich besser als mittelschlechter
 Code ohne Kommentare. Es sei denn, die Kommentare sind veraltet und/oder
 widersprechen dem Code.
 
-Kommentiere das \emph{Was}, nicht das \emph{Wie}, das \emph{Wie} steht schon im
-Code, und der hat immer recht.
+Kommentiere das \emph{Was}, nicht das \emph{Wie}. Das \emph{Wie} steht schon im
+Code und der hat immer recht.
 Und da sich das Wie meist schneller \"a{}ndert als das Was, musst Du auch
 nicht so viele Kommentare aktualisieren.
 Falls es ein \emph{Warum} gibt: schreib es auf.
@@ -366,7 +378,9 @@ wiederum durch eine Dokumentationskommentarleerzeile von den \"u{}brigen Angaben
 getrennt\footnote{
     Diese Struktur erlaubt es uns, aus Dokumentationskommentaren automatisiert
     e-Mails zu erstellen. Halte sie bitte ein.
-}, die mit einem "`\code{Schl\"u{}sselwort:}"' beginnen.
+}, die mit einem "`\code{Kennzeichner:}"' (f\"u{}r die Autorinnenangabe
+empfehlen wir "`\code{Author:}"', f\"u{}r die Versionsangabe "`\code{Version:}"'
+) beginnen.
 
 F\"u{}r eine Funktion solltest Du auch
 \begin{enumerate}[resume]
@@ -512,7 +526,7 @@ spendieren: \linebreak\code{ if~(is\_defined)~\{\ldots\}} ist klarer als
 
 \subsection{Ein Name f\"u{}r viele Dinge}
 Wenn ein Name etwas bezeichnet, das aus vielen Elementen besteht (eine Liste,
-einen Array oder Vektor), so gibt ihm ein Plural-S:
+einen Array oder Vektor), so gib ihm ein Plural-S:
 \begin{lstlisting}
   background_color <- 'blue'
   foreground_colors <- c('red', 'black')
@@ -608,14 +622,15 @@ Au\ss{}erdem wird erst auf den R\"u{}ckgabewert von
 Das macht das Ganze zwar nicht v\"o{}llig unverst\"a{}ndlich, aber
 Listing~\ref{lst:if2} ist deutlich lesbarer:
 Das Schreiben des README ist in
-einer eigenen Funktion verschwunden, deren Name verst\"a{}ndlich ist. Wenn ich
-mich f\"u{}r die Details dieser Funktion
-(die wir in Listing~\ref{lst:write_readme} sehen und die in
-Listings~\ref{lst:doccom1} beziehungsweise \ref{lst:doccom2} dokumentiert ist;
+einer eigenen Funktion verschwunden, deren Name verst\"a{}ndlich ist. 
+Daher ist der Codes verst\"a{}ndlicher, 
+wenn ich mich f\"u{}r die Details dieser Funktion nicht interessiere (die
+Funktion sehen wir 
+in Listing~\ref{lst:write_readme}, sie ist in Listings~\ref{lst:doccom1} 
+beziehungsweise \ref{lst:doccom2} dokumentiert;
 die Funktion samt Dokumentationskommentar findest Du in
 Listing~\ref{lst:write_readme_doccom}
-im Anhang \ref{app:R})
-nicht interessiere, ist der Rest des Codes viel besser verst\"a{}ndlich.
+im Anhang \ref{app:R}).
 \lstinputlisting[float=h, label=lst:write_readme, firstline=12
 ]{write_readme.r}
 
@@ -797,13 +812,17 @@ Dateiheader\index{R!Auswertungsskripte!Dokumentationskommentar}
 \index{R!Auswertungsskripte!Dateiheader|see {Dokumentationskommentar}}
 f\"u{}r \R{}-Auswertungsskripte in pdf
 umwandeln
-kannst.\lstinputlisting[float=h, label=lst:package, firstline = 2]%
+kannst.
+\lstinputlisting[float=h, label=lst:package, firstline = 2]%
 {install_documentation.r}
 
 Wenn Du jetzt den Kommentar in  Listing~\ref{lst:rroxy} zu
 Listing~\ref{lst:rroxy_working}
-erweiterst, erh\"altst Du durch Listing~\ref{lst:roxy_ex}
-die Datei \\* \href{header_roxygen.pdf}{\pdir{}header\_roxygen.pdf} 
+erweiterst (die zus\"a{}tzlichen Zeilen ben\"o{}tigt das \R{}-Paket
+\code{documentation}, wir erkl\"a{}ren sie hier nicht, da dies schon in der
+Dokumentation des Paketes geschieht),
+erh\"altst Du durch Listing~\ref{lst:roxy_ex} die Datei \\* 
+\href{header_roxygen.pdf}{\pdir{}header\_roxygen.pdf} 
 (beachte unsere Ausf\"u{}hrungen zu Links auf Seite \pageref{page:links})
 . 
 \lstinputlisting[float=h, label=lst:roxy_ex, linerange={2-2,5-5}]
