@@ -27,7 +27,7 @@
 \fancyhead[LE,RO]{git ID: \SVNId}
 \fancyfoot[LO,RE]{\jobname{}.tex, \TeX{}ed \timestamp}
 \fancyfoot[RO,LE]{\thepage{} of \pageref{LastPage}}
-\pagestyle{fancy}
+%\pagestyle{fancy}
 \providecommand{\refitem}[1]{\ref{item:#1}}
 \providecommand{\labitem}[1]{\label{item:#1}}
 \providecommand{\R}{\texttt{R}}
@@ -118,7 +118,7 @@ H:\textbackslash{}FVA-Projekte\textbackslash{}Methodenforum\textbackslash{}%
 \normalsize{Version \input{VERSION}}
 }
 \author{Arno R\"oder, Axel Albrecht, Bernhard B\"o{}sch, Christian Vonderach,\\
-Dominik Cullmann, Gerald K\"a{}ndler, Marco Reimann}
+Dominik Cullmann, Elke Erhardt, Gerald K\"a{}ndler, Marco Reimann}
 \uppertitleback{%
     Wir haben diesen Leitfaden f\"u{}r den Hausgebrauch an der \FVA{n}
     geschrieben, Pfadangaben wie \pdir{} ergeben au\ss{}erhalb der \FVA{n}
@@ -156,7 +156,6 @@ visit \url{http://creativecommons.org/licenses/by/4.0/}.
 
 \maketitle
 \tableofcontents
-\thispagestyle{fancy}
 \chapter{Worum geht's?}
 Mit diesem Leitfaden m\"o{}chten wir Dir, liebe Leserin\footnote{
     Der Lesbarkeit halber beschr\"a{}nken wir uns in diesem Leitfaden auf die
@@ -249,7 +248,7 @@ aus und cool.c
 \section{Verbindlichkeit der Konventionen\label{sec:zwang}}
 Alle unsere Regeln sind unverbindlich. Aber wenn Du bis hierher gelesen hast,
 hoffen wir, dass Du dennoch entschieden hast, Dich an sie halten zu wollen.
-Alternativ kannst Du auch einfach \cite{KR} lesen und alles so machen wir
+Alternativ kannst Du auch einfach \cite{KR} lesen und alles so machen wie
 Kernighan und Ritchie.
 
 \section{Englisch oder nicht?}
@@ -455,7 +454,7 @@ liefert (es also mehr cranPackages als CranPackages gibt).
 {query_package_names.r} 
 
 \subsection{Sprechende Namen}
-Die gute Bennenung von Bezeichnern (Variablen, Funktionen, Klassen, \ldots)
+Die gute Benenung von Bezeichnern (Variablen, Funktionen, Klassen, \ldots)
 ist in etwa das Schwierigste am Programmieren.
 Gute Namen sprechen.
 Sie sind gut leserlich,
@@ -474,7 +473,7 @@ Am besten folgen sie einem klaren Schema und sind dadurch erratbar.
 
 \subsection{Abk\"u{}rzungen}
 \begin{enumerate}
-\item\labitem{abbrevs} Namen sollten \emph{niemals} abk\"u{}rzen.
+\item\labitem{abbrevs} Namen \emph{niemals} abk\"u{}rzen.
 \item \emph{Einzige} Ausnahme von Regel \refitem{abbrevs} bilden
     Abk\"u{}rzungen, die allgemein bekannter sind als ihre ausgeschriebene
     Variante\footnote{"`allgemein"' ist schwammig: Bei Deinen Leserinnen 
@@ -506,7 +505,7 @@ Am besten folgen sie einem klaren Schema und sind dadurch erratbar.
 \end{table}
 
 \subsection{Boolsche Variable}
-Boolschen Variablen, also solchen, die entweder wahr oder falsch sind, solltest
+Boolschen Variablen, also solche, die entweder wahr oder falsch sind, solltest
 Du zur besseren Verst\"a{}ndlichkeit und Abgrenzung ein einleitendes \code{is\_}
 spendieren: \linebreak\code{ if~(is\_defined)~\{\ldots\}} ist klarer als
 \code{if~(defined)~\{\ldots\}}.
@@ -605,9 +604,9 @@ Au\ss{}erdem wird erst auf den R\"u{}ckgabewert von
 \code{file.exists()} getestet, aber der Fehlerfall f\"u{}r
 \code{exists()} zuerst bearbeitet.
 \lstinputlisting[float=h, label=lst:if1, firstline = 3]{if_1.r}
+\lstinputlisting[float=h, label=lst:if2, firstline = 4]{if_2.r}
 Das macht das Ganze zwar nicht v\"o{}llig unverst\"a{}ndlich, aber
 Listing~\ref{lst:if2} ist deutlich lesbarer:
-\lstinputlisting[float=h, label=lst:if2, firstline = 4]{if_2.r}
 Das Schreiben des README ist in
 einer eigenen Funktion verschwunden, deren Name verst\"a{}ndlich ist. Wenn ich
 mich f\"u{}r die Details dieser Funktion
@@ -621,7 +620,8 @@ nicht interessiere, ist der Rest des Codes viel besser verst\"a{}ndlich.
 ]{write_readme.r}
 
 Falls Du tiefe \code{if-else}-B\"a{}ume schreibst, brauchst Du eventuell
-ein \code{case} (in \R{} hei\ss{}t es \code{switch}).
+ein \href{https://en.wikipedia.org/wiki/Switch_statement}{\code{case}} 
+(in vielen Sprachen, so auch in \R{}, hei\ss{}t es \code{switch}).
 \subsection{Parameteranzahl\label{sec:parameteranzahl}}
 Funktionen sollten nicht mehr als 5 Parameter besitzen.
 Brauchst Du mehr, solltest Du Teile der Funktion in Hilfsfunktionen auslagern
@@ -767,12 +767,21 @@ ersetzt (damit wir das Datum nicht mehr von Hand
 abnimmt).
 
 Aus Listing~\ref{lst:doccom2}  kann \code{roxygen2} eine Dokumentation in pdf
-erstellen, die Du unter \href{write_readme.pdf}{\pdir{}write\_readme.pdf}
-findest.
+erstellen, die Du unter \pdir{}write\_readme.pdf findest oder
+\href{write_readme.pdf}{hier\label{page:links}}, falls Du  
+\begin{itemize}
+    \item diesen Leitfaden von \pdir{} betrachtest, oder 
+    \item Dir eine Kopie von \pdir{} besorgt hast, oder 
+    \item Dir eine Kopie von 
+        \url{https://github.com/fvafrCU/programmierleitfaden} erstellt hast.
+\end{itemize}
+(Nicht aber, falls Du lediglich diese pdf-Datei irgendwohin kopiert hast, dann 
+geht der obige Link ins Leere.)
 
 \subsection{\R{}-Auswertungsskripte dokumentieren
 \index{R!Auswertungsskripte!dokumentieren}
 \label{sec:documentation}}
+\subsubsection{roxygen2}
 \code{roxygen2} dient der Dokumentation von \R{}-Paketen, nicht von
 Auswertungsskripten. Es kann daher mit Anweisungen, die nicht Teil von
 Funktionen, Klassen und so weiter sind, nicht umgehen. Dazu geh\"oren
@@ -794,14 +803,16 @@ kannst.\lstinputlisting[float=h, label=lst:package, firstline = 2]%
 Wenn Du jetzt den Kommentar in  Listing~\ref{lst:rroxy} zu
 Listing~\ref{lst:rroxy_working}
 erweiterst, erh\"altst Du durch Listing~\ref{lst:roxy_ex}
-die Datei \\* \href{header_roxygen.pdf}{\pdir{}header\_roxygen.pdf}. 
+die Datei \\* \href{header_roxygen.pdf}{\pdir{}header\_roxygen.pdf} 
+(beachte unsere Ausf\"u{}hrungen zu Links auf Seite \pageref{page:links})
+. 
+\lstinputlisting[float=h, label=lst:roxy_ex, linerange={2-2,5-5}]
+{documentation_examples.r}
 \lstinputlisting[float=h, label=lst:rroxy_working, firstline = 2]%
 {header_roxygen.r}
-\lstinputlisting[float=h, label=lst:roxy_ex, linerange={2-2,4-4}]
-{documentation_examples.r}
 %%%%\clearpage
 
-\minisec{Sweave\index{Sweave|textbf}}
+\subsubsection{Sweave}
 \href{http://www.stat.uni-muenchen.de/~leisch/Sweave/}{\code{Sweave}} und das
 \R{}-package
 \href{http://cran.r-project.org/web/packages/knitr/index.html}{\code{knitr}}
@@ -826,11 +837,13 @@ Listing~\ref{lst:sweave} im Anhang~\ref{app:sweave} zeigt ein Beispiel
 f\"u{}r eine \code{Sweave}-Datei.
 Auch diese Datei hat einen Header, der analog zu den obigen aufgebaut ist, nur
 f\"u{}r \TeX{}.
-Aus  Listing~\ref{lst:sweave} kannst die Datei \\*
+Aus  Listing~\ref{lst:sweave} kannst Du die Datei \\*
 \href{%
 template.pdf}{%
 \pdir{}template.pdf} 
-generieren.
+generieren
+(beachte unsere Ausf\"u{}hrungen zu Links auf Seite \pageref{page:links})
+.
 
 \subsection{Skriptvorlage\index{R!Auswertungsskripte}
 \index{R!Auswertungsskripte!Vorlage|textbf} }
@@ -840,7 +853,7 @@ Lies sie aufmerksam, passe sie an Deine Bed\"u{}rfnisse an und gew\"o{}hne Dich
 daran, Deine Version dieser Vorlage f\"u{}r alle Deine \R{}-Auswertungsskripte
 zu nutzen.
 Wir haben sie durch Listing~\ref{lst:template} erstellt.
-\lstinputlisting[float=h, label=lst:template, linerange={2-2,6-6}]
+\lstinputlisting[float=h, label=lst:template, linerange={2-2,7-7}]
 {documentation_examples.r}
 
 
