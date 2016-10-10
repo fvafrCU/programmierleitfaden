@@ -1,5 +1,5 @@
 #!/usr/bin/Rscript --vanilla
-dependencies <- c("devtools", "httr", "backports", "Rcpp") 
+dependencies <- c("devtools", "httr", "backports", "Rcpp", "stringr") 
 for (dependency in dependencies) if (! require(dependency, character.only = TRUE)) install.packages(dependency)
 # machines at FVAFR need to set the proxy correctly.
 if (grepl("FVAFR-",  Sys.info()["nodename"])) {
