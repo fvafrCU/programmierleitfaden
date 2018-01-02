@@ -1,7 +1,7 @@
 #!/usr/bin/Rscript --vanilla
 #' file documentation_template.R 
 #'
-#' provide a template for create_documentation() mixing markdown and roxygen.
+#' provide a template for document::document() mixing markdown and roxygen.
 #'
 #' @author Dominik Cullmann <dominik.cullmann@@forst.bwl.de>
 #' @section Version: $Id$
@@ -40,7 +40,7 @@ options(warn = 2) # treat warnings as errors
 #'
 a_first_function <- function(data) {
     print(head(data))
-    print(str(data))
+    print(utils::str(data))
     return(invisible(NULL))
 }
 
@@ -58,8 +58,8 @@ a_first_function <- function(data) {
 #' @return NULL. This is no good.
 #'
 a_second_function <- function(data) {
-    print(head(data))
-    print(str(data))
+    print(utils::head(data))
+    print(utils::str(data))
     return(invisible(NULL))
 }
 
@@ -84,7 +84,7 @@ a_second_function <- function(data) {
 
 ## Of course you can define further functions, classes, methods, etc. down here.
 ## And you can add roxygen comments. They just won't get documented by
-## roxygen2/documentation.
+## roxygen2.
 #' Function example
 #'
 #' This really is just an example, the function prints \code{head()} and
@@ -96,11 +96,11 @@ a_second_function <- function(data) {
 #' @section Version: $Id$
 #' @param data Name of a data.frame to ... do whatever needs to be done.
 #' @return NULL. This is no good.
-#' @note This function won't be documented by roxygen/documentation!
+#' @note This function won't be documented by roxygen!
 #'
 a_third_function <- function(data) {
-    print(head(data))
-    print(str(data))
+    print(utils::head(data))
+    print(utils::str(data))
     return(invisible(NULL))
 }
 

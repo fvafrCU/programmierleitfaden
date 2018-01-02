@@ -6,8 +6,8 @@ sum_up <- function(x) {
     total <- 0
     i <- 1 # vector indices in R start at 1, not at 0!
     while (i <= length(x)) {
-	total <- total + x[i]
-	i <- i + 1
+        total <- total + x[i]
+        i <- i + 1
     }
     return(total)
 }

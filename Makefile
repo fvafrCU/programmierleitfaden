@@ -49,7 +49,6 @@ vanilla_tex:
 vanilla_roxygen:
 	rm header_roxygen.pdf || true
 	rm write_readme.pdf || true
-	rm roxygen2ForSingleFiles_template.pdf || true
 	rm my_r_file.pdf|| true
 
 .PHONY: coldr
