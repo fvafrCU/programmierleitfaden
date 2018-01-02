@@ -1,6 +1,6 @@
 #!/usr/bin/Rscript --vanilla
-# I haven't yet had time to read the documentation, so I don't have 
-# a clue if there's a  standard library to do it. TODO: RTFM
+# I have not yet had time to read the documentation, so I do not have 
+# a clue if there is a  standard library to do it. TODO: RTFM
 sum_up <- function(x) {
     # sum up the vector's elements
     total <- 0

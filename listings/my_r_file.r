@@ -20,11 +20,11 @@ NULL
 library("methods") # load an example package from the standard library
 
 ##% source files
-cat(file = "local.tmp", "options(warn = 1)") # we first have to create a dummy
+cat(file = "local.tmp", "options(warn = 0)") # we first have to create a dummy
 source("local.tmp")
 
 ##% set "global" options
-options(warn = 2) # treat warnings as errors
+options(warn = 1) # print warnings as they occur, see ?options
 
 ##% define local functions
 # ROXYGEN_START
@@ -77,9 +77,9 @@ a_second_function <- function(data) {
 # THE DOCUMENTATION.
 # (you should put your documentation comment in the file header, not at the
 #  start of the analysis, and you should use usual R comments at the start of
-#  the analysis. But I assume you don't. This is why that line is there.
-#  You may remove it if you change the comment type of the 'Start of the
-#  analysis' and the lines below it from roxygen2-style to standard R comments.
+#  the analysis. But I assume you do not. This is why that line is there.
+#  You may remove it if you change the comment type of the `Start of the
+#  analysis` and the lines below it from roxygen2-style to standard R comments.
 # )
 
 ## Of course you can define further functions, classes, methods, etc. down here.
@@ -107,15 +107,12 @@ a_third_function <- function(data) {
 a_first_function(swiss)
 
 ###% Load data
-# we don't load anything here, it's just for the lulz.
+# we do not load anything here, it's just for the lulz.
 
 ###% Do some analysis
 ####% There is only a summary
-summary(lm(Fertility ~ . , data = swiss))
+summary(lm(Fertility ~ ., data = swiss))
 #% collect garbage  
 # We created a local options file on our file system, which we should
 # remove now.
 file.remove("local.tmp")
-
-
-

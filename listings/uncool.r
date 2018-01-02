@@ -4,4 +4,3 @@ if (TRUE) {
 } else {
     cat("hello, stupid\n")
 }
-

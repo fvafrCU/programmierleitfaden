@@ -1,3 +1,3 @@
 #!/usr/bin/Rscript --vanilla
-install.packages("document")
-
+package <- "document"
+if (! require(package, character.only = TRUE)) install.packages(package)

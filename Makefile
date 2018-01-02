@@ -5,14 +5,14 @@ version=$$(cat VERSION)
 all: compile 
 
 .PHONY: publish 
-publish: update compile test_listings coldr template.pdf 
+publish: update compile gittag  
 	cp *.pdf ${PUBLIC_DIRECTORY}
 	cp -r listings/ ${PUBLIC_DIRECTORY}
 	rm ${PUBLIC_DIRECTORY}/template-*.pdf || true
 	cd ${PUBLIC_DIRECTORY} && zip ./${NAME}.zip ./* --exclude ${NAME}.zip
 
 .PHONY: compile 
-compile: gittag  write_readme.pdf header_roxygen.pdf ${NAME}.pdf 
+compile: write_readme.pdf header_roxygen.pdf ${NAME}.pdf  test_listings cleanr lintr template.pdf 
 
 ${NAME}.pdf: ${NAME}.ps
 	ps2pdf ${NAME}.ps
@@ -51,8 +51,10 @@ vanilla_roxygen:
 	rm write_readme.pdf || true
 	rm my_r_file.pdf|| true
 
-.PHONY: coldr
-	./coldr.r
+.PHONY: cleanr
+	./cleanr.r
+.PHONY: lintr
+	./lintr.r
 
 .PHONY: test_listings
 test_listings: test_listings_R test_listings_C
